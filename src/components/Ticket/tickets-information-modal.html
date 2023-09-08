@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سانس و نوع بلیط</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="js/persian.date.js"></script>
+    <script src="js/persian.datepicker.js"></script> -->
+    <script src="../node_modules/persian-date/dist/persian-date.js"></script>
+    <script src="../node_modules/persian-datepicker/dist/js/persian-datepicker.min.js"></script>
+    <script src="../node_modules/persian-datepicker/dist/css/persian-datepicker.css"></script>
+  </head>
+
+  <body lang="en" dir="rtl">
+    <div class="max-w-[700px] my-8 mx-auto">
+      <div class="px-3 pt-3 pb-8 border border-gray-300 rounded-md shadow-md">
+        <div class="flex justify-between mb-2">
+          <p class="font-bold text-blue-950">شوی ستارگان رنگارنگ</p>
+          <div class="flex gap-2">
+            <button id="">
+              <ion-icon
+                class="w-6 h-6 text-red-500"
+                name="close-circle-outline"
+              ></ion-icon>
+            </button>
+            <button id="">
+              <ion-icon
+                class="w-6 h-6 text-blue-500"
+                name="refresh-circle-outline"
+              ></ion-icon>
+            </button>
+          </div>
+        </div>
+        <hr />
+
+        <ol class="relative mt-8 mr-8 border-r border-gray-500">
+          <li class="mb-10 mr-6">
+            <span
+              class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -right-3 ring-8 ring-white"
+            >
+              <svg
+                class="w-2.5 h-2.5 text-blue-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                />
+              </svg>
+            </span>
+            <h3
+              class="flex items-center mb-3 text-lg font-bold text-gray-900 f"
+            >
+              شوی ستارگان رنگارنگ
+            </h3>
+            <time
+              class="block mb-2 text-sm font-normal leading-none text-gray-400"
+              >دوشنبه 16 مرداد
+            </time>
+            <p
+              class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"
+            >
+              ستارگان سانس 24 02:30-23:59
+            </p>
+            <button
+              class="px-5 py-2 text-sm font-medium text-white duration-200 bg-blue-500 border border-blue-500 rounded-md bg-primary hover:bg-transparent hover:text-blue-500"
+            >
+              انتخاب سانس
+            </button>
+          </li>
+          <li class="mb-10 mr-6">
+            <span
+              class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -right-3 ring-8 ring-white"
+            >
+              <svg
+                class="w-2.5 h-2.5 text-blue-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                />
+              </svg>
+            </span>
+            <h3
+              class="flex items-center mb-3 text-lg font-bold text-gray-900 f"
+            >
+              شوی ستارگان رنگارنگ
+            </h3>
+            <time
+              class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+              >سه شنبه 17 مرداد
+            </time>
+            <p
+              class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"
+            >
+              ستارگان سانس 24 02:30-23:59
+            </p>
+            <button
+              class="px-5 py-2 text-sm font-medium text-white duration-200 bg-blue-500 border border-blue-500 rounded-md bg-primary hover:bg-transparent hover:text-blue-500"
+            >
+              انتخاب سانس
+            </button>
+          </li>
+          <li class="mr-6">
+            <span
+              class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -right-3 ring-8 ring-white"
+            >
+              <svg
+                class="w-2.5 h-2.5 text-blue-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                />
+              </svg>
+            </span>
+            <h3
+              class="flex items-center mb-3 text-lg font-bold text-gray-900 f"
+            >
+              شوی ستارگان رنگارنگ
+            </h3>
+            <time
+              class="block mb-2 text-sm font-normal leading-none text-gray-400"
+              >سه شنبه 17 مرداد
+            </time>
+            <p class="mb-4 text-base font-normal text-gray-400">
+              ستارگان سانس 24 02:30-23:59
+            </p>
+            <button
+              class="px-5 py-2 text-sm font-medium text-white duration-200 bg-blue-500 border border-blue-500 rounded-md bg-primary hover:bg-transparent hover:text-blue-500"
+            >
+              انتخاب سانس
+            </button>
+          </li>
+        </ol>
+        <div class="mt-[50px]">
+          <div class="relative mb-3" data-te-input-wrapper-init="">
+            <input
+              type="text"
+              class="peer text-sm block min-h-[auto] w-full rounded border border-gray-300 shadow-sm focus:border-blue-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear opacity-100 focus:placeholder:opacity-100"
+              id="date"
+              data-input-text=""
+            />
+            <label
+              htmlFor="date"
+              class="pointer-events-none absolute right-3 group top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out"
+            >
+              تاریخ مورد نظر
+            </label>
+            <div class="text-[12px] text-red-500 mt-2 hidden">
+              تنها عدد وارد کنید (زبان کیبورد خود را حتما به انگلیسی تغییر دهید
+              )
+            </div>
+
+            <div class="flex justify-end mt-[20px]">
+              <button
+                class="px-5 py-2 text-sm font-medium text-white duration-200 border rounded-md border-primary-500 bg-primary-500 bg-primary hover:bg-transparent hover:text-primary-500"
+              >
+                جستجو تاریخ
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- === sequences table ====  -->
+        <div class="relative mt-10 overflow-x-auto shadow-md sm:rounded-lg">
+          <table class="w-full text-sm text-right text-gray-500">
+            <thead class="text-xs text-white uppercase border-b bg-blue-950">
+              <tr>
+                <th scope="col" class="px-6 py-3">عنوان</th>
+                <th scope="col" class="px-6 py-3">توضیحات</th>
+                <th scope="col" class="px-6 py-3">خرید</th>
+                <th scope="col" class="px-6 py-3">کمیسیون</th>
+                <th scope="col" class="px-6 py-3">مبلغ بلیط</th>
+                <th scope="col" class="px-6 py-3">تعداد</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="bg-opacity-30 text-gray-950 bg-blue-50 hover:bg-blue-100 hover:bg-opacity-30"
+              >
+                <td class="px-6 py-2 text-sm">اکونومی | ECG</td>
+                <td class="px-6 py-2 text-sm">.....</td>
+                <td class="px-6 py-2 text-sm">450،000</td>
+                <td class="px-6 py-2 text-sm">2،750،000</td>
+                <td class="px-6 py-2 text-sm">3،700،000</td>
+                <td class="px-6 py-2">
+                  <div class="flex gap-2 w-[80px]">
+                    <button id="increase-Button">
+                      <ion-icon
+                        class="text-xl text-green-600"
+                        name="add-circle"
+                      ></ion-icon>
+                    </button>
+                    <span id="counter" class="text-sm">2</span>
+                    <button id="decrease-Button">
+                      <ion-icon
+                        class="text-xl text-rose-600"
+                        name="remove-circle"
+                      ></ion-icon>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr
+                class="bg-blue-200 bg-opacity-30 hover:bg-blue-300 hover:bg-opacity-30 text-gray-950"
+              >
+                <td class="px-6 py-2 text-sm">اکونومی | ECG</td>
+                <td class="px-6 py-2 text-sm">.....</td>
+                <td class="px-6 py-2 text-sm">450،000</td>
+                <td class="px-6 py-2 text-sm">2،750،000</td>
+                <td class="px-6 py-2 text-sm">3،700،000</td>
+                <td class="px-6 py-2">
+                  <div class="flex gap-2 w-[80px]">
+                    <button id="increase-Button">
+                      <ion-icon
+                        class="text-xl text-green-600"
+                        name="add-circle"
+                      ></ion-icon>
+                    </button>
+                    <span id="counter" class="text-sm">2</span>
+                    <button id="decrease-Button">
+                      <ion-icon
+                        class="text-xl text-rose-600"
+                        name="remove-circle"
+                      ></ion-icon>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                class="bg-opacity-30 text-gray-950 bg-blue-50 hover:bg-blue-100 hover:bg-opacity-30"
+              >
+                <td class="px-6 py-2 text-sm">اکونومی | ECG</td>
+                <td class="px-6 py-2 text-sm">.....</td>
+                <td class="px-6 py-2 text-sm">450،000</td>
+                <td class="px-6 py-2 text-sm">2،750،000</td>
+                <td class="px-6 py-2 text-sm">3،700،000</td>
+                <td class="px-6 py-2">
+                  <div class="flex gap-2 w-[80px]">
+                    <button id="increase-Button">
+                      <ion-icon
+                        class="text-xl text-green-600"
+                        name="add-circle"
+                      ></ion-icon>
+                    </button>
+                    <span id="counter" class="text-sm">2</span>
+                    <button id="decrease-Button">
+                      <ion-icon
+                        class="text-xl text-rose-600"
+                        name="remove-circle"
+                      ></ion-icon>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- === shopping options ==== -->
+        <div class="flex justify-center gap-4 mt-10">
+          <button
+            class="px-5 py-2 text-sm font-medium text-white duration-200 border rounded-md bg-secondary-500 border-secondary-500 bg-primary hover:bg-transparent hover:text-secondary-500"
+          >
+            <ion-icon name="cart-outline"></ion-icon>
+            خرید نهایی
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // table sequence counter ===
+
+      let count = 0;
+
+      document.getElementById("increase-Button").onClick = function () {
+        count += 1;
+        document.getElementById("counter").innerHTML = count;
+      };
+      document.getElementById("decrease-Button").onClick = function () {
+        count -= 1;
+        document.getElementById("counter").innerHTML = count;
+      };
+
+      document.getElementById("increase-Button-2").onClick = function () {
+        count += 1;
+        document.getElementById("counter-2").innerHTML = count;
+      };
+      document.getElementById("decrease-Button-2").onClick = function () {
+        count -= 1;
+        document.getElementById("counter-2").innerHTML = count;
+      };
+
+      document.getElementById("increase-Button-3").onClick = function () {
+        count += 1;
+        document.getElementById("counter-3").innerHTML = count;
+      };
+      document.getElementById("decrease-Button-3").onClick = function () {
+        count -= 1;
+        document.getElementById("counter-3").innerHTML = count;
+      };
+    </script>
+
+    <script>
+      // Get the button:
+      let mybutton = document.getElementById("myScrollbackBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+    </script>
+    <script>
+      $(window).ready(function () {
+        var userMenuInterval = null;
+        $("#user-menu-button").click(function () {
+          $(".navbar-profile-dropdown_links").removeClass("hidden");
+        });
+
+        $(".navbar-profile-dropdown_links,#user-menu-button").mouseenter(
+          function () {
+            clearTimeout(userMenuInterval);
+          }
+        );
+        $(".navbar-profile-dropdown_links,#user-menu-button").mouseleave(
+          function () {
+            userMenuInterval = setTimeout(function () {
+              $(".navbar-profile-dropdown_links").addClass("hidden");
+            }, 700);
+          }
+        );
+
+        $("#sidebar-btn").click(function () {
+          showSideNav();
+        });
+        $(".sidebar-wrapper").click(function () {
+          hideSideNav();
+        });
+
+        function showSideNav() {
+          $(".sidebar_fixed").removeClass("hidden").addClass("top-0");
+        }
+
+        function hideSideNav() {
+          $(".sidebar_fixed").addClass("hidden").removeClass("top-0");
+        }
+        $(window).resize(function () {
+          hideSideNav();
+        });
+        $("[data-input-text]").focus(function () {
+          $(this)
+            .siblings("label")
+            .addClass(
+              "-translate-y-[30px] text-gray-700 scale-[0.8] text-primary -translate-y-[0.9rem] scale-[0.8] motion-reduce:transition-none"
+            );
+        });
+        $("[data-input-text]").blur(function () {
+          if ($(this).val().length == 0) {
+            $(this)
+              .siblings("label")
+              .removeClass(
+                "-translate-y-[30px] text-gray-700 scale-[0.8] text-primary -translate-y-[0.9rem] scale-[0.8] motion-reduce:transition-none"
+              );
+          }
+        });
+        $("[data-input-text]").each(function () {
+          if ($(this).val().length == 0) {
+            $(this)
+              .siblings("label")
+              .removeClass(
+                "-translate-y-[30px] text-gray-700 scale-[0.8] text-primary -translate-y-[0.9rem] scale-[0.8] motion-reduce:transition-none"
+              );
+          } else {
+            $(this)
+              .siblings("label")
+              .addClass(
+                "-translate-y-[30px] text-gray-700 scale-[0.8] text-primary -translate-y-[0.9rem] scale-[0.8] motion-reduce:transition-none"
+              );
+          }
+        });
+      });
+    </script>
+    <script>
+      $(".date").persianDatepicker({
+        inline: true,
+        altField: "#inlineExampleAlt",
+        altFormat: "LLLL",
+        maxDate: new persianDate().add("month", 3).valueOf(),
+        minDate: new persianDate().subtract("month", 3).valueOf(),
+        timePicker: {
+          enabled: true,
+          meridiem: {
+            enabled: true,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

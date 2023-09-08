@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فرم خرید</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+    />
+  </head>
+  <body dir="rtl">
+    <div class="shadow-md border max-w-[500px] mx-auto p-4 my-8 rounded-md">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-gray-500">سبد خرید جدید</span>
+        <button>
+          <ion-icon class="w-8 h-8 text-red-500" name="close-circle"></ion-icon>
+        </button>
+      </div>
+      <hr />
+      <div class="text-center mt-8">مشخصات مشتری جدید</div>
+      <div class="flex justify-between gap-8 mt-8">
+        <div class="relative w-full">
+          <input
+            autocomplete="off"
+            id="user-name"
+            name="username"
+            type="text"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-b-gray-400 text-gray-700 text-[12px] focus:outline-none focus:border-[#7887c0]"
+            placeholder="نام کامل"
+          />
+          <label
+            htmlFor="user-name"
+            class="absolute right-0 -top-3.5 text-gray-400 text-[10px] peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-[12px]"
+            >نام کامل *</label
+          >
+          <div id="username-error" class="text-red-500 pt-1 hidden text-[10px]">
+            این نام کاربری قبلا ثبت شده است !
+          </div>
+        </div>
+        <div class="relative w-full">
+          <input
+            autocomplete="off"
+            id="phoneNumber"
+            name="username"
+            type="text"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-b-gray-400 text-gray-700 text-[12px] focus:outline-none focus:border-[#7887c0]"
+            placeholder="شماره موبایل"
+          />
+          <label
+            htmlFor="phoneNumber"
+            class="absolute right-0 -top-3.5 text-gray-400 text-[10px] peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-[12px]"
+          >
+            شماره موبایل *</label
+          >
+          <div
+            id="phoneNumber-error"
+            class="text-red-500 pt-1 hidden text-[10px]"
+          >
+            این شماره قبلا ثبت شده است !
+          </div>
+        </div>
+      </div>
+      <div class="relative mx-auto mt-8">
+        <input
+          autocomplete="off"
+          id="factor"
+          name="username"
+          type="text"
+          class="peer placeholder-transparent h-10 w-full border-b-2 border-b-gray-400 text-gray-700 text-[12px] focus:outline-none focus:border-[#7887c0]"
+          placeholder="شماره فاکتور داخلی"
+        />
+        <label
+          htmlFor="factor"
+          class="absolute right-0 -top-3.5 text-gray-400 text-[10px] peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-[12px]"
+          >شماره فاکتور داخلی</label
+        >
+        <div id="factor-error" class="text-red-500 pt-1 hidden text-[10px]">
+          شماره فاکتور اشتباه است !
+        </div>
+      </div>
+      <div class="flex justify-between gap-8 mt-8">
+        <div class="relative w-full">
+          <input
+            autocomplete="off"
+            id="electro-post"
+            name="username"
+            type="text"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-b-gray-400 text-gray-700 text-[12px] focus:outline-none focus:border-[#7887c0]"
+            placeholder="پست الکترونیک"
+          />
+          <label
+            htmlFor="electro-post"
+            class="absolute right-0 -top-3.5 text-gray-400 text-[10px] peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-[12px]"
+            >پست الکترونیک</label
+          >
+          <div
+            id="electro-post-error"
+            class="text-red-500 pt-1 hidden text-[10px]"
+          >
+            ایمیل نامعتبر است !
+          </div>
+        </div>
+        <div class="relative w-full">
+          <input
+            autocomplete="off"
+            id="residence"
+            name="username"
+            type="text"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-b-gray-400 text-gray-700 text-[12px] focus:outline-none focus:border-[#7887c0]"
+            placeholder="محل اقامت "
+          />
+          <label
+            htmlFor="residence"
+            class="absolute right-0 -top-3.5 text-gray-400 text-[10px] peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-[12px]"
+          >
+            محل اقامت
+          </label>
+        </div>
+      </div>
+      <div class="relative mb-3 mt-10" data-te-input-wrapper-init>
+        <textarea
+          class="peer block min-h-[auto] w-full rounded border-gray-300 focus:border-[#7887c0] border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+          id="exampleFormControlTextarea1"
+          rows="3"
+          placeholder="Your message"
+        ></textarea>
+        <label
+          htmlFor="tw-elements"
+          class="pointer-events-none absolute right-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-400 transition-all duration-200 ease-out peer-focus:-translate-y-[30px] peer-focus:scale-[0.8] peer-focus:text-gray-900 peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none"
+          >توضیحات
+        </label>
+      </div>
+      <div class="text-center mt-8">
+        <button
+          class="bg-green-400 border border-green-400 duration-200 text-white hover:text-black hover:bg-transparent py-2 px-5 rounded-md"
+        >
+          ایجاد سبد خرید
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scrollbar-width: thin;
+  /* scrollbar-color: red; */
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: lightgray;
+  /* border-radius: 5px; */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(29, 21, 21, 0.611);
+}
+
+/* == customized styles ===  */
+@layer base {
+  @font-face {
+    font-family: iransans;
+    src: url("../font/IRANSansXFaNum-Regular.woff") format("woff");
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: iransans;
+    src: url("../font/IRANSansXFaNum-Bold.woff") format("woff");
+    font-weight: 900;
+  }
+  @font-face {
+    font-family: iransans;
+    src: url("../font/ttf/IRANSansWeb_Light.ttf") format("tff"),
+      url("../font/woff/IRANSansWeb_Light.woff") format("woff"),
+      url("../font/woff2/IRANSansWeb_Light.woff2") format("woff2"),
+      url("../font/eot/IRANSansWeb_Light.eot") format("eot");
+    font-weight: 300;
+  }
+
+  @font-face {
+    font-family: iransans;
+    src: url("../font/ttf/IRANSansWeb_UltraLight.ttf") format("tff"),
+      url("../font/woff/IRANSansWeb_UltraLight.woff") format("woff"),
+      url("../font/woff2/IRANSansWeb_UltraLight.woff2") format("woff2"),
+      url("../font/eot/IRANSansWeb_UltraLight.eot") format("eot");
+    font-weight: 100;
+  }
+  body,
+  input {
+    font-family: iransans;
+    /* background-color: #272829; */
+  }
+}
+
+/*  customized styles   */
+
+@layer components {
+  /* after before styles  */
+
+  .triangle-dropdown {
+    @apply after:content-[''] after:absolute after:top-0 after:left-[31%] after:mt-[-15px] after:ml-[-15px] after:w-0 after:z-10 after:h-0  after:border-l-[15px] after:border-l-transparent after:border-r-[15px] after:border-r-transparent  border-b-transparent  after:border-b-white after:border-b-[15px];
+  }
+  .badge {
+    @apply after:content-[''] after:absolute after:text-[10px] after:bg-red-500 after:p-1 after:rounded-full after:top-[5px] after:left-[23px];
+  }
+  .badge-store {
+    @apply after:content-[''] after:absolute after:text-[10px] after:bg-red-500 after:p-1 after:rounded-full after:top-0 after:right-0;
+  }
+  .badge-store_green {
+    @apply after:content-[''] after:absolute after:text-[10px] after:bg-green-500 after:p-1 after:rounded-full after:top-0 after:right-0;
+  }
+
+  .dropdown-space {
+    @apply before:content-[""] before:absolute before:left-0 before:right-0 before:bottom-[100%] before:block before:h-[45px];
+  }
+
+  /* buttons below the navbar */
+  .text-border-b::after {
+    display: block;
+    content: "";
+    border-bottom: solid 3px rgb(15, 228, 15);
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+  .text-border-b_active::after {
+    display: block;
+    content: "";
+    border-bottom: solid 3px rgb(15, 228, 15);
+    transform: scaleX(1);
+    transition: transform 250ms ease-in-out;
+  }
+  .text-border-b:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* header and navabr styles  */
+  .navbar {
+    @apply border-b border-gray-700 fixed w-full top-0 z-[900] bg-[#211e29] border-opacity-25  py-3;
+  }
+
+  .navbar-link {
+    @apply hover:text-primary-500 text-white duration-200 hover:bg-opacity-75 rounded-md py-2 px-3 text-[12px] font-bold;
+  }
+  .navbar-link_active {
+    @apply text-primary-500  rounded-md py-2 px-3 text-[12px] font-bold;
+  }
+  .navbar-message-icon_button {
+    @apply flex-shrink-0 me-5 badge  relative p-1 group-hover:text-[#7887c0] text-gray-200 focus:outline-none;
+  }
+  .navbar-message_dropdown {
+    @apply absolute left-0 shadow-md rounded-md z-50 bg-white top-[100%]  duration-500  border dropdown-space;
+  }
+  .navbar-profile_button {
+    @apply flex text-sm text-white bg-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-500;
+  }
+  .navbar-profile-dropdown_links {
+    @apply absolute end-[-40px] top-[40px] z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+  }
+
+  /* side bar styles  */
+
+  .sidebar_fixed {
+    @apply w-[270px] bg-[#211e29]   fixed top-[88px] bottom-0  overflow-y-scroll z-[100];
+  }
+  .sidebar-accordion-box {
+    @apply hidden group-focus-within:flex duration-500 mt-2 flex-col gap-2 bg-[#211e29];
+  }
+  .sidebar-message_icon {
+    @apply hover:text-[#3855bb] duration-200 badge  text-gray-200 absolute top-[5px] text-[30px] right-[20px];
+  }
+  .sidebar-exit_button {
+    @apply text-[30px] absolute  text-gray-200 hover:opacity-75 duration-200 left-[20px] top-[5px];
+  }
+
+  .sidebar-accordion_button {
+    @apply text-[13px] font-medium rounded-l-md relative py-2 px-3 w-full flex items-center hover:text-white gap-2 text-[#7d7f8e]   hover:bg-primary-600 duration-200;
+  }
+  .sidebar-accordion-button_link {
+    @apply text-[13px] font-medium rounded-l-md text-gray-400 hover:text-primary-600  duration-300 px-4 py-2;
+  }
+  .sidebar-link_active {
+    @apply bg-[#3855bb]  rounded-l-md text-[13px] font-medium text-white  block py-2  px-3   duration-200;
+  }
+  /* main content  */
+
+  .main-content {
+    @apply border rounded-md shadow-md  mr-0 ml-0 px-6 lg:mr-[290px] lg:ml-[20px]  p-5 pb-10 col-auto;
+  }
+  .ticket-box-send_link {
+    @apply flex items-center p-3 text-white duration-300 bg-blue-400 border border-blue-400 rounded-md hover:bg-transparent hover:border hover:border-blue-400 hover:text-black;
+  }
+  /* == profile sign in main content cutomized styles  */
+  .main-content-profile-sign-in {
+    @apply border-0 shadow-none md:border md:border-blue-300 rounded-md md:shadow-md mb-20 lg:mb-0  mr-[40px] ml-[40px] mt-[150px] lg:mt-[100px] px-6 lg:mr-[400px] lg:ml-[60px] col-auto  p-5;
+  }
+  .main-content-right-container-profile-sign-in {
+    @apply flex justify-center p-5 border border-blue-300 rounded-md shadow-md md:border-0 md:shadow-none;
+  }
+  /* file uploader form  */
+  .file-uploader_label {
+    @apply flex flex-col items-center justify-center w-full h-64 p-5 bg-gray-100 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer;
+  }
+  .file-uploader_section {
+    @apply flex items-center justify-center order-first w-full p-6 mb-10 border border-gray-300 rounded-md shadow-md;
+  }
+  .file-uploader_button {
+    @apply inline-flex cursor-pointer hover:bg-gray-800 hover:text-white duration-200 rounded border border-gray-800 py-2 px-7 text-base font-medium text-[#07074D];
+  }
+  /* wallet page styles */
+  .main-content-wallet-page {
+    @apply border  rounded-md shadow-md mb-20 lg:mb-0  mr-[40px] ml-[40px] mt-[150px] lg:mt-[100px] px-6 lg:mr-[400px] lg:ml-[60px] col-auto  p-5;
+  }
+  /* payment page styles */
+  .send-request_button {
+    @apply px-3 py-1 text-white duration-200 bg-blue-400 border border-blue-400 rounded-md hover:bg-transparent hover:text-gray-700;
+  }
+
+  .button-box {
+    @apply text-[12px] border border-[#3855bb] rounded-md duration-200 p-3 hover:bg-[#3855bb] hover:text-white;
+  }
+  .button-box_active {
+    @apply text-[12px]  rounded-md  p-3 bg-[#3855bb] text-white;
+  }
+}

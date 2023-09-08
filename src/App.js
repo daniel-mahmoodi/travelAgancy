@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import CartPopUpMenu from "../src/components/Modal/CartPopUpMenu";
+import MainPage from "./components/Main/MainPage";
+import { useSelector } from "react-redux";
+import SequenceInfo from "../src/components/Modal/SequenceInfo";
+import NewPaymentFormModal from "./components/Modal/NewPaymentFormModal";
 function App() {
+  const showCartModal = useSelector((state) => state.ui.cartModalPopUp);
+  const showSequenceModal = useSelector((state) => state.ui.sequenceModalPopUp);
+  const showNewPaymentModal = useSelector((state) => state.ui.newPaymentModalPopUp);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        backgroundImage: 'url("../img/main-wallpaper.png")',
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+      }}
+    >
+      {/* <Layout className="App" dir="rtl"> */}
+
+      {showCartModal && <CartPopUpMenu />}
+      {showSequenceModal && <SequenceInfo />}
+      {showNewPaymentModal && <NewPaymentFormModal />}
+      <MainPage />
+      {/* <CartPopUpMenu /> */}
+      {/* </Layout> */}
     </div>
   );
 }

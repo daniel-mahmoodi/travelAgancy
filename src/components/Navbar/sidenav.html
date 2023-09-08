@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sidebar</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<body dir="rtl">
+    <aside >
+        <div class=" w-[260px] bg-[#211e29]  pb-8 py-5  fixed top-[90px] bottom-0  overflow-y-scroll  ">
+          <div class="relative pe-5 flex flex-col gap-2  ">
+           <div class=" flex  flex-col justify-center items-center p-4">
+               <img class="h-20 w-20 rounded-md" src="../img/icons8-avatar-96.png" alt="">
+               <p class="text-white mt-3 ">username</p>
+              <a  href="#">
+               <i title="پیغام ها" class="ion-chatbox-working hover:text-gray-300 duration-200 badge text-white absolute top-[5px] text-[30px] right-[20px]"></i>
+              </a>
+              <button title="خروج از حساب کاربری" class="cursor-pointer  text-[30px] absolute hover:text-gray-300 text-white hover:opacity-75 duration-200 left-[20px] top-[5px]" >
+               <ion-icon name="exit-outline"></ion-icon>
+               <span class="sr-only">Exit button</span>
+              </button>
+           </div>
+           <div class="mt-4 flex flex-col gap-2">
+               <a class=" sidebar-link_active" href="#">
+                   <ion-icon class="pe-3" name="desktop-outline"></ion-icon>
+                   پیشخوان کاربری
+               </a>
+               <a class="sidebar-accordion_button" href="#">
+                   <ion-icon class="pe-3" name="stats-chart-outline"></ion-icon>
+                   آنالیز و تحلیل محصولات
+               </a>
+   
+               <!-- accordion one ==== -->
+               <div class="group mt-2 ">
+                   <button class="sidebar-accordion_button">
+                       <ion-icon class="pe-3" name="shield-checkmark-outline"></ion-icon>
+                       پشتیبانی
+                       <i class="ion-chevron-down absolute left-[20px] group-focus-within:rotate-180 duration-300"></i>
+                   </button>
+                   <!-- ===  accordion box === -->
+                   <div class="hidden group-focus-within:flex duration-500 mt-2 flex-col gap-2 bg-[#211e29]">
+                       <a class="sidebar-accordion-button_link" href="#">
+                           <ion-icon class="relative top-[2px] px-1" name="add-outline"></ion-icon>
+                           ارسال پیام
+                       </a>
+                       <a class="sidebar-accordion-button_link " href="#">
+                           <ion-icon class="relative top-[2px] px-1" name="chatbubble-outline"></ion-icon>
+                           پیام های من 
+                       </a>
+                       <a class="sidebar-accordion-button_link " href="#">
+                           <ion-icon class="relative top-[2px] px-1" name="chatbubble-ellipses-outline"></ion-icon>
+                           پاسخ های دریافت شده
+                       </a>
+                       <a class="sidebar-accordion-button_link" href="#">
+                           <ion-icon class="relative top-[2px] px-1" name="chatbubbles-outline"></ion-icon>
+                           پیام های دریافتی 
+                       </a>
+                   </div>
+               </div>
+               <!-- ==== accordion one ends here ==== -->
+   
+               <a class="sidebar-accordion_button" href="#">
+                   <ion-icon class="relative top-[3px] pe-3" name="chatbox-ellipses-outline"></ion-icon>
+                   پرسش وپاسخ
+               </a>
+               <a class="sidebar-accordion_button" href="#">
+                   <ion-icon class="pe-3" name="stats-chart-outline"></ion-icon>
+                   آنالیز و تحلیل محصولات
+               </a>
+               <a class="sidebar-accordion_button" href="#">
+                   <ion-icon class="pe-3" name="star-half-outline"></ion-icon>
+                   بازخورد ها
+               </a>
+               <a class="sidebar-accordion_button" href="#">
+                   <ion-icon class="pe-3" name="stats-chart-outline"></ion-icon>
+                  فروش ها
+               </a>
+           </div>
+   
+            <!-- accordion two  ==== -->
+            <div class="group mt-2 ">
+               <button class="sidebar-accordion_button">
+                   <ion-icon class="pe-3" name="shield-checkmark-outline"></ion-icon>
+                   محصولات من 
+                   <i class="ion-chevron-down absolute left-[20px] group-focus-within:rotate-180 duration-300"></i>
+               </button>
+               <!-- ===  accordion box === -->
+               <div class="hidden group-focus-within:flex duration-500 mt-2 flex-col gap-2 bg-[#211e29]">
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="add-outline"></ion-icon>
+                       محصولات منتشر شده 
+                   </a>
+                   <a class="sidebar-accordion-button_link " href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="chatbubble-outline"></ion-icon>
+                       ارسال محصول جدید 
+                   </a>
+                   <a class="sidebar-accordion-button_link " href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="chatbubble-ellipses-outline"></ion-icon>
+                       بروزرسانی
+                   </a>
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="chatbubbles-outline"></ion-icon>
+                   تغییر جزییات محصول
+                   </a>
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="chatbubbles-outline"></ion-icon>
+                       تغییر محتوا
+                   </a>
+               </div>
+           </div>
+           <!-- ==== accordion tow ends here ==== -->
+           <a class="sidebar-accordion_button" href="#">
+               <ion-icon class="pe-3" name="stats-chart-outline"></ion-icon>
+               آموزش ها
+           </a>
+           <a class="sidebar-accordion_button" href="#">
+               <ion-icon class="pe-3" name="star-half-outline"></ion-icon>
+               محصولات خریداری شده
+           </a>
+           <a class="sidebar-accordion_button" href="#">
+               <ion-icon class="pe-3" name="stats-chart-outline"></ion-icon>
+             علاقه مندی ها
+           </a>
+   
+           <!-- accordion three ==== -->
+           <div class="group  ">
+               <button class="sidebar-accordion_button">
+                   <ion-icon class="pe-3" name="shield-checkmark-outline"></ion-icon>
+                   شرح عملکرد
+                   <i class="ion-chevron-down absolute left-[20px] group-focus-within:rotate-180 duration-300"></i>
+               </button>
+               <!-- ===  accordion box === -->
+               <div class="hidden group-focus-within:flex mt-2 duration-500 flex-col gap-2 bg-[#211e29]">
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="cube-outline"></ion-icon>
+                       سفارش ها
+                   </a>
+                   <a class="sidebar-accordion-button_link " href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="shield-outline"></ion-icon>
+                       پشتیبانی
+                   </a>
+                   <a class="sidebar-accordion-button_link " href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="shield-checkmark-outline"></ion-icon>
+                       پشتیبانی سریع
+                   </a>
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="wallet-outline"></ion-icon>
+                       بازاریابی
+                   </a>
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="mail-unread-outline"></ion-icon>
+                       درخواست ها
+                   </a>
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="card-outline"></ion-icon>
+                       کش بک
+                   </a>
+               </div>
+           </div>
+           <!-- ==== accordion three  ends here ==== -->
+   
+            <!-- accordion four  ==== -->
+            <div class="group ">
+               <button class="sidebar-accordion_button">
+                   <i class="ion-cash relative top-[2px] px-1"></i>
+                   مدیریت مالی
+                   <i class="ion-chevron-down absolute left-[20px] group-focus-within:rotate-180 duration-300"></i>
+               </button>
+               <!-- ===  accordion box === -->
+               <div class="hidden group-focus-within:flex duration-500 mt-2 flex-col gap-2 bg-[#211e29]">
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="bag-check-outline"></ion-icon>
+                       پرداخت ها
+                   </a>
+                   <a class="sidebar-accordion-button_link" href="wallet.html" target="_blank">
+                    <ion-icon class="relative top-[2px] px-1" name="wallet-outline"></ion-icon>
+                    کیف پول دیجیتال
+                </a>
+                   <a class="sidebar-accordion-button_link " href="#">
+                       <ion-icon class="relative top-[2px] px-1"  name="card-outline"></ion-icon>
+                       اعتبار حساب
+                   </a>
+                   <a class="sidebar-accordion-button_link " href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="ban-outline"></ion-icon>
+                       بلوکه شده ها
+                   </a>
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="bar-chart-outline"></ion-icon>
+                       درآمد ها
+                   </a>
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="receipt-outline"></ion-icon>
+                       صورت حساب
+                   </a>
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="warning-outline"></ion-icon>
+                       پرداخت نشده 
+                   </a>
+               </div>
+           </div>
+           <!-- ==== accordion four  ends here ==== -->
+           <a class="sidebar-accordion_button" href="#">
+               <ion-icon class="pe-3" name="pricetag-outline"></ion-icon>
+               کد تخفیف 
+           </a>
+           <a class="sidebar-accordion_button" href="#">
+               <ion-icon class="pe-3" name="ribbon-outline"></ion-icon>
+              همکاری با ما 
+           </a>
+   
+           <!-- accordion five  ==== -->
+           <div class="group mb-4 ">
+               <button class="text-[13px] font-medium rounded-l-md  relative py-2 px-3 w-full flex items-center hover:text-[#7d7f8e] gap-2 text-gray-400  hover:bg-[#100d18] duration-200">
+                  <ion-icon class="relative top-[2px] px-1" name="construct-outline"></ion-icon>
+                   تنظیمات
+                   <i class="ion-chevron-down absolute left-[20px] group-focus-within:rotate-180 duration-300"></i>
+               </button>
+               <!-- ===  accordion box === -->
+               <div class="hidden group-focus-within:flex duration-500 mt-2 flex-col gap-2 bg-[#211e29]">
+                   <a class="sidebar-accordion-button_link" href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="person-outline"></ion-icon>
+                       اطلاعات حساب کاربری
+                   </a>
+                   <a class="sidebar-accordion-button_link " href="#">
+                       <ion-icon class="relative top-[2px] px-1" name="card-outline"></ion-icon>
+                       اطلاعات حساب شما 
+                   </a>
+               </div>
+           </div>
+           <!-- ==== accordion five  ends here ==== -->
+           <hr>
+           <a class="sidebar-accordion_button" href="#">
+               <ion-icon class="px-1 relative top-[2px]" name="chevron-forward-circle-outline"></ion-icon>
+               وبلاگ ما
+           </a>
+           <a class="sidebar-accordion_button" href="#">
+               <ion-icon class="px-1 relative top-[2px]"  name="create-outline"></ion-icon>
+               درباره ما
+           </a>
+          </div>
+       </div>
+      </aside>
+</body>
+</html>

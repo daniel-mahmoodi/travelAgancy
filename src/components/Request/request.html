@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بخش درخواست ها</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+
+
+</head>
+
+<body dir="rtl">
+
+    <div class="px-5 pt-4 pb-8 mx-auto my-5 border rounded-md shadow-lg md:container">
+        <form class="flex flex-wrap justify-between mt-12" action="">
+            <div class="relative flex gap-3 mb-3 items-centerw-full md:w-auto">
+                <label htmlFor="banks" class="block text-sm font-bold text-gray-400 relative top-[10px] ">فیلتر </label>
+                <select id=""
+                    class="bg-gray-50  cursor-pointer border border-blue-300  text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block py-2.5 px-5 "
+                    data-te-select-init>
+                    <option value="all" selected>همه</option>
+                    <option value="erorr">خطا در پرداخت</option>
+                    <option value="succesfully">موفقیت آمیز</option>
+                    <option value="waiting-for-paymnet">در انتظار پرداخت</option>
+                    <option value="not-paid">پرداخت نشده</option>
+                    <option value="done">پرداخت شده</option>
+                </select>
+                <div>
+                    <button type="submit"
+                        class="p-2 text-white duration-200 bg-blue-500 border border-blue-500 rounded-md hover:bg-transparent hover:text-black"
+                        href="#">
+                        جست و جو
+                    </button>
+                    <a class="p-2 text-white duration-200 bg-green-500 border border-green-500 rounded-md hover:bg-transparent hover:text-black"
+                        href="#">
+                        <i class="ion-android-call relative top-[2px] pl-1"></i>
+                        ارتباط با پشتیبانی
+                    </a>
+                </div>
+            </div>
+            <div class="relative w-full md:w-auto ">
+                <input
+                    class="w-full py-2 pl-3 pr-8 text-gray-500 border border-gray-300 rounded-md md:w-auto focus:outline-none"
+                    type="search" name="search" value="" placeholder="جست و جو">
+                <ion-icon class=" text-lg absolute right-[5px] top-[10px]" name="search"></ion-icon>
+            </div>
+        </form>
+        <!-- == titles == -->
+        <div class="flex justify-between mt-8">
+            <div class="flex gap-12">
+                <p class="flex items-center gap-1 text-gray-500">
+                    <ion-icon name="chevron-collapse-outline"></ion-icon>
+                    بخش
+                </p>
+                <p class="flex items-center gap-1 text-gray-500">
+                    <ion-icon name="chevron-collapse-outline"></ion-icon>
+                    موضوع
+                </p>
+            </div>
+            <div class="flex gap-12">
+                <p class="flex items-center gap-1 text-gray-500">
+                    <ion-icon name="chevron-collapse-outline"></ion-icon>
+                    وضعیت
+                </p>
+                <p class="flex items-center gap-1 text-gray-500">
+                    <ion-icon name="chevron-collapse-outline"></ion-icon>
+                    آخرین بروزرسانی
+                </p>
+            </div>
+        </div>
+
+
+        <!-- === boxes ===== -->
+        <div class="flex flex-col gap-5">
+
+            <div class="border rounded-md  border-gray-300 mt-8 p-2 text-[13px] flex justify-between items-center">
+                <div class="flex gap-4">
+                    <p>بخش کیف پول</p>
+                    <p class="flex flex-col">
+                        <span class="text-gray-500"> کد 2045</span>
+                        <span class="text-red-400">خطای پراختی </span>
+                    </p>
+                </div>
+                <div class="flex items-center gap-12 ">
+                    <a class="flex gap-2 p-2 text-white duration-200 bg-green-500 border border-green-500 rounded-md hover:bg-transparent hover:text-black"
+                        href="#">
+                        <i class="ion-android-checkmark-circle relative top-[3px]"></i>
+                        بررسی مجدد
+                    </a>
+                    <div class="text-red-500">
+                        <i class="ion-alert-circled"></i>
+                        پرداخت نشده
+                    </div>
+                    <div class="text-yellow-500">
+                        <i class="ion-alert"></i>
+                        در انتظار پرداخت
+                    </div>
+                </div>
+            </div>
+
+            <div class="border  rounded-md border-gray-300  p-2 text-[13px] flex justify-between items-center">
+                <div class="flex gap-4">
+                    <p>بخش مدیریت مالی</p>
+                    <p class="flex flex-col">
+                        <span class="text-gray-500"> کد 2050</span>
+                        <span class="text-green-500">عملیات موفقیت آمیز</span>
+                    </p>
+                </div>
+                <div class="flex gap-16 ">
+                    <div class="text-green-500">
+                        <i class="ion-checkmark-round"></i>
+                        پرداخت شده
+                    </div>
+                    <div class="text-green-500">
+                        <i class="ion-android-checkmark-circle relative top-[3px]"></i>
+                        موفقیت آمیز
+                    </div>
+                </div>
+            </div>
+
+            <div class="border rounded-md border-gray-300  p-2 text-[13px] flex justify-between items-center">
+                <div class="flex gap-4">
+                    <p>بخش خرید بلیط</p>
+                    <p class="flex flex-col">
+                        <span class="text-gray-500"> کد 2078</span>
+                        <span class="text-red-500">خطای بانکی</span>
+                    </p>
+                </div>
+                <div class="flex items-center gap-12 ">
+                    <a class="flex gap-2 p-2 text-white duration-200 bg-green-500 border border-green-500 rounded-md hover:bg-transparent hover:text-black"
+                        href="#">
+                        <i class="ion-android-checkmark-circle relative top-[3px]"></i>
+                        بررسی مجدد
+                    </a>
+                    <div class="text-red-500">
+                        <i class="ion-alert-circled"></i>
+                        تراکنش ناموفق
+                    </div>
+                    <div class="text-yellow-500">
+                        <i class="ion-alert"></i>
+                        در انتظار پرداخت
+                    </div>
+                </div>
+            </div>
+
+            <div class="border  rounded-md border-gray-300 p-2 text-[13px] flex justify-between items-center">
+                <div class="flex gap-4">
+                    <p>بخش کیف پول</p>
+                    <p class="flex flex-col">
+                        <span class="text-gray-500"> کد 2045</span>
+                        <span class="text-red-400">خطای پراختی </span>
+                    </p>
+                </div>
+                <div class="flex items-center gap-12"">
+                        <a class=" flex gap-2 p-2 text-white duration-200 bg-green-500 border border-green-500
+                    rounded-md hover:bg-transparent hover:text-black" href="#">
+                    <i class="ion-android-checkmark-circle relative top-[3px]"></i>
+                    بررسی مجدد
+                    </a>
+                    <div class="text-red-500">
+                        <i class="ion-alert-circled"></i>
+                        پرداخت نشده
+                    </div>
+                    <div class="text-yellow-500">
+                        <i class="ion-alert"></i>
+                        در انتظار پرداخت
+                    </div>
+                </div>
+            </div>
+
+            <div class="border rounded-md border-gray-300  p-2 text-[13px] flex justify-between items-center">
+                <div class="flex gap-4">
+                    <p>بخش مدیریت مالی</p>
+                    <p class="flex flex-col">
+                        <span class="text-gray-500"> کد 2050</span>
+                        <span class="text-green-500">عملیات موفقیت آمیز</span>
+                    </p>
+                </div>
+                <div class="flex gap-16 ">
+                    <div class="text-green-500">
+                        <i class="ion-checkmark-round"></i>
+                        پرداخت شده
+                    </div>
+                    <div class="text-green-500">
+                        <i class="ion-android-checkmark-circle relative top-[3px]"></i>
+                        موفقیت آمیز
+                    </div>
+                </div>
+            </div>
+
+            <div class="border rounded-md border-gray-300  p-2 text-[13px] flex justify-between items-center">
+                <div class="flex gap-4">
+                    <p>بخش خرید بلیط</p>
+                    <p class="flex flex-col">
+                        <span class="text-gray-500"> کد 2078</span>
+                        <span class="text-red-500">خطای بانکی</span>
+                    </p>
+                </div>
+                <div class="flex items-center gap-12 ">
+                    <a class="flex gap-2 p-2 text-white duration-200 bg-green-500 border border-green-500 rounded-md hover:bg-transparent hover:text-black"
+                        href="#">
+                        <i class="ion-android-checkmark-circle relative top-[3px]"></i>
+                        بررسی مجدد
+                    </a>
+                    <div class="text-red-500">
+                        <i class="ion-alert-circled"></i>
+                        تراکنش ناموفق
+                    </div>
+                    <div class="text-yellow-500">
+                        <i class="ion-alert"></i>
+                        در انتظار پرداخت
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>

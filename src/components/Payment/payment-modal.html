@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<body dir="rtl">
+    <!-- == modal starts here === -->
+        <div class="container mx-auto mt-10 ">
+            <div class="shadow-md border mx-auto  relative rounded-md p-6 max-w-[750px]">
+                <button class="text-[25px] hover:text-red-500 duration-200 text-gray-500 absolute top-[12px] right-[10px]">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                </button>
+                <div class="flex justify-between items-center mt-5 mb-4">
+                    <p class="flex items-center py-4 text-gray-600 gap-2">
+                        <ion-icon class="h-6 w-6 " name="card-outline"></ion-icon>
+                        شارژ کیف پول
+                    </p>
+                    <p class="text-green-400">50000 تومان</p>
+                </div>
+                <hr>
+                <div class="flex flex-col  items-center gap-3 my-10">
+                    <p class="text-[15px] text-gray-700">پرداخت از درگاه بانک با استفاده از کلیه کارت های عضو شتاب:</p>
+                    <div class="flex items-center  p-5  gap-4">
+                       <a class="shadow-md hover:scale-[1.1] hover:opacity-60 hover:border-green-300 duration-200 p-4 rounded border border-gray-300" href="#"> <img class=" h-20" src="../img/mellu bank.png" alt=""></a>
+                       <a class="shadow-md p-4 active  rounded border border-green-300"  href="#"> <img class=" h-[6rem]" src="../img/Mellat.jpg" alt=""></a>
+                        <a class="shadow-md p-4 hover:scale-[1.1] hover:opacity-60 duration-200 hover:border-green-300 rounded border border-gray-300"  href="#"><img class=" h-20" src="../img/saman.png" alt=""></a>
+                    </div>
+                    <a class="bg-green-400 text-white hover:bg-transparent border border-green-400 duration-200 hover:text-gray-600 rounded-md p-2" href="#">
+                        پرداخت از طریق درگاه بانک ملی
+                        </a>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
