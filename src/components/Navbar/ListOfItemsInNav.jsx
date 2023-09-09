@@ -20,7 +20,7 @@ export const ListOfItemsInNav = () => {
         >
           پیشخوان
         </NavLink>
-
+{/* 
         <NavLink
           id="dl"
           to="download"
@@ -29,7 +29,7 @@ export const ListOfItemsInNav = () => {
           activeClassName="navbar-link_active"
         >
           دانلود ها
-        </NavLink>
+        </NavLink> */}
         <NavLink
           id="profile"
           to="/profile-sign-in"

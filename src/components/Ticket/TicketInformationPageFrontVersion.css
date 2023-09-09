@@ -1,0 +1,108 @@
+.all {
+  margin: 0;
+  padding: 0;
+  margin-top: 10rem;
+
+  box-sizing: border-box;
+}
+
+/* @font-face {
+  font-family: iransans;
+  src: url("../font/IRANSansXFaNum-Regular.woff") format("woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: iransans;
+  src: url("../font/IRANSansXFaNum-Bold.woff") format("woff");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: iransans;
+  src: url("../font/ttf/IRANSansWeb_Light.ttf") format("tff"),
+    url("../font/woff/IRANSansWeb_Light.woff") format("woff"),
+    url("../font/woff2/IRANSansWeb_Light.woff2") format("woff2"),
+    url("../font/eot/IRANSansWeb_Light.eot") format("eot");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: iransans;
+  src: url("../font/ttf/IRANSansWeb_UltraLight.ttf") format("tff"),
+    url("../font/woff/IRANSansWeb_UltraLight.woff") format("woff"),
+    url("../font/woff2/IRANSansWeb_UltraLight.woff2") format("woff2"),
+    url("../font/eot/IRANSansWeb_UltraLight.eot") format("eot");
+  font-weight: 100;
+} */
+
+/* body,
+input,
+button {
+  font-family: iransans;
+  /* background-color: #272829; } */
+
+.btn-c {
+  padding: 6px 16px;
+  color: white;
+  transition: 0.2s;
+  background-color: rgb(84, 84, 235);
+
+  border-radius: 5px;
+  border: 1px solid rgb(84, 84, 235);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-c:hover {
+  background-color: white;
+  color: rgb(84, 84, 235);
+}
+
+.table {
+  width: 100%;
+  color: white;
+  font-weight: 100;
+  font-size: 12px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.table thead th {
+  padding: 6px 10px;
+}
+
+.table td {
+  font-weight: 500;
+  padding-bottom: 0;
+}
+
+.table tbody tr {
+  color: rgb(65, 65, 65);
+}
+
+.table tbody tr:nth-child(2n) {
+  background-color: rgb(240, 240, 240);
+}
+
+.increase-button {
+  border: none;
+  box-shadow: none;
+  color: green;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+.decrease-button {
+  border: none;
+  box-shadow: none;
+  color: red;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+.counter {
+  position: relative;
+  top: -6px;
+  font-weight: 900;
+}

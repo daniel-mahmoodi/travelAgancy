@@ -4,6 +4,8 @@ import MainPage from "./components/Main/MainPage";
 import { useSelector } from "react-redux";
 import SequenceInfo from "../src/components/Modal/SequenceInfo";
 import NewPaymentFormModal from "./components/Modal/NewPaymentFormModal";
+
+
 function App() {
   const showCartModal = useSelector((state) => state.ui.cartModalPopUp);
   const showSequenceModal = useSelector((state) => state.ui.sequenceModalPopUp);

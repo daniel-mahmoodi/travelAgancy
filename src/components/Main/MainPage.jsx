@@ -9,6 +9,9 @@ import SocialMediaButton from "./SocialMediaButton";
 import ScrollBackToTopButton from "./ScrollBackToTopButton";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import BuyingTickets from "../Ticket/BuyingTickets";
+import ProfileInformation from '../Auth/ProfileInformation';
+import { Wallet } from "react-ionicons";
+import TicketInformaitonPageFrontVersion from "../Ticket/TicketInformaitonPageFrontVersion";
 
 const MainPage = () => {
   //
@@ -54,10 +57,16 @@ const MainPage = () => {
       {/* <BreadCumb /> */}
       {/* <!-- === main content starts here ====  --> */}
       <Switch>
+        <Route path="/">
+          <Main />
+        </Route>
         <Route path="/home">
           <Main />
         </Route>
         <Route path='/buyingTickets'> <BuyingTickets/> </Route>
+        <Route path='/profile-sign-in'> <ProfileInformation/> </Route>
+        <Route path='/wallet'> <Wallet/> </Route>
+        <Route path='/tickets'> <TicketInformaitonPageFrontVersion/> </Route>
       </Switch>
       {/* <!-- === end of the page === --> */}
       <EndOfThePage />
