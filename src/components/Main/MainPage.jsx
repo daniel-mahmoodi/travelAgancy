@@ -2,17 +2,20 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import { LinkeSide } from "./LinkeSide";
-import BreadCumb from "./BreadCumb";
 import Main from "./Main";
 import EndOfThePage from "./EndOfThePage";
 import SocialMediaButton from "./SocialMediaButton";
 import ScrollBackToTopButton from "./ScrollBackToTopButton";
-import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom/cjs/react-router-dom.min";
 import BuyingTickets from "../Ticket/BuyingTickets";
-import ProfileInformation from '../Auth/ProfileInformation';
-import { Wallet } from "react-ionicons";
+import ProfileInformation from "../Auth/ProfileInformation";
 import TicketInformaitonPageFrontVersion from "../Ticket/TicketInformaitonPageFrontVersion";
-
+import Wallet from "../Wallet/Wallet";
+import LoginForm from "../Auth/LoginForm";
 const MainPage = () => {
   //
   // State to manage the button's visibility
@@ -46,33 +49,57 @@ const MainPage = () => {
     };
   }, []);
   //.
-
+  const isLoggedIn = true;
   return (
-    <div
-      
-    >
-      <Navbar />
-      {/* <!-- ====== side bar starts here ==== --> */}
-      <LinkeSide />
-      {/* <BreadCumb /> */}
-      {/* <!-- === main content starts here ====  --> */}
+    <div>
       <Switch>
-        <Route path="/">
-          <Main />
-        </Route>
-        <Route path="/home">
-          <Main />
-        </Route>
-        <Route path='/buyingTickets'> <BuyingTickets/> </Route>
-        <Route path='/profile-sign-in'> <ProfileInformation/> </Route>
-        <Route path='/wallet'> <Wallet/> </Route>
-        <Route path='/tickets'> <TicketInformaitonPageFrontVersion/> </Route>
+        {isLoggedIn ? (
+          <>
+            <Route path="/">
+              <Navbar />
+              {/* <!-- ====== side bar starts here ==== --> */}
+              <LinkeSide />
+              {/* <BreadCumb /> */}
+              {/* <!-- === main content starts here ====  --> */}
+              {/* <!-- === end of the page === --> */}
+              <EndOfThePage />
+              {/* <!-- ==== social media button ====== --> */}
+              <SocialMediaButton />
+              {isButtonVisible && (
+                <ScrollBackToTopButton topFunction={topFunction} />
+              )}
+            </Route>
+            <Route path="/" exact>
+              <Redirect to="/home" />
+            </Route>
+            <Route path="/home">
+              <Main />
+            </Route>
+            <Route path="/buying-tickets">
+              <BuyingTickets />
+            </Route>
+            <Route path="/profile-sign-in">
+              <ProfileInformation />
+            </Route>
+            <Route path="/wallet">
+              <Wallet />
+            </Route>
+            <Route path="/tickets">
+              <TicketInformaitonPageFrontVersion />
+            </Route>
+            <Route path="*">
+              <Redirect path="/home" />
+            </Route>
+          </>
+        ) : (
+          <>
+            <Redirect to="/login-form" />
+            <Route path="/login-form">
+              <LoginForm />
+            </Route>
+          </>
+        )}
       </Switch>
-      {/* <!-- === end of the page === --> */}
-      <EndOfThePage />
-      {/* <!-- ==== social media button ====== --> */}
-      <SocialMediaButton />
-      {isButtonVisible && <ScrollBackToTopButton topFunction={topFunction} />}
     </div>
   );
 };
