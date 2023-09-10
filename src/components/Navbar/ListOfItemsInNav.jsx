@@ -56,7 +56,7 @@ export const ListOfItemsInNav = () => {
 
         <NavLink
           id="tickets"
-          to="/tickets"
+          to="/buying-tickets"
           onClick={handleButtonClick}
           className='navbar-link'
           activeClassName="navbar-link_active"
