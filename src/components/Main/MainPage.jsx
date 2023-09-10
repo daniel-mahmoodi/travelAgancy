@@ -88,7 +88,7 @@ const MainPage = () => {
               <TicketInformaitonPageFrontVersion />
             </Route>
             <Route path="*">
-              <Redirect path="/home" />
+              <Main />
             </Route>
           </>
         ) : (
