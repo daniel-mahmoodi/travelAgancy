@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
 import { LinkeSide } from "./LinkeSide";
-import Main from "./Main";
+import SummaryDashboard from "./SummaryDashboard";
 import EndOfThePage from "./EndOfThePage";
 import SocialMediaButton from "./SocialMediaButton";
 import ScrollBackToTopButton from "./ScrollBackToTopButton";
@@ -16,7 +16,6 @@ import TicketInformaitonPageFrontVersion from "../Ticket/TicketInformaitonPageFr
 import Wallet from "../Wallet/Wallet";
 import LoginForm from "../Auth/LoginForm";
 const MainPage = () => {
-
   const isLoggedIn = true;
   return (
     <div>
@@ -29,14 +28,13 @@ const MainPage = () => {
               {/* <BreadCumb /> */}
               <EndOfThePage />
               <SocialMediaButton />
-              <ScrollBackToTopButton/>
-              
+              <ScrollBackToTopButton />
             </Route>
             <Route path="/" exact>
               <Redirect to="/home" />
             </Route>
             <Route path="/home" exact>
-              <Main />
+              <SummaryDashboard />
             </Route>
             <Route path="/buying-tickets" exact>
               <BuyingTickets />
@@ -60,7 +58,7 @@ const MainPage = () => {
           </>
         )}
         <Route path="*">
-          <Main />
+          <SummaryDashboard />
         </Route>
       </Switch>
     </div>

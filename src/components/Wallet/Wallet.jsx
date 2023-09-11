@@ -4,22 +4,22 @@ const Wallet = () => {
   return (
     <Fragment>
       <nav
-        class="flex mb-4 mt-[110px] lg:mr-[300px] lg:ml-[80px] mr-0 ml-0 px-6"
+        className="flex mb-4 mt-[110px] lg:mr-[300px] lg:ml-[80px] mr-0 ml-0 px-6"
         aria-label="Breadcrumb"
       >
-        <ol class="inline-flex items-center space-x-1 md:space-x-3">
-          <li class="inline-flex items-center selection:">
+        <ol className="inline-flex items-center space-x-1 md:space-x-3">
+          <li className="inline-flex items-center selection:">
             <a
               href="#"
-              class="inline-flex items-center text-sm font-semibold text-gray-700 duration-300 hover:text-blue-500"
+              className="inline-flex items-center text-sm font-semibold text-gray-700 duration-300 hover:text-blue-500"
             >
               صفحه اصلی
             </a>
           </li>
           <li>
-            <div class="flex items-center">
+            <div className="flex items-center">
               <svg
-                class="w-3 h-3 mx-2 text-gray-400 rotate-180"
+                className="w-3 h-3 mx-2 text-gray-400 rotate-180"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -35,16 +35,16 @@ const Wallet = () => {
               </svg>
               <a
                 href="#"
-                class="ml-1 text-sm font-semibold text-gray-700 duration-300 hover:text-blue-500"
+                className="ml-1 text-sm font-semibold text-gray-700 duration-300 hover:text-blue-500"
               >
                 کیف پول
               </a>
             </div>
           </li>
           <li aria-current="page">
-            <div class="flex items-center">
+            <div className="flex items-center">
               <svg
-                class="w-3 h-3 text-gray-400 rotate-180"
+                className="w-3 h-3 text-gray-400 rotate-180"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -58,7 +58,7 @@ const Wallet = () => {
                   d="m1 9 4-4-4-4"
                 />
               </svg>
-              <span class="mx-3 ml-1 text-sm font-semibold text-gray-500 md:ml-2 dark:text-gray-400">
+              <span className="mx-3 ml-1 text-sm font-semibold text-gray-500 md:ml-2 dark:text-gray-400">
                 شارژ کیف پول
               </span>
             </div>
@@ -66,63 +66,63 @@ const Wallet = () => {
         </ol>
       </nav>
 
-      <main class="bg-white border-0 main-content md:shadow-md md:border bg-opacity-98">
+      <main className="bg-white border-0 main-content md:shadow-md md:border bg-opacity-98">
         <div>
-          <h4 class="flex items-center gap-2 py-4 font-medium text-blue-950">
-            <ion-icon class="w-6 h-6" name="card-outline"></ion-icon>
+          <h4 className="flex items-center gap-2 py-4 font-medium text-blue-950">
+            <ion-icon className="w-6 h-6" name="card-outline"></ion-icon>
             شارژ کیف پول
           </h4>
           <hr />
-          <div class="mt-10">
-            <form class="mb-12" action="">
+          <div className="mt-10">
+            <form className="mb-12" action="">
               {/* <!-- ===  radio buttons ==== --> */}
-              <div class="p-3 border rounded-md shadow-md">
-                <p class="mb-4 text-sm text-gray-500">
+              <div className="p-3 border rounded-md shadow-md">
+                <p className="mb-4 text-sm text-gray-500">
                   مبلغ مورد نظر خود را انتخاب کنید :
                 </p>
-                <label class="flex p-2 cursor-pointer radio">
+                <label className="flex p-2 cursor-pointer radio">
                   <input
-                    class="my-auto transform scale-125"
+                    className="my-auto transform scale-125"
                     type="radio"
                     name="sfg"
                   />
-                  <div class="px-2 text-sm text-gray-600 title">5 میلیون</div>
+                  <div className="px-2 text-sm text-gray-600 title">5 میلیون</div>
                 </label>
 
-                <label class="flex p-2 cursor-pointer radio">
+                <label className="flex p-2 cursor-pointer radio">
                   <input
-                    class="my-auto transform scale-125"
+                    className="my-auto transform scale-125"
                     type="radio"
                     name="sfg"
                   />
-                  <div class="px-2 text-sm text-gray-600 title">10 میلیون</div>
+                  <div className="px-2 text-sm text-gray-600 title">10 میلیون</div>
                 </label>
 
-                <label class="flex p-2 cursor-pointer radio">
+                <label className="flex p-2 cursor-pointer radio">
                   <input
-                    class="my-auto transform scale-125"
+                    className="my-auto transform scale-125"
                     type="radio"
                     name="sfg"
                   />
-                  <div class="px-2 text-sm text-gray-600 title">15 میلیون</div>
+                  <div className="px-2 text-sm text-gray-600 title">15 میلیون</div>
                 </label>
 
-                <label class="flex p-2 cursor-pointer radio">
+                <label className="flex p-2 cursor-pointer radio">
                   <input
-                    class="my-auto transform scale-125"
+                    className="my-auto transform scale-125"
                     type="radio"
                     name="sfg"
                   />
-                  <div class="px-2 text-sm text-gray-600 title">20 میلیون</div>
+                  <div className="px-2 text-sm text-gray-600 title">20 میلیون</div>
                 </label>
 
-                <label class="flex p-2 cursor-pointer radio">
+                <label className="flex p-2 cursor-pointer radio">
                   <input
-                    class="my-auto transform scale-125"
+                    className="my-auto transform scale-125"
                     type="radio"
                     name="sfg"
                   />
-                  <div class="px-2 text-sm text-gray-600 title">
+                  <div className="px-2 text-sm text-gray-600 title">
                     مبلغ دلخواه
                   </div>
                 </label>
@@ -132,58 +132,58 @@ const Wallet = () => {
 
           {/* <!-- radio ends here --> */}
           <form action="">
-            <div class="relative mb-3" data-te-input-wrapper-init>
+            <div className="relative mb-3" data-te-input-wrapper-init>
               <input
                 type="text"
-                class="peer text-sm block min-h-[auto] w-full rounded border border-gray-300 shadow-sm focus:border-blue-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear opacity-100 focus:placeholder:opacity-100"
+                className="peer text-sm block min-h-[auto] w-full rounded border border-gray-300 shadow-sm focus:border-blue-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear opacity-100 focus:placeholder:opacity-100"
                 id="exampleFormControlInputText"
                 data-input-text
               />
               <label
                 htmlFor="exampleFormControlInputText"
-                class="pointer-events-none absolute right-3 group top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out"
+                className="pointer-events-none absolute right-3 group top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out"
               >
                 مبلغ شارژ <span>( به تومان)</span>
               </label>
-              <div class="text-[12px] text-red-500 mt-2 hidden">
+              <div className="text-[12px] text-red-500 mt-2 hidden">
                 تنها عدد وارد کنید (زبان کیبورد خود را حتما به انگلیسی تغییر
                 دهید )
               </div>
 
-              <span class="text-[10px] text-gray-400 mt-2">
+              <span className="text-[10px] text-gray-400 mt-2">
                 پرداخت با کلیه کارت های عضو شتاب
               </span>
-              <div class="flex justify-end">
-                <button class="px-5 py-2 text-sm font-medium text-white duration-200 border rounded-md border-primary-500 bg-primary-500 bg-primary hover:bg-transparent hover:text-primary-500">
+              <div className="flex justify-end">
+                <button className="px-5 py-2 text-sm font-medium text-white duration-200 border rounded-md border-primary-500 bg-primary-500 bg-primary hover:bg-transparent hover:text-primary-500">
                   پرداخت هزینه
                 </button>
               </div>
             </div>
           </form>
 
-          <form class="mt-12" action="">
-            <div class="relative mb-3" data-te-input-wrapper-init>
+          <form className="mt-12" action="">
+            <div className="relative mb-3" data-te-input-wrapper-init>
               <input
                 type="text"
-                class="peer text-sm block min-h-[auto] w-full rounded border border-gray-300 shadow-sm focus:border-blue-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear opacity-100 focus:placeholder:opacity-100"
+                className="peer text-sm block min-h-[auto] w-full rounded border border-gray-300 shadow-sm focus:border-blue-400 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear opacity-100 focus:placeholder:opacity-100"
                 data-input-text
               />
               <label
                 htmlFor="exampleFormControlInputText"
-                class="pointer-events-none absolute right-3 group top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out"
+                className="pointer-events-none absolute right-3 group top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out"
               >
                 کد هدیه
               </label>
-              <div class="text-[12px] text-red-500 mt-2 hidden">
+              <div className="text-[12px] text-red-500 mt-2 hidden">
                 کد مورد نظر اشتباه است !
               </div>
-              <span class="text-[10px] text-gray-400 mt-2">
+              <span className="text-[10px] text-gray-400 mt-2">
                 با استفاده از کارت های اعتباری تیلویند حساب خود را شارژ کنید
               </span>
 
-              <div class="flex justify-end">
+              <div className="flex justify-end">
                 <a
-                  class="px-3 py-1 text-white duration-200 border rounded-md bg-secondary-500 border-secondary-400 hover:bg-transparent hover:text-secondary-500"
+                  className="px-3 py-1 text-white duration-200 border rounded-md bg-secondary-500 border-secondary-400 hover:bg-transparent hover:text-secondary-500"
                   href="#"
                 >
                   اعمال کد

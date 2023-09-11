@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const ButtonBox = () => {
-  const apiUrl = process.env.REACT_APP_API_ENDPOINT;
-  const [data, setData] = useState([]);
+import { useDispatch, useSelector } from "react-redux";
+import { categoryActions } from "../../store/category-slice";
+import {
+  fetchListOfCategoriesHandler,
+  fetchListOfItemsFromSelectedCategoryHandler,
+} from "../../store/category-actions";
+const Category = () => {
+  const data = useSelector((state) => state.category.categoriesItems);
+  console.log('Categoriesdata',data);
   const [activeButtonId, setActiveButtonId] = useState();
+  const dispatch = useDispatch();
   useEffect(() => {
-    // console.log("import axi", baseUrl);
-    axios
-      .get(apiUrl)
-      .then((response) => {
-        // Handle the successful response here
-        console.log(response.data); // This contains the API data
-        setData(response.data);
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the request
-        console.error(error);
-      });
-  }, [apiUrl]);
+    dispatch(fetchListOfCategoriesHandler());
+  }, [dispatch]);
   const handleButtonClick = (id) => {
     setActiveButtonId(id);
+    dispatch(categoryActions.categorySelectedID(id));
+    dispatch(fetchListOfItemsFromSelectedCategoryHandler(id));
   };
   return (
     <div className="flex justify-center flex-shrink-0 mt-[160px] md:mt-[120px] flex-wrap gap-3 p-6 lg:mr-[270px] ml-0 mr-0">
@@ -34,7 +32,7 @@ const ButtonBox = () => {
               id={`btn-${item.id}`}
               className="button-box"
             >
-              {item.workGroupName}
+              {item.name}
             </button>
           </div>
         ))}
@@ -82,4 +80,4 @@ const ButtonBox = () => {
   );
 };
 
-export default ButtonBox;
+export default Category;

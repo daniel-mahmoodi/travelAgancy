@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import Navbar from "../Navbar/Navbar";
-import { LinkeSide } from "../Main/LinkeSide";
+import { LinkeSide } from "../SummaryDashboard/LinkeSide";
 
 const Layout = (props) => {
   return (

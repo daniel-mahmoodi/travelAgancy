@@ -1,15 +1,13 @@
 import React from "react";
-import BreadCumb from "../Main/BreadCumb";
+import BreadCumb from "../SummaryDashboard/BreadCumb";
 import StoreBoxInfo from "./StoreBoxInfo";
-import ButtonBox from "../WorkGroup/ButtonBox";
+import Category from "../WorkGroup/Category";
 import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions";
-import Card from "./Card";
-import NewPaymentFormModal from "../Modal/NewPaymentFormModal";
+import Cards from "./Cards";
 import PaymentModal from "./PaymentModal";
-import SequenceInfo from "../Modal/SequenceInfo";
 const BuyingTickets = () => {
   // const dispatch= useDispatch()
-
+  console.log("buyingTikets");
   return (
     // <body dir="rtl">
     <div>
@@ -17,7 +15,7 @@ const BuyingTickets = () => {
       {/* <LinkeSide/> */}
 
       {/* <!-- =====  buttons box ===== --> */}
-      <ButtonBox />
+      <Category />
 
       {/* <!-- ==== store box ==== --> */}
       <StoreBoxInfo />
@@ -27,7 +25,7 @@ const BuyingTickets = () => {
       {/* <!-- === bread cumb ends here === --> */}
 
       <main className="mt-5 bg-white border-0 shadow-none main-content lg:shadow-md lg:border">
-        <Card />
+        <Cards />
 
         {/* <!-- == FQS starts here == --> */}
         <FrequentlyAskedQuestions />

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import NewsBoxesInDashBoard from "./NewsBoxesInDashBoard";
 import NewsBoxes from "./NewsBoxes";
-const Main = () => {
+const SummaryDashboard = () => {
   return (
     <main className="main-content bg-white">
       <div className="flex justify-between">
@@ -33,4 +33,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default SummaryDashboard;
