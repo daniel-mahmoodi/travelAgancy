@@ -72,33 +72,33 @@ const MainPage = () => {
             <Route path="/" exact>
               <Redirect to="/home" />
             </Route>
-            <Route path="/home">
+            <Route path="/home" exact>
               <Main />
             </Route>
-            <Route path="/buying-tickets">
+            <Route path="/buying-tickets" exact>
               <BuyingTickets />
             </Route>
-            <Route path="/profile-sign-in">
+            <Route path="/profile-sign-in" exact>
               <ProfileInformation />
             </Route>
-            <Route path="/wallet">
+            <Route path="/wallet" exact>
               <Wallet />
             </Route>
-            <Route path="/tickets">
+            <Route path="/tickets" exact>
               <TicketInformaitonPageFrontVersion />
-            </Route>
-            <Route path="*">
-              <Main />
             </Route>
           </>
         ) : (
           <>
             <Redirect to="/login-form" />
-            <Route path="/login-form">
+            <Route path="/login-form" exact>
               <LoginForm />
             </Route>
           </>
         )}
+        <Route path="*">
+          <Main />
+        </Route>
       </Switch>
     </div>
   );
