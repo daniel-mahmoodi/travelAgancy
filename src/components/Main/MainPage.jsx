@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import { LinkeSide } from "./LinkeSide";
 import Main from "./Main";
@@ -17,38 +16,7 @@ import TicketInformaitonPageFrontVersion from "../Ticket/TicketInformaitonPageFr
 import Wallet from "../Wallet/Wallet";
 import LoginForm from "../Auth/LoginForm";
 const MainPage = () => {
-  //
-  // State to manage the button's visibility
-  const [isButtonVisible, setButtonVisible] = useState(false);
 
-  // Function to handle scrolling
-  const scrollFunction = () => {
-    if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
-    ) {
-      setButtonVisible(true);
-    } else {
-      setButtonVisible(false);
-    }
-  };
-
-  // Function to scroll to the top of the document
-  const topFunction = () => {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
-  };
-
-  // Add scroll event listener when the component mounts
-  useEffect(() => {
-    window.addEventListener("scroll", scrollFunction);
-
-    // Remove the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("scroll", scrollFunction);
-    };
-  }, []);
-  //.
   const isLoggedIn = true;
   return (
     <div>
@@ -57,17 +25,12 @@ const MainPage = () => {
           <>
             <Route path="/">
               <Navbar />
-              {/* <!-- ====== side bar starts here ==== --> */}
               <LinkeSide />
               {/* <BreadCumb /> */}
-              {/* <!-- === main content starts here ====  --> */}
-              {/* <!-- === end of the page === --> */}
               <EndOfThePage />
-              {/* <!-- ==== social media button ====== --> */}
               <SocialMediaButton />
-              {isButtonVisible && (
-                <ScrollBackToTopButton topFunction={topFunction} />
-              )}
+              <ScrollBackToTopButton/>
+              
             </Route>
             <Route path="/" exact>
               <Redirect to="/home" />
