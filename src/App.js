@@ -1,9 +1,9 @@
 import "./App.css";
 import CartPopUpMenu from "../src/components/Modal/CartPopUpMenu";
-import MainPage from "./components/SummaryDashboard/MainPage";
 import { useSelector } from "react-redux";
 import SequenceInfo from "../src/components/Modal/SequenceInfo";
 import NewPaymentFormModal from "./components/Modal/NewPaymentFormModal";
+import MainPage from "./components/Main/MainPage";
 
 function App() {
   const showCartModal = useSelector((state) => state.ui.cartModalPopUp);

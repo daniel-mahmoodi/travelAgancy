@@ -1,5 +1,5 @@
 import React from "react";
-import BreadCumb from "../SummaryDashboard/BreadCumb";
+import BreadCumb from "../Main/BreadCumb";
 import StoreBoxInfo from "./StoreBoxInfo";
 import Category from "../WorkGroup/Category";
 import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions";

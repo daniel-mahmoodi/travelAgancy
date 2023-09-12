@@ -1,9 +1,21 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-export const LinkeSide = () => {
+import { uiActions } from "../../store/Ui-slice";
+export const SideBar = () => {
+  const dispatch = useDispatch();
+  const isSideBarVisible = useSelector((state) => state.ui.sideBarVisibile);
+  const toggleSideBarVisibilityHandler = () => {
+    dispatch(uiActions.toggleSideBarVisibility(false));
+  };
   return (
     <div>
-      <div className="hidden lg:block sidebar_fixed z-[900]">
+      <div
+        onClick={toggleSideBarVisibilityHandler}
+        className={`${
+          isSideBarVisible ? "" : "hidden"
+        } lg:block sidebar_fixed z-[900]`}
+      >
         <div className="fixed top-0 left-0 w-full h-full bg-gray-100 bg-opacity-50 lg:hidden sidebar-wrapper"></div>
         <div className="relative flex flex-col gap-2 pt-5 pe-5 bg-[#211e29] pb-8">
           <div className="flex flex-col items-center justify-center p-4">
@@ -12,8 +24,8 @@ export const LinkeSide = () => {
               src="../img/icons8-avatar-96.png"
               alt=""
             />
-            <p className="mt-3 text-white">username</p>
-            <Link to="/#">
+            <p className="mt-3 text-white ">username</p>
+            <Link to="/" className='sidebar-message_icon'>
               <ion-icon
                 className="sidebar-message_icon"
                 title="سبد خرید "
@@ -29,7 +41,7 @@ export const LinkeSide = () => {
             </button>
           </div>
           <div className="flex flex-col gap-2 mt-4">
-            <Link className="sidebar-accordion_button" to="/#">
+            <Link className="sidebar-accordion_button" to="/summary-dashboard">
               <ion-icon
                 className="pe-3 text-primary-200"
                 name="desktop-outline"
@@ -43,7 +55,7 @@ export const LinkeSide = () => {
               ></ion-icon>
               آنالیز و تحلیل محصولات
             </Link>
-            <Link className="sidebar-accordion_button" to="/#">
+            <Link className="sidebar-accordion_button" to="/user-profile">
               <ion-icon
                 className="pe-3 text-primary-200"
                 name="person-outline"

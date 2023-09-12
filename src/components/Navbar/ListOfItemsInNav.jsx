@@ -3,16 +3,16 @@ import { NavLink } from "react-router-dom";
 export const ListOfItemsInNav = () => {
   const [activeButtonId, setActiveButtonId] = useState("home");
   const handleButtonClick = (id) => {
-    setActiveButtonId('');
+    setActiveButtonId("");
   };
   return (
     <div>
       <div className="flex space-x-4">
         <NavLink
           id="home"
-          to="/home"
+          to="/summary-dashboard"
           onClick={handleButtonClick}
-          className='navbar-link'
+          className="navbar-link"
           activeClassName="navbar-link_active"
           aria-current="page"
           // x-state:on="Current"
@@ -20,7 +20,7 @@ export const ListOfItemsInNav = () => {
         >
           پیشخوان
         </NavLink>
-{/* 
+        {/* 
         <NavLink
           id="dl"
           to="download"
@@ -32,9 +32,9 @@ export const ListOfItemsInNav = () => {
         </NavLink> */}
         <NavLink
           id="profile"
-          to="/profile-sign-in"
+          to="/user-profile"
           onClick={handleButtonClick}
-          className='navbar-link'
+          className="navbar-link"
           activeClassName="navbar-link_active"
         >
           پروفایل
@@ -44,13 +44,13 @@ export const ListOfItemsInNav = () => {
           to="/wallet"
           onClick={handleButtonClick}
           // className="navbar-link_active"
-          className='navbar-link'
+          className="navbar-link"
           activeClassName="navbar-link_active"
         >
           کیف پول
         </NavLink>
 
-        {/* <NavLink to="/home" onClick={handleButtonClick} className={`navbar-link${activeButtonId}? 'wallet': '' `}>
+        {/* <NavLink to="/summary-dashboard" onClick={handleButtonClick} className={`navbar-link${activeButtonId}? 'wallet': '' `}>
           صفحه اصلی
         </NavLink> */}
 
@@ -58,7 +58,7 @@ export const ListOfItemsInNav = () => {
           id="tickets"
           to="/buying-tickets"
           onClick={handleButtonClick}
-          className='navbar-link'
+          className="navbar-link"
           activeClassName="navbar-link_active"
         >
           تیکت ها
