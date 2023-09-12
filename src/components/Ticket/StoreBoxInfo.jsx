@@ -46,7 +46,7 @@ const StoreBoxInfo = () => {
             28:54
           </div>
         </div>
-        <div className="flex relative justify-center top-[3px] gap-2 ">
+        <div className="flex justify-center top-[3px] gap-2 ">
           <button className="rounded-full text-white bg-[#4576ef] p-2 h-8 w-8 ">
             <ion-icon title="بارگذاری مجدد" name="repeat-outline"></ion-icon>
           </button>
