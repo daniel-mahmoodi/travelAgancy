@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-import { LinkeSide } from "./LinkeSide";
+import { SideBar } from "./SideBar";
 import SummaryDashboard from "./SummaryDashboard";
 import EndOfThePage from "./EndOfThePage";
 import SocialMediaButton from "./SocialMediaButton";
@@ -24,22 +24,22 @@ const MainPage = () => {
           <>
             <Route path="/">
               <Navbar />
-              <LinkeSide />
+              <SideBar />
               {/* <BreadCumb /> */}
               <EndOfThePage />
               <SocialMediaButton />
               <ScrollBackToTopButton />
             </Route>
             <Route path="/" exact>
-              <Redirect to="/home" />
+              <Redirect to="/summary-dashboard" />
             </Route>
-            <Route path="/home" exact>
+            <Route path="/summary-dashboard" exact>
               <SummaryDashboard />
             </Route>
             <Route path="/buying-tickets" exact>
               <BuyingTickets />
             </Route>
-            <Route path="/profile-sign-in" exact>
+            <Route path="/user-profile" exact>
               <ProfileInformation />
             </Route>
             <Route path="/wallet" exact>

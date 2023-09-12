@@ -9,6 +9,7 @@ const uiSlice = createSlice({
     cartModalPopUp: false,
     sequenceModalPopUp: false,
     newPaymentModalPopUp: false,
+    sideBarVisibile: false,
     // authUpdateModalPopUp: false,
     // commentToStoreModalPopUp: false,
     // hamburgerModalPopUp: false,
@@ -41,6 +42,9 @@ const uiSlice = createSlice({
     },
     toggleNewPaymentModal(state) {
       state.newPaymentModalPopUp = !state.newPaymentModalPopUp;
+    },
+    toggleSideBarVisibility(state, action) {
+      state.sideBarVisibile = action.payload;
     },
     // toggleUpdateUserModal(state) {
     //   state.authUpdateModalPopUp = !state.authUpdateModalPopUp;

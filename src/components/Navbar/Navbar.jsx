@@ -2,7 +2,10 @@ import React from "react";
 import { useEffect, useState, useRef } from "react";
 import { ListOfItemsInNav } from "./ListOfItemsInNav";
 import { Link } from "react-router-dom";
+import { uiActions } from "../../store/Ui-slice";
+import { useDispatch } from "react-redux";
 function Navbar() {
+  const dispatch = useDispatch();
   const [isMessageDropdownVisible, setMessageDropdownVisible] = useState(false);
 
   // State to store the message menu interval
@@ -164,7 +167,9 @@ function Navbar() {
     // Your logic for handling the click event
   };
   // .
-
+  const toggleSideBarVisibilityHandler = () => {
+    dispatch(uiActions.toggleSideBarVisibility(true));
+  };
   return (
     <div className="min-h-full bg-white">
       <div className="shadow-md">
@@ -225,6 +230,7 @@ function Navbar() {
                 {/* <!-- Mobile menu button --> */}
                 <button
                   type="button"
+                  onClick={toggleSideBarVisibilityHandler}
                   className="inline-flex items-center justify-center p-2 text-black bg-gray-300 rounded-md hover:bg-opacity-75 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                   id="sidebar-btn"
                 >
