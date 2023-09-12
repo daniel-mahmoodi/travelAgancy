@@ -35,27 +35,27 @@ const ScrollBackToTopButton = () => {
     <Fragment>
       {isButtonVisible && (
         <button
-          className="fixed bottom-[20px] right-[20px] lg:right-[300px] bg-green-500 z-10"
+          className="fixed bottom-[20px] right-[20px] lg:right-[300px] flex justify-center items-center z-10 w-12 h-12 p-3  text-white rounded-full bg-secondary-400"
           id="myScrollbackBtn"
           title="Go to top"
           onClick={() => topFunction()}
-          style={{
-            display: "block",
-            position: "fixed",
-            // bottom: "20px",
-            // right: "30px",
-            // zIndex: "99",
-            border: "none",
-            outline: "none",
-            // backgroundColor: "green",
-            color: "white",
-            cursor: "pointer",
-            padding: "15px",
-            borderRadius: "50%",
-          }}
+          // style={{
+          //   display: "block",
+          //   position: "fixed",
+          //   // bottom: "20px",
+          //   // right: "30px",
+          //   // zIndex: "99",
+          //   border: "none",
+          //   outline: "none",
+          //   // backgroundColor: "green",
+          //   color: "white",
+          //   cursor: "pointer",
+          //   padding: "15px",
+          //   borderRadius: "50%",
+          // }}
         >
           <ion-icon
-            className="w-6 h-6 p-2 text-white rounded-full bg-secondary-400"
+            className=""
             name="chevron-up-outline"
           ></ion-icon>
         </button>

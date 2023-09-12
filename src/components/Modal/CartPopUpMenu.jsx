@@ -1,7 +1,7 @@
 import React from "react";
 import MainModal from "./MainModal";
 import { useDispatch } from "react-redux";
-import {uiActions} from '../../store/Ui-slice'
+import { uiActions } from "../../store/Ui-slice";
 const CartPopUpMenu = () => {
   console.log("cartModal component");
   const dispatch = useDispatch();
@@ -27,12 +27,13 @@ const CartPopUpMenu = () => {
         <div className="shadow-md max-w-[600px] rounded-md border p-4 mt-10 bg-white">
           <div className="flex items-center justify-between pb-3 font-bold">
             سبد خرید
-            <button onClick={hideBasket}>
-              <ion-icon
-                className="w-8 h-8 text-red-500"
-                name="close-circle-outline"
-              ></ion-icon>
+            <button onClick={hideBasket} className="w-8 h-8 text-red-500">
+              <ion-icon name="close-circle-outline"></ion-icon>
             </button>
+            {/* className="text-white rounded-full flex justify-center items-center"
+              style={{
+                backgroundColor: "red",
+              }} */}
           </div>
           <hr />
           <div className="my-8">

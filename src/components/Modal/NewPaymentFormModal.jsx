@@ -1,6 +1,6 @@
 import React from "react";
 import MainModal from "./MainModal";
-import { CloseCircle } from "react-ionicons";
+// import { CloseCircle } from "react-ionicons";
 import { uiActions } from "../../store/Ui-slice";
 import { useDispatch } from "react-redux";
 const NewPaymentFormModal = () => {
@@ -30,21 +30,11 @@ const NewPaymentFormModal = () => {
         <div className="shadow-md border max-w-[500px] mx-auto p-4 my-8 rounded-md bg-white">
           <div className="flex items-center justify-between mb-4">
             <span className="text-gray-500">سبد خرید جدید</span>
-            <button onClick={hideNewPaymentModalHandler}>
-              <div className="w-8h-8 bg-rose-800">
-                {/* <IconIcon icon={closeCircle}></IconIcon> */}
-                <CloseCircle
-                  color={"#ac1313"}
-                  title="closeSircle"
-                  height="24px"
-                  width="24px"
-                />
-
-                {/* <ion-icon
-                  className="w-8 h-8 text-red-500"
-                  name="close-circle"
-                ></ion-icon> */}
-              </div>
+            <button
+              onClick={hideNewPaymentModalHandler}
+              className="w-8 h-8 text-red-500"
+            >
+              <ion-icon name="close-circle-outline"></ion-icon>
             </button>
           </div>
           <hr />
