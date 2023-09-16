@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchListOfItemsFromSelectedCategoryHandler } from "../../store/category-actions";
 import CardItem from "./CardItem";
-import MyCardLoader from "../Layout/MyCardLoading";
+import MyCardLoader from "../Layout/MyCardLoader";
 
 const Cards = () => {
   const cardsData = useSelector(

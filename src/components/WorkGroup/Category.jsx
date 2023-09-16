@@ -6,9 +6,10 @@ import {
   fetchListOfCategoriesHandler,
   fetchListOfItemsFromSelectedCategoryHandler,
 } from "../../store/category-actions";
+import MyCategoryLoader from "../Layout/MyCategoryLoader";
 const Category = () => {
   const data = useSelector((state) => state.category.categoriesItems);
-  console.log('Categoriesdata',data);
+  console.log("Categoriesdata", data);
   const [activeButtonId, setActiveButtonId] = useState();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -20,22 +21,35 @@ const Category = () => {
     dispatch(fetchListOfItemsFromSelectedCategoryHandler(id));
   };
   return (
-    <div className="flex justify-center flex-shrink-0 mt-[160px] md:mt-[120px] flex-wrap gap-3 p-6 lg:mr-[270px] ml-0 mr-0">
-      {data.length !== 0 &&
-        data.map((item) => (
-          <div
-            id={item.id}
-            className={`text-center${activeButtonId ? "_active" : ""}`}
-          >
-            <button
-              onClick={() => handleButtonClick(item.id)}
-              id={`btn-${item.id}`}
-              className="button-box"
+    <div>
+      {!data.length ? (
+        <div className="flex justify-center flex-shrink-0 mt-[16px] md:mt-[12px] flex-wrap gap-3 p-6 lg:mr-[270px] ml-0 mr-0">
+          <MyCategoryLoader />
+          <MyCategoryLoader />
+          <MyCategoryLoader />
+          <MyCategoryLoader />
+          <MyCategoryLoader />
+          <MyCategoryLoader />
+          <MyCategoryLoader />
+        </div>
+      ) : (
+        <div className="flex justify-center flex-shrink-0 mt-[160px] md:mt-[120px] flex-wrap gap-3 p-6 lg:mr-[270px] ml-0 mr-0">
+          {data.map((item) => (
+            <div
+              id={item.id}
+              className={`text-center${activeButtonId ? "_active" : ""}`}
             >
-              {item.name}
-            </button>
-          </div>
-        ))}
+              <button
+                onClick={() => handleButtonClick(item.id)}
+                id={`btn-${item.id}`}
+                className="button-box"
+              >
+                {item.name}
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
       {/* <div className="text-center">
         <button id="page-1" className="button-box_active">
           پارک و شهربازی ها

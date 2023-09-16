@@ -4,7 +4,7 @@ import NewsBoxesInDashBoard from "./NewsBoxesInDashBoard";
 import NewsBoxes from "./NewsBoxes";
 const SummaryDashboard = () => {
   return (
-    <main className="main-content bg-white">
+    <main className="main-content bg-white ">
       <div className="flex justify-between">
         <div>
           <Link className="text-[12px] text-gray-500" to="/">

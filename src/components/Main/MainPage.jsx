@@ -15,6 +15,8 @@ import ProfileInformation from "../Auth/ProfileInformation";
 import TicketInformaitonPageFrontVersion from "../Ticket/TicketInformaitonPageFrontVersion";
 import Wallet from "../Wallet/Wallet";
 import LoginForm from "../Auth/LoginForm";
+import Breadcrumbs from "./BreadCumb";
+import SupportingTickets from "../Ticket/SupportingTickets";
 const MainPage = () => {
   const isLoggedIn = true;
   return (
@@ -24,9 +26,10 @@ const MainPage = () => {
           <>
             <Route path="/">
               <Navbar />
+              <Breadcrumbs />
               <SideBar />
               {/* <BreadCumb /> */}
-              <EndOfThePage />
+
               <SocialMediaButton />
               <ScrollBackToTopButton />
             </Route>
@@ -48,6 +51,9 @@ const MainPage = () => {
             <Route path="/tickets" exact>
               <TicketInformaitonPageFrontVersion />
             </Route>
+            <Route path="/summary-dashboard/supporting/supporting-tickets" exact>
+              <SupportingTickets />
+            </Route>
           </>
         ) : (
           <>
@@ -61,6 +67,7 @@ const MainPage = () => {
           <SummaryDashboard />
         </Route>
       </Switch>
+      <EndOfThePage />
     </div>
   );
 };

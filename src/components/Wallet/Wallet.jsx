@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 const Wallet = () => {
   return (
     <Fragment>
-      <nav
+      {/* <nav
         className="flex mb-4 mt-[110px] lg:mr-[300px] lg:ml-[80px] mr-0 ml-0 px-6"
         aria-label="Breadcrumb"
       >
@@ -64,7 +64,7 @@ const Wallet = () => {
             </div>
           </li>
         </ol>
-      </nav>
+      </nav> */}
 
       <main className="bg-white border-0 main-content md:shadow-md md:border bg-opacity-98">
         <div>

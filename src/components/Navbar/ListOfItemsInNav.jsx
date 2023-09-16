@@ -61,7 +61,7 @@ export const ListOfItemsInNav = () => {
           className="navbar-link"
           activeClassName="navbar-link_active"
         >
-          تیکت ها
+          خرید بلیط
         </NavLink>
       </div>
     </div>

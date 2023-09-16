@@ -20,10 +20,6 @@ const BuyingTickets = () => {
       {/* <!-- ==== store box ==== --> */}
       <StoreBoxInfo />
 
-      {/* <!-- bread cumb ===  --> */}
-      <BreadCumb />
-      {/* <!-- === bread cumb ends here === --> */}
-
       <main className="mt-5 bg-white border-0 shadow-none main-content lg:shadow-md lg:border">
         <Cards />
 
