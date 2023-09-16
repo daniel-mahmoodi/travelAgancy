@@ -24,7 +24,7 @@ const StoreBoxInfo = () => {
 
           <div className="bg-[#4576ef] flex items-center gap-2 py-1 text-[12px] px-2 rounded-full text-white">
             <ion-icon name="cash-outline"></ion-icon>
-            مجموع : 37120000
+            مجموع : {(37120000).toLocaleString()}
           </div>
         </div>
         <div className="flex h-10 gap-2 mt-0">
