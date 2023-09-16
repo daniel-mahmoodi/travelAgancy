@@ -2,15 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const defaultCartState = {
   items: { items: [] },
-  favoriteItems: { items: [] },
-  totalPrice: 0,
-  totalDiscountedPrice: 0,
-  totalQuantity: 0,
-  changed: false,
-  hasItem: false,
-  reseivdeDataCorrectly: false,
-  sendingCoupon: true,
-  checkServerAndLocalItems: false,
+  // favoriteItems: { items: [] },
+  // totalPrice: 0,
+  // totalDiscountedPrice: 0,
+  // totalQuantity: 0,
+  // changed: false,
+  // hasItem: false,
+  // reseivdeDataCorrectly: false,
+  // sendingCoupon: true,
+  // checkServerAndLocalItems: false,
 };
 
 const cartSlice = createSlice({
