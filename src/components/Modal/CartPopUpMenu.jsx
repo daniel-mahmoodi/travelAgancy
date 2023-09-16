@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MainModal from "./MainModal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/Ui-slice";
+import { cartActions } from "../../store/cart-slice";
+import { fetchCartData } from "../../store/cart-actions";
 const CartPopUpMenu = () => {
   console.log("cartModal component");
   const dispatch = useDispatch();
+  useEffect(() => {
+    // dispatch(fetchCartData());
+    console.log("fetch");
+  }, [dispatch]);
+  const cartItems = useSelector((state) => state.cart.items);
   const hideBasket = () => {
     dispatch(uiActions.toggleCartModal());
     console.log("hideBasket");

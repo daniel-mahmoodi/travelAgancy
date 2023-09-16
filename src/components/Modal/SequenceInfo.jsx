@@ -3,6 +3,7 @@ import MainModal from "./MainModal";
 
 import { uiActions } from "../../store/Ui-slice";
 import { useDispatch } from "react-redux";
+import SequenceItems from "./SequenceItems";
 
 const SequenceInfo = () => {
   const dispatch = useDispatch();
@@ -17,14 +18,14 @@ const SequenceInfo = () => {
   return (
     <MainModal hideModalHandler={hideSequenceModalHandler}>
       <div
-      //   className="fixed top-0 left-0 w-full h-full bg-blue-50/30 z-30"
-      //   //  style="z-index: 1000; overflow-y: scroll; display: none"
-      style={{
+        //   className="fixed top-0 left-0 w-full h-full bg-blue-50/30 z-30"
+        //   //  style="z-index: 1000; overflow-y: scroll; display: none"
+        style={{
           zIndex: 1000,
-      // overflowY: "scroll",
-      //     display: "none",
-      }}
-      //   id="selectSansModal"
+          overflowY: "auto",
+          //     display: "none",
+        }}
+        //   id="selectSansModal"
       >
         <div className="shadow-md max-w-[1200px] mx-auto rounded-md border p-4 bg-white mt-10">
           <div className="flex items-center justify-between mb-5">
@@ -32,13 +33,13 @@ const SequenceInfo = () => {
             <div>
               <button onClick={hideSansModal}>
                 <ion-icon
-                  className="w-8 h-8 text-red-500"
+                  class="w-8 h-8 text-red-500"
                   name="close-circle-outline"
                 ></ion-icon>
               </button>
               <button>
                 <ion-icon
-                  className="w-8 h-8 bg-[#4576ef] rounded-full text-white"
+                  class="w-8 h-8 bg-[#4576ef] rounded-full text-white"
                   name="refresh-circle-outline"
                 ></ion-icon>
               </button>
@@ -50,278 +51,7 @@ const SequenceInfo = () => {
               className="relative mt-8 mr-8 border-r border-gray-500"
               id="sansList"
             >
-              <li className="mb-2 mr-6">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -right-3 ring-8 ring-white">
-                  <svg
-                    className="w-2.5 h-2.5 text-blue-500"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"></path>
-                  </svg>
-                </span>
-                <div className="flex w-full">
-                  <h3 className="relative flex-shrink-0 mb-3 text-sm font-bold text-gray-700 top-[4px] w-[150px]">
-                    پنجشبه 16 شهریور 1402
-                  </h3>
-                  <div className="w-[2000px] relative top-[-10px]">
-                    <div className="flex justify-between w-full">
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-red-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-red-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="mb-2 mr-6">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -right-3 ring-8 ring-white">
-                  <svg
-                    className="w-2.5 h-2.5 text-blue-500"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"></path>
-                  </svg>
-                </span>
-                <div className="flex w-full">
-                  <h3 className="relative flex-shrink-0 mb-3 text-sm font-bold text-gray-700 top-[4px] w-[150px]">
-                    پنجشبه 16 شهریور 1402
-                  </h3>
-                  <div className="w-[2000px] relative top-[-10px]">
-                    <div className="flex justify-between w-full">
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-red-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-red-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="mb-2 mr-6">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -right-3 ring-8 ring-white">
-                  <svg
-                    className="w-2.5 h-2.5 text-blue-500"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"></path>
-                  </svg>
-                </span>
-                <div className="flex w-full">
-                  <h3 className="relative flex-shrink-0 mb-3 text-sm font-bold text-gray-700 top-[4px] w-[150px]">
-                    پنجشبه 16 شهریور 1402
-                  </h3>
-                  <div className="w-[2000px] relative top-[-10px]">
-                    <div className="flex justify-between w-full">
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-orange-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-green-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="hidden mb-2 mr-6">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -right-3 ring-8 ring-white">
-                  <svg
-                    className="w-2.5 h-2.5 text-blue-500"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"></path>
-                  </svg>
-                </span>
-                <div className="flex w-full">
-                  <h3 className="relative flex-shrink-0 mb-3 text-sm font-bold text-gray-700 top-[4px] w-[150px]">
-                    پنجشبه 16 شهریور 1402
-                  </h3>
-                  <div className="w-[2000px] relative top-[-10px]">
-                    <div className="flex justify-between w-full">
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-orange-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-green-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="hidden mb-2 mr-6">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -right-3 ring-8 ring-white">
-                  <svg
-                    className="w-2.5 h-2.5 text-blue-500"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"></path>
-                  </svg>
-                </span>
-                <div className="flex w-full">
-                  <h3 className="relative flex-shrink-0 mb-3 text-sm font-bold text-gray-700 top-[4px] w-[150px]">
-                    پنجشبه 16 شهریور 1402
-                  </h3>
-                  <div className="w-[2000px] relative top-[-10px]">
-                    <div className="flex justify-between w-full">
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-orange-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-green-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="hidden mb-2 mr-6">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -right-3 ring-8 ring-white">
-                  <svg
-                    className="w-2.5 h-2.5 text-blue-500"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"></path>
-                  </svg>
-                </span>
-                <div className="flex w-full">
-                  <h3 className="relative flex-shrink-0 mb-3 text-sm font-bold text-gray-700 top-[4px] w-[150px]">
-                    پنجشبه 16 شهریور 1402
-                  </h3>
-                  <div className="w-[2000px] relative top-[-10px]">
-                    <div className="flex justify-between w-full">
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-orange-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-green-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="hidden mb-2 mr-6">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -right-3 ring-8 ring-white">
-                  <svg
-                    className="w-2.5 h-2.5 text-blue-500"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"></path>
-                  </svg>
-                </span>
-                <div className="flex w-full">
-                  <h3 className="relative flex-shrink-0 mb-3 text-sm font-bold text-gray-700 top-[4px] w-[150px]">
-                    پنجشبه 16 شهریور 1402
-                  </h3>
-                  <div className="w-[2000px] relative top-[-10px]">
-                    <div className="flex justify-between w-full">
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-orange-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-green-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="hidden mb-2 mr-6">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -right-3 ring-8 ring-white">
-                  <svg
-                    className="w-2.5 h-2.5 text-blue-500"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"></path>
-                  </svg>
-                </span>
-                <div className="flex w-full">
-                  <h3 className="relative flex-shrink-0 mb-3 text-sm font-bold text-gray-700 top-[4px] w-[150px]">
-                    پنجشبه 16 شهریور 1402
-                  </h3>
-                  <div className="w-[2000px] relative top-[-10px]">
-                    <div className="flex justify-between w-full">
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-orange-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                      <button className="p-2 text-sm border rounded-md w-[calc(50%-2px)]">
-                        سانس شام 10 - 20
-                        <span className="inline-block p-1 mr-2 text-xs text-white bg-green-600 rounded-md relative top-[-2px]">
-                          20
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              <SequenceItems/>
             </ol>
             <button
               className="flex items-center justify-center w-full gap-1 p-2 text-white bg-green-400 rounded-md"

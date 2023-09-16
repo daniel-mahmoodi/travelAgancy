@@ -1,19 +1,19 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { uiActions } from "../../store/Ui-slice";
-import { fetchSansesOFSelectedCardItemHandler } from "../../store/category-actions";
+import { uiActions } from "../../../store/Ui-slice";
+import { fetchSequenceDataOFSelectedCardItemHandler } from "../../../store/card-actions";
 
 const CardItem = ({ data }) => {
   const dispatch = useDispatch();
   const { id, title, isActive } = data;
   const pushBuyBtn = () => {
     console.log("pushBuyBtn");
-    // dispatch(uiActions.toggleSequenceModal())
-    dispatch(uiActions.toggleNewPaymentModal());
-    dispatch(fetchSansesOFSelectedCardItemHandler(id));
+    dispatch(uiActions.toggleSequenceModal());
+    // dispatch(uiActions.toggleNewPaymentModal());
+    dispatch(fetchSequenceDataOFSelectedCardItemHandler(id));
   };
   return (
-    <div className="grid grid-col-1 md:grid-cols-4 gap-x-3 gap-y-5">
+    <div className="">
       {/* <!-- card --> */}
       <div className="pb-3 overflow-hidden bg-gray-100 border border-gray-300 rounded-md shadow-md">
         <div className="group relative duration-200 hover:scale-[1.1]">

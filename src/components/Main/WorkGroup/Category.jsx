@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { categoryActions } from "../../store/category-slice";
-import {
-  fetchListOfCategoriesHandler,
-  fetchListOfItemsFromSelectedCategoryHandler,
-} from "../../store/category-actions";
-import MyCategoryLoader from "../Layout/MyCategoryLoader";
+
+import MyCategoryLoader from '../../Layout/MyCategoryLoader'
+import { categoryActions } from "../../../store/category-slice";
+import { fetchListOfItemsFromSelectedCategoryHandler } from "../../../store/category-actions";
 const Category = () => {
   const data = useSelector((state) => state.category.categoriesItems);
   console.log("Categoriesdata", data);
   const [activeButtonId, setActiveButtonId] = useState();
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchListOfCategoriesHandler());
+    // dispatch(fetchListOfCategoriesHandler());
   }, [dispatch]);
   const handleButtonClick = (id) => {
+    console.log('handleButtonClick');
     setActiveButtonId(id);
     dispatch(categoryActions.categorySelectedID(id));
     dispatch(fetchListOfItemsFromSelectedCategoryHandler(id));

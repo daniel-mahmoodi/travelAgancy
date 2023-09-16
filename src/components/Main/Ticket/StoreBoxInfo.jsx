@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { uiActions } from "../../store/Ui-slice";
+import { uiActions } from "../../../store/Ui-slice";
 const StoreBoxInfo = () => {
   const dispatch = useDispatch();
   const showBasket = () => {

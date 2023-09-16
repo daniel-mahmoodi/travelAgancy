@@ -10,13 +10,13 @@ import {
   Route,
   Switch,
 } from "react-router-dom/cjs/react-router-dom.min";
-import BuyingTickets from "../Ticket/BuyingTickets";
+import BuyingTickets from "./Ticket/BuyingTickets";
 import ProfileInformation from "../Auth/ProfileInformation";
-import TicketInformaitonPageFrontVersion from "../Ticket/TicketInformaitonPageFrontVersion";
+import TicketInformaitonPageFrontVersion from "./Ticket/TicketInformaitonPageFrontVersion";
 import Wallet from "../Wallet/Wallet";
 import LoginForm from "../Auth/LoginForm";
 import Breadcrumbs from "./BreadCumb";
-import SupportingTickets from "../Ticket/SupportingTickets";
+import SupportingTickets from "./Ticket/SupportingTickets";
 const MainPage = () => {
   const isLoggedIn = true;
   return (
@@ -51,7 +51,10 @@ const MainPage = () => {
             <Route path="/tickets" exact>
               <TicketInformaitonPageFrontVersion />
             </Route>
-            <Route path="/summary-dashboard/supporting/supporting-tickets" exact>
+            <Route
+              path="/summary-dashboard/supporting/supporting-tickets"
+              exact
+            >
               <SupportingTickets />
             </Route>
           </>

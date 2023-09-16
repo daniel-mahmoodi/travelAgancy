@@ -1,13 +1,12 @@
 import React from "react";
-import BreadCumb from "../Main/BreadCumb";
+import BreadCumb from "../BreadCumb";
 import StoreBoxInfo from "./StoreBoxInfo";
-import Category from "../WorkGroup/Category";
 import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions";
 import Cards from "./Cards";
 import PaymentModal from "./PaymentModal";
+import { useSelector } from "react-redux";
+import Category from "../WorkGroup/Category";
 const BuyingTickets = () => {
-  // const dispatch= useDispatch()
-  console.log("buyingTikets");
   return (
     // <body dir="rtl">
     <div>
