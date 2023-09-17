@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import ReactDOM from "react-dom";
 
 const Backdrop = (props) => {
- 
   return (
     <div
       // className="modal-backdrop"
@@ -17,7 +16,7 @@ const Backdrop = (props) => {
 };
 const ModalOverlay = (props) => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       <div
         className="fixed"
         style={{
@@ -33,7 +32,10 @@ const portalElement = document.getElementById("cartOverlay");
 const MainModal = (props) => {
   return (
     <Fragment>
-      {ReactDOM.createPortal(<Backdrop hideModalHandler={props.hideModalHandler}/>, portalElement)}
+      {ReactDOM.createPortal(
+        <Backdrop hideModalHandler={props.hideModalHandler} />,
+        portalElement
+      )}
       {ReactDOM.createPortal(
         <ModalOverlay>{props.children}</ModalOverlay>,
         portalElement

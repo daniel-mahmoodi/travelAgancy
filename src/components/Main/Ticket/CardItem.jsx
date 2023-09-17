@@ -42,35 +42,34 @@ const CardItem = ({ data }) => {
         <h6 className="mt-8 text-center text-gray-700">{title}</h6>
         <div className="flex justify-center gap-1 mt-8">
           <div
-            // className="text-xl cursor-pointer p-2 text-white duration-200 bg-gray-400 rounded-full hover:bg-blue-400 hover:text-black"
-            title="افزودن به سبد خرید"
             onClick={pushBuyBtn}
+            title="افزودن به سبد خرید"
+            className="text-xl cursor-pointer"
           >
             <ion-icon
-              size="large"
-              color="primary"
-              className="p-2 text-white duration-200 bg-gray-400 rounded-full hover:bg-blue-400 hover:text-black"
+              class="p-2 text-white duration-200 bg-gray-400 rounded-full hover:bg-blue-400 hover:text-black"
               name="cart-outline"
             ></ion-icon>
           </div>
-          <a title="در مورد محصول" className="text-xl" href="#">
+
+          <div title="در مورد محصول" className="text-xl cursor-pointer">
             <ion-icon
-              className="p-2 text-white duration-200 bg-gray-400 rounded-full hover:bg-blue-400 hover:text-black"
+              class="p-2 text-white duration-200 bg-gray-400 rounded-full hover:bg-blue-400 hover:text-black"
               name="information-outline"
             ></ion-icon>
-          </a>
-          <a title="نشانه گذاری" className="text-xl" href="#">
+          </div>
+          <div title="نشانه گذاری" className="text-xl cursor-pointer">
             <ion-icon
-              className="p-2 text-white duration-200 bg-gray-400 rounded-full hover:bg-blue-400 hover:text-black"
+              class="p-2 text-white duration-200 bg-gray-400 rounded-full hover:bg-blue-400 hover:text-black"
               name="bookmark-outline"
             ></ion-icon>
-          </a>
-          <a title="علاقه مندی" className="text-xl" href="#">
+          </div>
+          <div title="علاقه مندی" className="text-xl cursor-pointer">
             <ion-icon
-              className="p-2 text-white duration-200 bg-gray-400 rounded-full hover:bg-blue-400 hover:text-black"
+              class="p-2 text-white duration-200 bg-gray-400 rounded-full hover:bg-blue-400 hover:text-black"
               name="heart"
             ></ion-icon>
-          </a>
+          </div>
         </div>
       </div>
     </div>

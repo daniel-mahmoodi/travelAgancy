@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchListOfItemsFromSelectedCategoryHandler } from "../../../store/category-actions";
+import { fetchListOfEvents } from "../../../store/category-actions";
 import CardItem from "./CardItem";
 import MyCardLoader from "../../Layout/MyCardLoader";
 
 const Cards = () => {
-  const cardsData = useSelector(
-    (state) => state.category.selectedCategoryItems
-  );
-  console.log("cardsData", cardsData);
+  const dispatch = useDispatch();
+  const cardsData = useSelector((state) => state.category.eventsItems);
+  const eventID = useSelector((state) => state.category.eventID);
+  const token = useSelector((state) => state.auth.token);
+  console.log("cardsData", cardsData, eventID);
+  useEffect(() => {
+    dispatch(fetchListOfEvents(eventID, token));
+  }, [dispatch, eventID, token]);
 
   return (
     <div>
@@ -22,7 +26,7 @@ const Cards = () => {
       ) : (
         <div className="grid grid-col-1 md:grid-cols-4 gap-x-3 gap-y-5">
           {cardsData.map((item) => (
-            <CardItem id={item.id} data={item} />
+            <CardItem key={item.id} data={item} />
           ))}
         </div>
       )}
