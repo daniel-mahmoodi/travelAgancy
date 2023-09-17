@@ -83,12 +83,12 @@ export const sequence = [
 ];
 export const tickets = [
   {
-    id: 4,
+    id: 4, //sent to server
     name: "سرویس شاتل",
     serviceId: 2,
     serviceTitle: "شاتل",
-    servicePrice: 0,
-    commission: 0,
+    servicePrice: 10000,
+    commission: 23523300,
     discount: 0,
     capacity: 11,
     reservedTemporary: 4,
@@ -99,9 +99,37 @@ export const tickets = [
     serviceId: 3,
     serviceTitle: "بنانا",
     servicePrice: 0,
-    commission: 0,
+    commission: 5656,
     discount: 10,
     capacity: 20,
     reservedTemporary: 0,
   },
 ];
+
+export const cart = {
+  id: 1,
+  userFullName: "دیاکو محمودی",
+  mobile: "09123456789",
+  invoiceId: null,
+  email: null,
+  residenceLocation: null,
+  description: null,
+  createdAt: "2023-09-16T14:02:13.8312152",
+  basketItems: [
+    {
+      id: 1,
+      eventId: 6,
+      eventTitle: "استخر و سونا مبین",
+      tickets: [
+        {
+          id: 1,
+          ticketId: 4,
+          ticketTitle: "سرویس شاتل",
+          sansTitle: "سانس دو",
+          sansId: "5",
+          count: 4, //sent to server
+        },
+      ],
+    },
+  ],
+};

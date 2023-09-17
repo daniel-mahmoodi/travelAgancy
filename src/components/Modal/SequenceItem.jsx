@@ -32,7 +32,7 @@ const SequenceItem = ({ data }) => {
         <div className="w-[2000px] relative top-[-10px]">
           <div className="flex justify-between w-full">
             {sansList.map((sansItem) => (
-              <Sans sansItem={sansItem} />
+              <Sans key={sansItem.id} sansItem={sansItem} />
             ))}
           </div>
         </div>

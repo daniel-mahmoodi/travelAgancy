@@ -10,6 +10,8 @@ const uiSlice = createSlice({
     sequenceModalPopUp: false,
     newPaymentModalPopUp: false,
     sideBarVisibile: false,
+    warningDesc: "",
+    warningIsVisible: false,
     // authUpdateModalPopUp: false,
     // commentToStoreModalPopUp: false,
     // hamburgerModalPopUp: false,
@@ -45,6 +47,16 @@ const uiSlice = createSlice({
     },
     toggleSideBarVisibility(state, action) {
       state.sideBarVisibile = action.payload;
+    },
+    showWarning(state, action) {
+      state.warningDesc = action.payload;
+      state.warningIsVisible = true;
+    },
+    hideWarning(state) {
+      state.warningIsVisible = false;
+      state.cartModalPopUp = false
+      state.sequenceModalPopUp = false
+      state.newPaymentModalPopUp = false
     },
     // toggleUpdateUserModal(state) {
     //   state.authUpdateModalPopUp = !state.authUpdateModalPopUp;

@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialCategoryState = {
-  categoriesItems: [{ id: 101, name: "test" }],
-  selectedCategoryItems: [],
+  categoriesItems: [],
+  eventsItems: [],
   ListOfSanses: [],
-  categoryID: 1,
+  eventID: 1,
   loading: false,
 };
 
@@ -15,11 +15,11 @@ const categorySlice = createSlice({
     ListOfCategories(state, action) {
       state.categoriesItems = action.payload;
     },
-    categorySelectedID(state, action) {
-      state.categoryID = action.payload;
+    selectedEventID(state, action) {
+      state.eventID = action.payload;
     },
-    ListOfItemsFromSelectedCategory(state, action) {
-      state.selectedCategoryItems = action.payload;
+    ListOfEvents(state, action) {
+      state.eventsItems = action.payload;
     },
     toggleLoading(state, action) {
       state.loading = action.payload;
