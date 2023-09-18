@@ -1,17 +1,82 @@
-import React from "react";
+import React, { useReducer, useState } from "react";
 import MainModal from "./MainModal";
 // import { CloseCircle } from "react-ionicons";
 import { uiActions } from "../../store/Ui-slice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
+import { sendUserNewCartData } from "../../store/cart-actions";
+
+const initialState = {
+  fullName: "",
+  mobileNumber: "",
+  factorId: "",
+  emailAddress: "",
+  residenceLocation: "",
+  description: "",
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "UPDATE_FIELD":
+      return {
+        ...state,
+        [action.fieldName]: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 const NewPaymentFormModal = () => {
   const dispatch = useDispatch();
-  // const showSansModal = () => {
-  //   console.log("showSansModal");
-  // };
-  // const hideUserInsertData = () => {
-  //   // console.log("hideUserInsertData");
-  //   showSansModal();
-  // };
+  const [state, localDispatch] = useReducer(reducer, initialState);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    localDispatch({
+      type: "UPDATE_FIELD",
+      fieldName: name,
+      payload: value,
+    });
+  };
+
+  // console.log(state);
+  const {
+    fullName,
+    mobileNumber,
+    factorId,
+    emailAddress,
+    residenceLocation,
+    description,
+  } = state;
+  const specs = {
+    fullName,
+    mobileNumber,
+    factorId,
+    emailAddress,
+    residenceLocation,
+    description,
+  };
+
+  const token = useSelector((state) => state.auth.token);
+  const [fullNameError, setFullNameError] = useState("");
+  const [mobileNumberError, setMobileNumberError] = useState("");
+  const UserInsertedDataHandler = () => {
+    console.log("fullname", fullName);
+    if (!fullName) {
+      setFullNameError("لطفا نام خود را وارد کنید");
+    }
+    if (!mobileNumber) {
+      setMobileNumberError("لطفا شماره موبایل خود را وارد کنید");
+    }
+    if (fullName && mobileNumber) {
+      setFullNameError("");
+      setMobileNumberError("");
+
+      // ToggleUserHasCart
+      console.log("userHasCart");
+      // dispatch(cartActions.toggleUserHasCart())
+      dispatch(sendUserNewCartData(token, specs));
+    }
+  };
   const hideNewPaymentModalHandler = () => {
     dispatch(uiActions.toggleNewPaymentModal());
   };
@@ -44,11 +109,14 @@ const NewPaymentFormModal = () => {
               <input
                 autoComplete="off"
                 id="user-name"
-                name="username"
+                name="fullName"
                 type="text"
                 className="peer placeholder-transparent h-10 w-full border-b-2 border-b-gray-400 text-gray-700 focus:outline-none focus:border-[#7887c0]"
-                style={{ placeholder: "transparent" }}
+                // style={{ placeholder: "transparent" }}
                 placeholder="نام کامل"
+                value={state.fullName}
+                onChange={handleInputChange}
+                required
               />
               <label
                 htmlFor="user-name"
@@ -56,21 +124,26 @@ const NewPaymentFormModal = () => {
               >
                 نام کامل *
               </label>
-              <div
-                id="username-error"
-                className="text-red-500 pt-1 hidden text-[10px]"
-              >
-                این نام کاربری قبلا ثبت شده است !
-              </div>
+
+              {!fullName && (
+                <div
+                  id="username-error"
+                  className="text-red-500 pt-1 text-[10px]"
+                >
+                  {fullNameError}
+                </div>
+              )}
             </div>
             <div className="relative w-full">
               <input
                 autoComplete="off"
                 id="phoneNumber"
-                name="username"
+                name="mobileNumber"
                 type="text"
                 className="peer placeholder-transparent h-10 w-full border-b-2 border-b-gray-400 text-gray-700  focus:outline-none focus:border-[#7887c0]"
                 placeholder="شماره موبایل"
+                value={state.mobileNumber}
+                onChange={handleInputChange}
               />
               <label
                 htmlFor="phoneNumber"
@@ -78,22 +151,27 @@ const NewPaymentFormModal = () => {
               >
                 شماره موبایل *
               </label>
-              <div
-                id="phoneNumber-error"
-                className="text-red-500 pt-1 hidden text-[10px]"
-              >
-                این شماره قبلا ثبت شده است !
-              </div>
+              {!mobileNumber && (
+                <div
+                  id="phoneNumber-error"
+                  className="text-red-500 pt-1  text-[10px]"
+                >
+                  {/* این شماره قبلا ثبت شده است ! */}
+                  {mobileNumberError}
+                </div>
+              )}
             </div>
           </div>
           <div className="relative mx-auto mt-8">
             <input
               autoComplete="off"
               id="factor"
-              name="username"
+              name="factorId"
               type="text"
               className="peer placeholder-transparent h-10 w-full border-b-2 border-b-gray-400 text-gray-700  focus:outline-none focus:border-[#7887c0]"
               placeholder="شماره فاکتور داخلی"
+              value={state.factorId}
+              onChange={handleInputChange}
             />
             <label
               htmlFor="factor"
@@ -113,10 +191,12 @@ const NewPaymentFormModal = () => {
               <input
                 autoComplete="off"
                 id="electro-post"
-                name="username"
+                name="emailAddress"
                 type="text"
                 className="peer placeholder-transparent h-10 w-full border-b-2 border-b-gray-400 text-gray-700  focus:outline-none focus:border-[#7887c0]"
                 placeholder="پست الکترونیک"
+                value={state.emailAddress}
+                onChange={handleInputChange}
               />
               <label
                 htmlFor="electro-post"
@@ -135,10 +215,12 @@ const NewPaymentFormModal = () => {
               <input
                 autoComplete="off"
                 id="residence"
-                name="username"
+                name="residenceLocation"
                 type="text"
                 className="peer placeholder-transparent h-10 w-full border-b-2 border-b-gray-400 text-gray-700  focus:outline-none focus:border-[#7887c0]"
                 placeholder="محل اقامت "
+                value={state.residenceLocation}
+                onChange={handleInputChange}
               />
               <label
                 htmlFor="residence"
@@ -150,11 +232,14 @@ const NewPaymentFormModal = () => {
           </div>
           <div className="relative mt-10 mb-3" data-te-input-wrapper-init>
             <textarea
+              name="description"
               data-input-text
               className="peer block min-h-[auto] w-full rounded border-gray-300 focus:border-[#7887c0] border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
               id="exampleFormControlTextarea1"
               rows="3"
               placeholder="Your message"
+              value={state.description}
+              onChange={handleInputChange}
             ></textarea>
             <label
               htmlFor="tw-elements"
@@ -166,7 +251,7 @@ const NewPaymentFormModal = () => {
           <div className="mt-8 text-center">
             <button
               className="px-5 py-2 text-white duration-200 bg-green-400 border border-green-400 rounded-md hover:text-black hover:bg-transparent"
-              // onClick={hideUserInsertData}
+              onClick={UserInsertedDataHandler}
             >
               ایجاد سبد خرید
             </button>
