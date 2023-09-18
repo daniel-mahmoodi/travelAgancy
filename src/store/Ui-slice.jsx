@@ -12,6 +12,7 @@ const uiSlice = createSlice({
     sideBarVisibile: false,
     warningDesc: "",
     warningIsVisible: false,
+    scrollYBackGround: true,
     // authUpdateModalPopUp: false,
     // commentToStoreModalPopUp: false,
     // hamburgerModalPopUp: false,
@@ -41,6 +42,11 @@ const uiSlice = createSlice({
     },
     toggleSequenceModal(state) {
       state.sequenceModalPopUp = !state.sequenceModalPopUp;
+      if (state.sequenceModalPopUp) {
+        state.scrollYBackGround = false;
+      } else {
+        state.scrollYBackGround = true;
+      }
     },
     toggleNewPaymentModal(state) {
       state.newPaymentModalPopUp = !state.newPaymentModalPopUp;
@@ -54,9 +60,9 @@ const uiSlice = createSlice({
     },
     hideWarning(state) {
       state.warningIsVisible = false;
-      state.cartModalPopUp = false
-      state.sequenceModalPopUp = false
-      state.newPaymentModalPopUp = false
+      state.cartModalPopUp = false;
+      state.sequenceModalPopUp = false;
+      state.newPaymentModalPopUp = false;
     },
     // toggleUpdateUserModal(state) {
     //   state.authUpdateModalPopUp = !state.authUpdateModalPopUp;

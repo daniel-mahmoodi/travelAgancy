@@ -1,8 +1,10 @@
 import axios from "axios";
 import { categoryActions } from "./category-slice";
+import { authActions } from "./auth-slice";
 const apiUrl = process.env.REACT_APP_API_ENDPOINT;
 
 export const fetchListOfCategories = (token) => {
+  console.log(token);
   return async (dispatch) => {
     axios({
       method: "GET",
@@ -38,5 +40,3 @@ export const fetchListOfEvents = (id, token) => {
       .catch((error) => console.log("error", error));
   };
 };
-
-

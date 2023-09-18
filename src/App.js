@@ -12,10 +12,9 @@ function App() {
   const showNewPaymentModal = useSelector(
     (state) => state.ui.newPaymentModalPopUp
   );
-  const showWarning = useSelector(
-    (state) => state.ui.warningIsVisible
-  );
-console.log('show',showWarning);
+  const userHasCart = useSelector((state) => state.cart.userHasCart);
+
+  const showWarning = useSelector((state) => state.ui.warningIsVisible);
   return (
     <div
       style={{
@@ -27,7 +26,7 @@ console.log('show',showWarning);
       {/* <Layout className="App" dir="rtl"> */}
       {showCartModal && <CartPopUpMenu />}
       {showSequenceModal && <SequenceInfo />}
-      {showNewPaymentModal && <NewPaymentFormModal />}
+      {showNewPaymentModal && !userHasCart && <NewPaymentFormModal />}
       {showWarning && <WarningModal />}
 
       <MainPage />

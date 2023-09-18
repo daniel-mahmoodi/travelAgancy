@@ -6,23 +6,28 @@ import { useDispatch, useSelector } from "react-redux";
 import SequenceItems from "./SequenceItems";
 import TicketsInSequenceModal from "../Main/Ticket/TicketsInSequenceModal";
 import { sendTicketOrderData } from "../../store/cart-actions";
+import { cartActions } from "../../store/cart-slice";
 
 const SequenceInfo = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
   const items = useSelector((state) => state.cart.items);
-  const hideSansModal = () => {
-    dispatch(uiActions.toggleSequenceModal());
-    console.log("hideSansModal");
-  };
+  // const hideSansModal = () => {
+  //   dispatch(uiActions.toggleSequenceModal());
+  //   console.log("hideSansModal");
+  // };
   console.log("sequence");
   const hideSequenceModalHandler = () => {
     dispatch(uiActions.toggleSequenceModal());
+    dispatch(cartActions.eraseAllTickets());
   };
   const addticketsToCartHandler = () => {
-    console.log("addticketsToCartHandler");
     dispatch(sendTicketOrderData(token, items));
   };
+  const finalPurchaseBtnHandler = () => {
+    console.log("finalPurchaseBtnHandler");
+  };
+
   return (
     <MainModal hideModalHandler={hideSequenceModalHandler}>
       <div
@@ -39,7 +44,7 @@ const SequenceInfo = () => {
           <div className="flex items-center justify-between mb-5">
             <p className="font-bold">رستوران صفدری ساحلی</p>
             <div>
-              <button onClick={hideSansModal}>
+              <button onClick={hideSequenceModalHandler}>
                 <ion-icon
                   class="w-8 h-8 text-red-500"
                   name="close-circle-outline"
@@ -102,7 +107,7 @@ const SequenceInfo = () => {
             <button
               className="flex items-center justify-center w-full gap-1 p-2 text-white bg-green-400 rounded-md"
               //   onClick="hideSansModal();showSelectBank()"
-              onClick={hideSansModal}
+              onClick={finalPurchaseBtnHandler}
             >
               <ion-icon name="cart-outline"></ion-icon>
               خرید نهایی
@@ -116,7 +121,7 @@ const SequenceInfo = () => {
             </button>
             <button
               className="flex items-center justify-center w-full gap-1 p-2 text-white bg-red-400 rounded-md"
-              onClick={hideSansModal}
+              onClick={hideSequenceModalHandler}
             >
               <ion-icon name="close"></ion-icon>
               بستن
