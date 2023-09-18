@@ -1,16 +1,24 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/Ui-slice";
 import { fetchSequenceDataOFSelectedCardItemHandler } from "../../../store/card-actions";
+import { fetchCartData } from "../../../store/cart-actions";
 
 const CardItem = ({ data }) => {
   const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.token);
+  const userHasCart = useSelector((state) => state.cart.userHasCart);
   const { id, title, isActive } = data;
+  useEffect(() => {
+    dispatch(fetchCartData(token));
+  }, [dispatch, token]);
   const pushBuyBtn = () => {
-    console.log("pushBuyBtn");
-    dispatch(uiActions.toggleSequenceModal());
-    // dispatch(uiActions.toggleNewPaymentModal());
-    dispatch(fetchSequenceDataOFSelectedCardItemHandler(id));
+    if (userHasCart) {
+      dispatch(uiActions.toggleSequenceModal());
+      dispatch(fetchSequenceDataOFSelectedCardItemHandler(id));
+    } else {
+      dispatch(uiActions.toggleNewPaymentModal());
+    }
   };
   return (
     <div className="">

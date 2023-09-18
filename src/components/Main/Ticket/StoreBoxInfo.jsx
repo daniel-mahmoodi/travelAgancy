@@ -4,9 +4,8 @@ import { useDispatch } from "react-redux";
 import { uiActions } from "../../../store/Ui-slice";
 const StoreBoxInfo = () => {
   const dispatch = useDispatch();
-  const showBasket = () => {
+  const showCart = () => {
     dispatch(uiActions.toggleCartModal());
-    console.log("showBasket");
   };
   return (
     <div className="flex justify-center mb-8 mr-0 ml-0 lg:mr-[300px] lg:ml-[40px]">
@@ -51,7 +50,7 @@ const StoreBoxInfo = () => {
             <ion-icon title="بارگذاری مجدد" name="repeat-outline"></ion-icon>
           </button>
           <button
-            onClick={showBasket}
+            onClick={showCart}
             className="p-2 h-8 w-8 text-white bg-red-500 rounded-full"
           >
             <ion-icon title="سبد خرید" name="bag-outline"></ion-icon>

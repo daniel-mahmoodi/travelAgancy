@@ -9,9 +9,9 @@ const Cards = () => {
   const cardsData = useSelector((state) => state.category.eventsItems);
   const eventID = useSelector((state) => state.category.eventID);
   const token = useSelector((state) => state.auth.token);
-  console.log("cardsData", cardsData, eventID);
   useEffect(() => {
     dispatch(fetchListOfEvents(eventID, token));
+   
   }, [dispatch, eventID, token]);
 
   return (

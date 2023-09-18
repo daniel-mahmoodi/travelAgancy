@@ -9,7 +9,6 @@ import {
 
 const Category = () => {
   const data = useSelector((state) => state.category.categoriesItems);
-  console.log("Categoriesdata", data);
   const [activeButtonId, setActiveButtonId] = useState();
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
@@ -25,9 +24,9 @@ const Category = () => {
   };
 
   return (
-    <div>
+    <div className="lg:mr-[270px]">
       {!data.length ? (
-        <div className="flex justify-center flex-shrink-0 mt-[16px] md:mt-[12px] flex-wrap gap-3 p-6 lg:mr-[270px] ml-0 mr-0">
+        <div className="flex justify-center flex-shrink-0 flex-wrap gap-3 p-6  ml-0 mr-0">
           <MyCategoryLoader />
           <MyCategoryLoader />
           <MyCategoryLoader />
@@ -37,7 +36,7 @@ const Category = () => {
           <MyCategoryLoader />
         </div>
       ) : (
-        <div className="flex justify-center flex-shrink-0 mt-[160px] md:mt-[120px] flex-wrap gap-3 p-6 lg:mr-[270px] ml-0 mr-0">
+        <div className="flex justify-center flex-shrink-0  flex-wrap gap-3 p-6  ml-0 mr-0">
           {data.map((item) => (
             <div
               key={item.id}
