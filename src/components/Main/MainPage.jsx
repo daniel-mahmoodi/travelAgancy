@@ -17,8 +17,10 @@ import Wallet from "../Wallet/Wallet";
 import LoginForm from "../Auth/LoginForm";
 import Breadcrumbs from "./BreadCumb";
 import SupportingTickets from "./Ticket/SupportingTickets";
+import { useSelector } from "react-redux";
+import SignUp from "../Auth/SignUp";
 const MainPage = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = useSelector((state)=>state.auth.isLoggedIn);
   return (
     <div>
       <Switch>
@@ -39,6 +41,7 @@ const MainPage = () => {
             <Route path="/summary-dashboard" exact>
               <SummaryDashboard />
             </Route>
+          
             <Route path="/buying-tickets" exact>
               <BuyingTickets />
             </Route>
@@ -60,9 +63,12 @@ const MainPage = () => {
           </>
         ) : (
           <>
-            <Redirect to="/login-form" />
+            {/* <Redirect to="/login-form" /> */}
             <Route path="/login-form" exact>
               <LoginForm />
+            </Route>
+            <Route path="/sign-up" exact>
+              <SignUp />
             </Route>
           </>
         )}
