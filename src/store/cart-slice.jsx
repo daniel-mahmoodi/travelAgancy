@@ -1,12 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
-
+import { createSlice, current } from '@reduxjs/toolkit';
+const { log } = console;
 const defaultCartState = {
   items: [],
+  cartItems: [],
   // favoriteItems: { items: [] },
   totalPrice: 0,
   // totalDiscountedPrice: 0,
   totalQuantity: 0,
   changed: false,
+  userHasCart: false,
   // hasItem: false,
   // reseivdeDataCorrectly: false,
   // sendingCoupon: true,
@@ -17,13 +19,14 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: defaultCartState,
   reducers: {
-    //     eraseAllCart(state) {
-    //       state.items.items = [];
-    //       state.totalPrice = 0;
-    //       state.totalQuantity = 0;
-    //       state.totalDiscountedPrice = 0;
-    //       state.changed = true;
-    //     },
+    eraseAllTickets(state) {
+      state.items = [];
+      // state.items.items = [];
+      // state.totalPrice = 0;
+      // state.totalQuantity = 0;
+      // state.totalDiscountedPrice = 0;
+      // state.changed = true;
+    },
     //     replaceCart(state, action) {
     //       state.items = action.payload.cartState.cartData;
     //       state.totalPrice = action.payload.cartState.totalPrice;
@@ -34,9 +37,9 @@ const cartSlice = createSlice({
     //     changeTotalDiscountedAmountAfterAddingCoupon(state, action) {
     //       state.totalDiscountedPrice = action.payload;
     //     },
-    //     toggleChangeToFalse(state) {
-    //       state.changed = false;
-    //     },
+    toggleUserHasCart(state, action) {
+      state.userHasCart = action.payload;
+    },
     //     toggleChanges(state) {
     //       state.changed = !state.changed;
     //     },
@@ -87,10 +90,10 @@ const cartSlice = createSlice({
     //     },
     removeTicketToUserOrder(state, action) {
       const id = action.payload;
-      state.order = {
-        ticketId: id,
-        count: 1,
-      };
+      // state.order = {
+      //   ticketId: id,
+      //   count: 1,
+      // };
       // state.changed = true;
       const existingTicket = state.items?.find(
         (ticket) => ticket.ticketId === id
@@ -101,40 +104,20 @@ const cartSlice = createSlice({
       } else {
         existingTicket.count--;
       }
-
-      // state.totalPrice = state.totalPrice - existingCartItem.product.price;
-      // state.totalQuantity--;
-
-      // if (existingCartItem.quantity <= 1) {
-      //   existingCartItem.quantity = 0;
-      // } else {
-      //   existingCartItem.quantity--;
-      // }
     },
-    //     eraseItemFromCart(state, action) {
-    //       const id = action.payload;
-    //       state.changed = true;
-    //       const existingCartItem = state.items.items?.find(
-    //         (anyItem) => anyItem.product.id === id
-    //       );
-
-    //       existingCartItem.product.price ===
-    //       existingCartItem.product.discountedPrice
-    //         ? (state.totalPrice =
-    //             state.totalPrice -
-    //             existingCartItem.product.price * existingCartItem.quantity)
-    //         : (state.totalPrice =
-    //             state.totalPrice -
-    //             existingCartItem.product.discountedPrice *
-    //               existingCartItem.quantity);
-    //       state.totalDiscountedPrice = state.totalPrice;
-
-    //       state.totalQuantity = state.totalQuantity - existingCartItem.quantity;
-    //       state.items.items = state.items.items?.filter(
-    //         (item) => item.product.id !== id
-    //       );
-    //       existingCartItem.quantity = 0;
-    //     },
+    addFetchedUserCartItems(state, action) {
+      state.cartItems = action.payload;
+    },
+    eraseTicketsFromUserOrder(state, action) {
+      const id = action.payload;
+      // state.changed = true;
+      // const existingTicket = state.cartItems?.find(
+      //   (ticket) => ticket.id === id
+      // );
+      // existingTicket.count = 0;
+      console.log(current(state.cartItems));
+            // state.cartItems = state.cartItems?.filter((item) => item.tickets.id !== id);
+    },
   },
 });
 
