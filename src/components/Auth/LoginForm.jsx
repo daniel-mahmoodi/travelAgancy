@@ -22,13 +22,44 @@
 //     ></script>
 //   </head>
 //   <body dir="rtl"> -->
-import React from "react";
-
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/auth-slice";
+import { loginRequest } from "../../store/auth-action";
+import { Link } from "react-router-dom";
 const LoginForm = () => {
-  const loginSubmitHandler = (event)=>{
-    event.preventDefault()
-    console.log('loginSubmitHandler');
-  }
+  const dispatch = useDispatch();
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [userNameError, setUserNameError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const addUserNameInputHandler = (e) => {
+    // console.log('addUserNameInputHandler',e.target.value);
+    setUserName(e.target.value);
+  };
+  const addPasswordInputHandler = (e) => {
+    // console.log('addPasswordInputHandler',e.target.value);
+    setPassword(e.target.value);
+  };
+  const loginSubmitHandler = (event) => {
+    event.preventDefault();
+    // dispatch(authActions.login(token))
+    if (userName) {
+      setUserNameError(false);
+    } else {
+      setUserNameError(true);
+    }
+    if (password) {
+      setPasswordError(false);
+    } else {
+      setPasswordError(true);
+    }
+    if (password && userName) {
+      console.log("loginSubmitHandler");
+      dispatch(loginRequest(userName, password));
+    }
+  };
+
   return (
     <div className="container mx-auto">
       {/* <!-- component --> */}
@@ -58,9 +89,10 @@ const LoginForm = () => {
                         type="text"
                         className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-700 text-[12px] focus:outline-none focus:borer-rose-600"
                         placeholder="username"
+                        onChange={addUserNameInputHandler}
                       />
                       <ion-icon
-                        className="absolute text-gray-500 left-[5px] top-[10px]"
+                        class="absolute text-gray-500 left-[5px] top-[10px]"
                         name="person-outline"
                       ></ion-icon>
                       <label
@@ -69,12 +101,14 @@ const LoginForm = () => {
                       >
                         نام کاربری
                       </label>
-                      <div
-                        id="username-error"
-                        className="text-red-500 pt-1 text-[10px]"
-                      >
-                        لطفا نام کاربری رو به درستی وارد نمایید !
-                      </div>
+                      {userNameError && (
+                        <div
+                          id="username-error"
+                          className="text-red-500 pt-1 text-[10px]"
+                        >
+                          لطفا نام کاربری را به درستی وارد نمایید !
+                        </div>
+                      )}
                     </div>
                     <div className="relative">
                       <input
@@ -84,9 +118,10 @@ const LoginForm = () => {
                         type="password"
                         className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-700 text-[12px] focus:outline-none focus:borer-rose-600"
                         placeholder="Password"
+                        onChange={addPasswordInputHandler}
                       />
                       <ion-icon
-                        className="absolute text-gray-500 left-[5px] top-[10px]"
+                        class="absolute text-gray-500 left-[5px] top-[10px]"
                         name="eye-outline"
                       ></ion-icon>
                       <label
@@ -95,12 +130,14 @@ const LoginForm = () => {
                       >
                         رمزعبور
                       </label>
-                      <div
-                        id="password-error"
-                        className="text-red-500 pt-1 text-[10px]"
-                      >
-                        رمز عبور خود را به درستی وارد نمایید !
-                      </div>
+                      {passwordError && (
+                        <div
+                          id="password-error"
+                          className="text-red-500 pt-1 text-[10px]"
+                        >
+                          رمز عبور خود را به درستی وارد نمایید !
+                        </div>
+                      )}
                     </div>
 
                     <div className="flex items-center gap-3 pt-3 mb-4">
@@ -131,12 +168,12 @@ const LoginForm = () => {
                     <div className="py-3">
                       <button className="cursor-pointer flex items-center ap-1 pr-3 text-gray-500 text-[10px]">
                         حساب ندارید؟
-                        <a
+                        <Link
                           className="text-green-500 px-1 hover:underline duration-200"
-                          href="sign-in.html"
+                          to="/sign-up"
                         >
                           ثبت نام کنید
-                        </a>
+                        </Link>
                       </button>
                     </div>
                   </div>
