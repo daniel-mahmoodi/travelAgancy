@@ -33,6 +33,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [userNameError, setUserNameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const [showUserPass, setShowUserPass] = useState(false);
   const addUserNameInputHandler = (e) => {
     // console.log('addUserNameInputHandler',e.target.value);
     setUserName(e.target.value);
@@ -87,7 +88,7 @@ const LoginForm = () => {
                         id="user-name"
                         name="username"
                         type="text"
-                        className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-700 text-[12px] focus:outline-none focus:borer-rose-600"
+                        className=" h-10 w-full border-b-2 border-gray-300 text-gray-700 text-[12px] focus:outline-none focus:border-rose-600"
                         placeholder="username"
                         onChange={addUserNameInputHandler}
                       />
@@ -115,12 +116,13 @@ const LoginForm = () => {
                         autoComplete="off"
                         id="password"
                         name="password"
-                        type="password"
-                        className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-700 text-[12px] focus:outline-none focus:borer-rose-600"
+                        type={showUserPass ? 'text' :'password'}
+                        className=" h-10 w-full border-b-2 border-gray-300 text-gray-700 text-[12px] focus:outline-none focus:borer-rose-600"
                         placeholder="Password"
                         onChange={addPasswordInputHandler}
                       />
                       <ion-icon
+                      onClick={()=>setShowUserPass((prev)=>!prev)}
                         class="absolute text-gray-500 left-[5px] top-[10px]"
                         name="eye-outline"
                       ></ion-icon>
