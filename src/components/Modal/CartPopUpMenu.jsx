@@ -2,16 +2,21 @@ import React, { useEffect } from "react";
 import MainModal from "./MainModal";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/Ui-slice";
-import { cartActions } from "../../store/cart-slice";
 import { fetchCartData } from "../../store/cart-actions";
 import CartItems from "./CartItems";
+import MyLoading from "../Layout/MyLoading";
+import MyCardLoader from "../Layout/MyCardLoader";
+import MyCartLoader from "../Layout/MyCartLoader";
+import { cartActions } from "../../store/cart-slice";
 const CartPopUpMenu = () => {
   const token = useSelector((state) => state.auth.token);
   const cartItems = useSelector((state) => state.cart.cartItems);
-  console.log("cartModal component", cartItems);
+  const showLoading = useSelector((state) => state.cart.showCartLoading);
+  console.log("cartModal component", cartItems, showLoading);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCartData(token));
+    dispatch(cartActions.toggleCartLoading(true));
   }, [dispatch, token]);
   const hideCartModalHandler = () => {
     dispatch(uiActions.toggleCartModal());
@@ -46,14 +51,24 @@ const CartPopUpMenu = () => {
               }} */}
           </div>
           <hr />
-          {cartItems?.length ? (
-            <CartItems data={cartItems} />
+          {showLoading ? (
+            <div className="flex flex-col justify-center items-center pt-1">
+              <MyCartLoader />
+              <MyCartLoader />
+              <MyCartLoader />
+            </div>
           ) : (
-            <p className="text-rose-600 font-bold flex justify-center items-center m-2 p-2">سبد خالی است</p>
+            <>
+              {cartItems?.length ? (
+                <CartItems data={cartItems} />
+              ) : (
+                <p className="text-rose-600 font-bold flex justify-center items-center m-2 p-2">
+                  سبد خالی است
+                </p>
+              )}
+            </>
           )}
           <hr />
-
-          {/* <!-- button --> */}
           <div onClick={finalPurchaseBtn} className="flex justify-center">
             <button className="mt-6 w-[70%] bg-green-400 p-2 rounded-md border border-green-400 hover:bg-transparent hover:text-black duration-200">
               <ion-icon
