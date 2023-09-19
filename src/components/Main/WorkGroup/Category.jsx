@@ -38,14 +38,13 @@ const Category = () => {
       ) : (
         <div className="flex justify-center flex-shrink-0  flex-wrap gap-3 p-6  ml-0 mr-0">
           {data.map((item) => (
-            <div
-              key={item.id}
-              className={`text-center${activeButtonId ? "_active" : ""}`}
-            >
+            <div key={item.id} className="text-center">
               <button
                 onClick={() => handleButtonClick(item.id)}
                 id={`btn-${item.id}`}
-                className="button-box"
+                className={`button-box${
+                  activeButtonId === item.id ? "_active" : ""
+                }`}
               >
                 {item.name}
               </button>
