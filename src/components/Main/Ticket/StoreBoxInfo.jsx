@@ -1,11 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/Ui-slice";
+import { fetchListOfEvents } from "../../../store/category-actions";
+import "../../../myStyles.css";
 const StoreBoxInfo = () => {
   const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.token);
+  const eventID = useSelector((state) => state.category.eventID);
+  const isRotate = useSelector((state) => state.category.showEventsLoading);
   const showCart = () => {
     dispatch(uiActions.toggleCartModal());
+  };
+  const refetchListOfEventsData = () => {
+    dispatch(fetchListOfEvents(eventID, token));
   };
   return (
     <div className="flex justify-center mb-8 mr-0 ml-0 lg:mr-[300px] lg:ml-[40px]">
@@ -46,7 +54,12 @@ const StoreBoxInfo = () => {
           </div>
         </div>
         <div className="flex justify-center top-[3px] gap-2 ">
-          <button className="rounded-full text-white bg-[#4576ef] p-2 h-8 w-8 ">
+          <button
+            onClick={refetchListOfEventsData}
+            className={`${
+              isRotate ? "my-rotate-360" : ""
+            } rounded-full text-white bg-[#4576ef] p-2 h-8 w-8`}
+          >
             <ion-icon title="بارگذاری مجدد" name="repeat-outline"></ion-icon>
           </button>
           <button

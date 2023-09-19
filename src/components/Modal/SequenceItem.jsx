@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sans from "./Sans";
 import useDateConverter from "../Hooks/useDataConverter";
+import MySansesLoader from "../Layout/MySansesLoader";
 const SequenceItem = ({ data }) => {
   const { executeDateTime, sansList } = data;
   const [convertedDate, setConvertedDate] = useState("");
@@ -30,11 +31,20 @@ const SequenceItem = ({ data }) => {
           {`${dayOfWeek} ${DayOfMonth} ${Month} ${Year}`}
         </h3>
         <div className="w-[2000px] relative top-[-10px]">
-          <div className="flex justify-between w-full">
-            {sansList.map((sansItem) => (
-              <Sans key={sansItem.id} sansItem={sansItem} />
-            ))}
-          </div>
+          {!sansList ? (
+            <div className="flex justify-center w-full">
+              <MySansesLoader />
+              <MySansesLoader />
+              <MySansesLoader />
+              <MySansesLoader />
+            </div>
+          ) : (
+            <div className="flex justify-between w-full">
+              {sansList.map((sansItem) => (
+                <Sans key={sansItem.id} sansItem={sansItem} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </li>

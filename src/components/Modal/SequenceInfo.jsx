@@ -8,16 +8,28 @@ import TicketsInSequenceModal from "../Main/Ticket/TicketsInSequenceModal";
 import { sendTicketOrderData } from "../../store/cart-actions";
 import { cartActions } from "../../store/cart-slice";
 import { cardActions } from "../../store/card-slice";
+import { fetchSequenceDataOFSelectedCardItemHandler } from "../../store/card-actions";
+import "../../../src/myStyles.css";
+import MyLoading from "../Layout/MyLoading";
 
 const SequenceInfo = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
   const items = useSelector((state) => state.cart.items);
+  const showSendingTicketsLoading = useSelector(
+    (state) => state.cart.showSendingTicketsLoading
+  );
+  const selectedCardId = useSelector((state) => state.card.selectedCardId);
   const sequencesItems = useSelector((state) => state.card.sequencesItems);
   const [shortItems, setShortItems] = useState(sequencesItems);
   const [showMoreBtn, setShowMoreBtn] = useState(false);
   const tickets = useSelector((state) => state.card.tickets);
-  console.log("items", items);
+
+  const isRotate = useSelector((state) => state.card.reSeqFetchLoading);
+  const refetchSequencesItems = () => {
+    dispatch(fetchSequenceDataOFSelectedCardItemHandler(selectedCardId, token));
+  };
+
   useEffect(() => {
     if (sequencesItems.length > 1) {
       setShortItems(sequencesItems.slice(0, 1)); //hardo 1 bayad hammeghdar bashand
@@ -34,16 +46,24 @@ const SequenceInfo = () => {
     dispatch(cartActions.eraseAllTickets());
   };
   const addticketsToCartHandler = () => {
-    dispatch(sendTicketOrderData(token, items));
+    items.length
+      ? dispatch(sendTicketOrderData(token, items))
+      : dispatch(uiActions.showWarning("شما هیچ بلیطی را انتخاب نکرده اید."));
   };
   const finalPurchaseBtnHandler = () => {
-    console.log("finalPurchaseBtnHandler");
+    items.length
+      ? console.log("finalPurchaseBtnHandler")
+      : dispatch(uiActions.showWarning("شما هیچ بلیطی را انتخاب نکرده اید."));
   };
   const showAllItemsHandler = () => {
     setShortItems(sequencesItems);
     setShowMoreBtn(false);
     console.log("shortItems", shortItems);
   };
+  const showTicketLoading = useSelector(
+    (state) => state.card.showTicketLoading
+  );
+
   return (
     <MainModal hideModalHandler={hideSequenceModalHandler}>
       <div
@@ -66,9 +86,12 @@ const SequenceInfo = () => {
                   name="close-circle-outline"
                 ></ion-icon>
               </button>
-              <button>
+              <button
+                onClick={refetchSequencesItems}
+                className={` ${isRotate ? "my-rotate-360" : ""}`}
+              >
                 <ion-icon
-                  class="w-8 h-8 bg-[#4576ef] rounded-full text-white"
+                  class="w-8 h-8 flex items-center bg-[#4576ef] rounded-full text-white"
                   name="refresh-circle-outline"
                 ></ion-icon>
               </button>
@@ -92,7 +115,11 @@ const SequenceInfo = () => {
               </button>
             )}
           </div>
-          {tickets && (
+          {showTicketLoading ? (
+            <div className="flex justify-center items-center py-4">
+              <MyLoading />
+            </div>
+          ) : tickets ? (
             <div className="relative mt-10 overflow-x-auto shadow-md sm:rounded-lg">
               <table className="w-full text-sm text-left text-gray-500">
                 <thead className="text-xs text-gray-100 uppercase border-b bg-blue-950">
@@ -122,6 +149,8 @@ const SequenceInfo = () => {
                 </tbody>
               </table>
             </div>
+          ) : (
+            ""
           )}
 
           <div className="flex gap-2 mt-8">
@@ -137,8 +166,14 @@ const SequenceInfo = () => {
               onClick={addticketsToCartHandler}
               className="flex items-center justify-center w-full gap-1 p-2 text-white bg-blue-400 rounded-md"
             >
-              <ion-icon name="cart"></ion-icon>
-              افزودن به سبد خرید
+              {showSendingTicketsLoading ? (
+                <MyLoading />
+              ) : (
+                <>
+                  <ion-icon name="cart"></ion-icon>
+                  افزودن به سبد خرید
+                </>
+              )}
             </button>
             <button
               className="flex items-center justify-center w-full gap-1 p-2 text-white bg-red-400 rounded-md"

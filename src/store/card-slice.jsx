@@ -2,7 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const defaultCardState = {
   sequencesItems: [],
-  tickets:[]
+  tickets: [],
+  selectedCardId: "",
+  reSeqFetchLoading: false,
+  showTicketLoading: false,
 };
 
 const cardSlice = createSlice({
@@ -14,6 +17,15 @@ const cardSlice = createSlice({
     },
     ListOfTicketsFromSelectedSans(state, action) {
       state.tickets = action.payload;
+    },
+    setSelectedCardId(state, action) {
+      state.selectedCardId = action.payload;
+    },
+    toggleResequenceFetchLoading(state, action) {
+      state.reSeqFetchLoading = action.payload;
+    },
+    toggleTicketLoading(state, action) {
+      state.showTicketLoading = action.payload;
     },
   },
 });

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/Ui-slice";
 import { fetchSequenceDataOFSelectedCardItemHandler } from "../../../store/card-actions";
 import { fetchCartData } from "../../../store/cart-actions";
+import { cardActions } from "../../../store/card-slice";
 
 const CardItem = ({ data }) => {
   const dispatch = useDispatch();
@@ -10,12 +11,14 @@ const CardItem = ({ data }) => {
   const userHasCart = useSelector((state) => state.cart.userHasCart);
   const { id, title, isActive } = data;
   useEffect(() => {
+    // TODO: why fetch cart???
     dispatch(fetchCartData(token));
   }, [dispatch, token]);
   const pushBuyBtn = () => {
     if (userHasCart) {
       dispatch(uiActions.toggleSequenceModal());
-      dispatch(fetchSequenceDataOFSelectedCardItemHandler(id,token));
+      dispatch(fetchSequenceDataOFSelectedCardItemHandler(id, token));
+      dispatch(cardActions.setSelectedCardId(id))
     } else {
       dispatch(uiActions.toggleNewPaymentModal());
     }

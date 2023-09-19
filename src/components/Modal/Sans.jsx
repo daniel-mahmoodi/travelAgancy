@@ -22,7 +22,7 @@ const Sans = ({ sansItem }) => {
   return (
     <button
       onClick={getTicketsHandler}
-      className="p-2 text-sm border rounded-md w-[calc(50%-2px)]"
+      className="p-2 mx-1 text-sm border rounded-md w-[calc(50%-2px)]"
     >
       {` ${title} ${hourFrom}-${hourTo}`}
       <span className="inline-block p-1 mr-2 text-xs text-white bg-red-600 rounded-md relative top-[-2px]">
