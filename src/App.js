@@ -5,6 +5,7 @@ import SequenceInfo from "../src/components/Modal/SequenceInfo";
 import NewPaymentFormModal from "./components/Modal/NewPaymentFormModal";
 import MainPage from "./components/Main/MainPage";
 import WarningModal from "./components/Modal/WarningModal";
+import SuccesfullyAddedModal from "./components/Modal/SuccesfullyAddedModal";
 
 function App() {
   const showCartModal = useSelector((state) => state.ui.cartModalPopUp);
@@ -15,6 +16,8 @@ function App() {
   const userHasCart = useSelector((state) => state.cart.userHasCart);
 
   const showWarning = useSelector((state) => state.ui.warningIsVisible);
+  const showsuccesModal = useSelector((state) => state.ui.successIsVisible);
+  console.log("has", userHasCart);
   return (
     <div
       style={{
@@ -25,10 +28,10 @@ function App() {
     >
       {/* <Layout className="App" dir="rtl"> */}
       {showCartModal && <CartPopUpMenu />}
-      {showSequenceModal && <SequenceInfo />}
+      {showSequenceModal && userHasCart && <SequenceInfo />}
       {showNewPaymentModal && !userHasCart && <NewPaymentFormModal />}
       {showWarning && <WarningModal />}
-
+      {showsuccesModal && <SuccesfullyAddedModal />}
       <MainPage />
       {/* <CartPopUpMenu /> */}
       {/* </Layout> */}
