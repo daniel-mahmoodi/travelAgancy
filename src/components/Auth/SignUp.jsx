@@ -1,8 +1,8 @@
-
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { signUpRequest } from "../../store/auth-action";
+import MyLoading from "../Layout/MyLoading";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -13,6 +13,7 @@ const SignUp = () => {
   const [userNameError, setUserNameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [showUserPass, setShowUserPass] = useState(false);
+  const showLoading = useSelector((state) => state.auth.authLoading);
   const addUserNameInputHandler = (e) => {
     // console.log('addUserNameInputHandler',e.target.value);
     setUserName(e.target.value);
@@ -44,7 +45,7 @@ const SignUp = () => {
     }
     if (password && userName) {
       console.log("loginSubmitHandler");
-      const userData = {firstName,lastName,userName,password}
+      const userData = { firstName, lastName, userName, password };
       dispatch(signUpRequest(userData));
     }
   };
@@ -138,13 +139,13 @@ const SignUp = () => {
                         autoComplete="off"
                         id="password"
                         name="password"
-                        type={showUserPass ? 'text' :'password'}
+                        type={showUserPass ? "text" : "password"}
                         className=" h-10 w-full border-b-2 border-gray-300 text-gray-700 text-[12px] focus:outline-none focus:borer-rose-600"
                         placeholder="Password"
                         onChange={addPasswordInputHandler}
                       />
                       <ion-icon
-                      onClick={()=>setShowUserPass((prev)=>!prev)}
+                        onClick={() => setShowUserPass((prev) => !prev)}
                         class="absolute text-gray-500 left-[5px] top-[10px] cursor-pointer"
                         name="eye-outline"
                       ></ion-icon>
@@ -181,7 +182,7 @@ const SignUp = () => {
 
                     <div className="flex justify-center pt-5">
                       <button className="w-full px-3 py-1 text-white duration-200 border rounded-md bg-secondary-500 border-secondary-400 hover:bg-transparent hover:text-secondary-500">
-                        ثبت نام
+                        {showLoading ? <MyLoading /> : "ثبت نام"}
                       </button>
                     </div>
                   </div>

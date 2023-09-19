@@ -1,30 +1,6 @@
-// <!-- <!DOCTYPE html>
-// <html
-//   lang="en"
-//   style="
-//     background-image: url('../img/main-wallpaper.png');
-//     background-attachment: fixed;
-//     background-size: cover;
-//   "
-// >
-//   <head>
-//     <meta charset="UTF-8" />
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-//     <title>ورودبه حساب کاربری | تیلویند</title>
-//     <link rel="stylesheet" href="../dist/output.css" />
-//     <script
-//       type="module"
-//       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-//     ></script>
-//     <script
-//       nomodule
-//       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-//     ></script>
-//   </head>
-//   <body dir="rtl"> -->
+
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { authActions } from "../../store/auth-slice";
 import { loginRequest } from "../../store/auth-action";
 import { Link } from "react-router-dom";
 import MyLoading from "../Layout/MyLoading";
@@ -36,18 +12,15 @@ const LoginForm = () => {
   const [passwordError, setPasswordError] = useState(false);
   const [showUserPass, setShowUserPass] = useState(false);
   const showLoading = useSelector((state) => state.auth.authLoading);
-  console.log("showLoading", showLoading);
+  // console.log("showLoading", showLoading);
   const addUserNameInputHandler = (e) => {
-    // console.log('addUserNameInputHandler',e.target.value);
     setUserName(e.target.value);
   };
   const addPasswordInputHandler = (e) => {
-    // console.log('addPasswordInputHandler',e.target.value);
     setPassword(e.target.value);
   };
   const loginSubmitHandler = (event) => {
     event.preventDefault();
-    // dispatch(authActions.login(token))
     if (userName) {
       setUserNameError(false);
     } else {
@@ -66,7 +39,6 @@ const LoginForm = () => {
 
   return (
     <div className="container mx-auto">
-      {/* <!-- component --> */}
       <form action="" onSubmit={loginSubmitHandler}>
         <div className="min-h-screen py-6 flex flex-col justify-center sm:py-12 sm:px-10">
           <div className="relative py-3 px-10 sm:mx-auto">

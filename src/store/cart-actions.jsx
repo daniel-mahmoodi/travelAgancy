@@ -66,8 +66,8 @@ export const fetchCartData = (token) => {
         console.log("response /Basket/GetBasket ", response);
         if (response.data) {
           dispatch(cartActions.toggleUserHasCart(true));
-          dispatch(cartActions.toggleCartLoading(false));
         }
+        dispatch(cartActions.toggleCartLoading(false));
         dispatch(
           cartActions.addFetchedUserCartItems(response.data.basketItems)
         );

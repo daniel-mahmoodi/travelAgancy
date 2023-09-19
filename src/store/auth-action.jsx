@@ -6,7 +6,7 @@ import { uiActions } from "./Ui-slice";
 const apiUrl = process.env.REACT_APP_API_ENDPOINT;
 export const loginRequest = (userName, password) => {
   return async (dispatch) => {
-    dispatch(authActions.toggleAuthLoading(true))
+    dispatch(authActions.toggleAuthLoading(true));
     const bodyFormData = new FormData();
     bodyFormData.append("UserName", userName);
     bodyFormData.append("Password", password);
@@ -21,7 +21,7 @@ export const loginRequest = (userName, password) => {
         //handle success
         dispatch(authActions.login(response.data.token));
         console.log("response", response);
-        dispatch(authActions.toggleAuthLoading(false))
+        dispatch(authActions.toggleAuthLoading(false));
         dispatch(
           uiActions.toggleSuccessModal({
             show: true,
@@ -33,14 +33,17 @@ export const loginRequest = (userName, password) => {
 
       .catch(function (response) {
         console.log(response);
-        dispatch(authActions.toggleAuthLoading(true))
+        dispatch(authActions.toggleAuthLoading(true));
+        setTimeout(() => {
+          dispatch(authActions.toggleAuthLoading(false));
+        }, 2000);
         dispatch(uiActions.showWarning(response.response.data));
       });
   };
 };
 export const signUpRequest = (userData) => {
   return async (dispatch) => {
-    dispatch(authActions.toggleAuthLoading(true))
+    dispatch(authActions.toggleAuthLoading(true));
     const bodyFormData = new FormData();
     bodyFormData.append("Password", userData.password);
     bodyFormData.append("UserName", userData.userName);
@@ -60,7 +63,12 @@ export const signUpRequest = (userData) => {
       })
 
       .catch(function (response) {
+        dispatch(authActions.toggleAuthLoading(true));
         console.log("error", response.response);
+        setTimeout(() => {
+          dispatch(authActions.toggleAuthLoading(false));
+        }, 2000);
+        dispatch(uiActions.showWarning(response.response.data));
       });
   };
 };
