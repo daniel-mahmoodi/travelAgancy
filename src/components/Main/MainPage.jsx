@@ -20,28 +20,23 @@ import SupportingTickets from "./Ticket/SupportingTickets";
 import { useSelector } from "react-redux";
 import SignUp from "../Auth/SignUp";
 const MainPage = () => {
-  const isLoggedIn = useSelector((state)=>state.auth.isLoggedIn);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   return (
     <div>
-      <Switch>
-        {isLoggedIn ? (
-          <>
-            <Route path="/">
-              <Navbar />
-              <Breadcrumbs />
-              <SideBar />
-              {/* <BreadCumb /> */}
-
-              <SocialMediaButton />
-              <ScrollBackToTopButton />
-            </Route>
+      {isLoggedIn ? (
+        <div>
+          <Navbar />
+          <Breadcrumbs />
+          <SideBar />
+          <SocialMediaButton />
+          <ScrollBackToTopButton />
+          <Switch>
             <Route path="/" exact>
               <Redirect to="/summary-dashboard" />
             </Route>
             <Route path="/summary-dashboard" exact>
               <SummaryDashboard />
             </Route>
-          
             <Route path="/buying-tickets" exact>
               <BuyingTickets />
             </Route>
@@ -60,23 +55,27 @@ const MainPage = () => {
             >
               <SupportingTickets />
             </Route>
-          </>
-        ) : (
-          <>
-            {/* <Redirect to="/login-form" /> */}
+            <Route path="*">
+              <Redirect to="/summary-dashboard" />
+            </Route>
+            <EndOfThePage />
+          </Switch>
+        </div>
+      ) : (
+        <div>
+          <Switch>
             <Route path="/login-form" exact>
               <LoginForm />
             </Route>
             <Route path="/sign-up" exact>
               <SignUp />
             </Route>
-          </>
-        )}
-        <Route path="*">
-          <SummaryDashboard />
-        </Route>
-      </Switch>
-      <EndOfThePage />
+            <Route path="*">
+              <Redirect to="/login-form" />
+            </Route>
+          </Switch>
+        </div>
+      )}
     </div>
   );
 };

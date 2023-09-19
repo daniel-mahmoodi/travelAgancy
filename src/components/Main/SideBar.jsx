@@ -1,12 +1,18 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { uiActions } from "../../store/Ui-slice";
+import { authActions } from "../../store/auth-slice";
 export const SideBar = () => {
   const dispatch = useDispatch();
   const isSideBarVisible = useSelector((state) => state.ui.sideBarVisibile);
   const toggleSideBarVisibilityHandler = () => {
     dispatch(uiActions.toggleSideBarVisibility(false));
+  };
+  const history = useHistory();
+  const exitOfProfileHandler = () => {
+    // history.push("/login-form");
+    // dispatch(authActions.logout());
   };
   return (
     <div>
@@ -33,6 +39,7 @@ export const SideBar = () => {
               ></ion-icon>
             </Link>
             <button
+              onClick={exitOfProfileHandler}
               title="خروج از حساب کاربری"
               className="cursor-pointer sidebar-exit_button"
             >

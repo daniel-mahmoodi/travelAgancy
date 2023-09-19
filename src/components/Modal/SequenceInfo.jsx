@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MainModal from "./MainModal";
 
 import { uiActions } from "../../store/Ui-slice";
@@ -7,16 +7,28 @@ import SequenceItems from "./SequenceItems";
 import TicketsInSequenceModal from "../Main/Ticket/TicketsInSequenceModal";
 import { sendTicketOrderData } from "../../store/cart-actions";
 import { cartActions } from "../../store/cart-slice";
+import { cardActions } from "../../store/card-slice";
 
 const SequenceInfo = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
   const items = useSelector((state) => state.cart.items);
-  // const hideSansModal = () => {
-  //   dispatch(uiActions.toggleSequenceModal());
-  //   console.log("hideSansModal");
-  // };
-  console.log("sequence");
+  const sequencesItems = useSelector((state) => state.card.sequencesItems);
+  const [shortItems, setShortItems] = useState(sequencesItems);
+  const [showMoreBtn, setShowMoreBtn] = useState(false);
+  const tickets = useSelector((state) => state.card.tickets);
+  console.log("items", items);
+  useEffect(() => {
+    if (sequencesItems.length > 1) {
+      setShortItems(sequencesItems.slice(0, 1)); //hardo 1 bayad hammeghdar bashand
+      setShowMoreBtn(true);
+    } else {
+      setShortItems(sequencesItems);
+      setShowMoreBtn(false);
+    }
+    dispatch(cardActions.ListOfTicketsFromSelectedSans());
+  }, [dispatch, sequencesItems]);
+
   const hideSequenceModalHandler = () => {
     dispatch(uiActions.toggleSequenceModal());
     dispatch(cartActions.eraseAllTickets());
@@ -27,7 +39,11 @@ const SequenceInfo = () => {
   const finalPurchaseBtnHandler = () => {
     console.log("finalPurchaseBtnHandler");
   };
-
+  const showAllItemsHandler = () => {
+    setShortItems(sequencesItems);
+    setShowMoreBtn(false);
+    console.log("shortItems", shortItems);
+  };
   return (
     <MainModal hideModalHandler={hideSequenceModalHandler}>
       <div
@@ -64,44 +80,49 @@ const SequenceInfo = () => {
               className="relative mt-8 mr-8 border-r border-gray-500"
               id="sansList"
             >
-              <SequenceItems />
+              <SequenceItems data={shortItems} />
             </ol>
-            <button
-              className="flex items-center justify-center w-full gap-1 p-2 text-white bg-green-400 rounded-md"
-              id="more"
-            >
-              بیشتر
-            </button>
+            {showMoreBtn && (
+              <button
+                onClick={showAllItemsHandler}
+                className="flex items-center justify-center w-full gap-1 p-2 text-white bg-green-400 rounded-md"
+                id="more"
+              >
+                بیشتر
+              </button>
+            )}
           </div>
-          <div className="relative mt-10 overflow-x-auto shadow-md sm:rounded-lg">
-            <table className="w-full text-sm text-left text-gray-500">
-              <thead className="text-xs text-gray-100 uppercase border-b bg-blue-950">
-                <tr>
-                  <th scope="col" className="px-6 py-3">
-                    عنوان
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    ظرفیت
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    خرید
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    کمیسیون
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    مبلغ بلیط
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    تعداد
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <TicketsInSequenceModal />
-              </tbody>
-            </table>
-          </div>
+          {tickets && (
+            <div className="relative mt-10 overflow-x-auto shadow-md sm:rounded-lg">
+              <table className="w-full text-sm text-left text-gray-500">
+                <thead className="text-xs text-gray-100 uppercase border-b bg-blue-950">
+                  <tr>
+                    <th scope="col" className="px-6 py-3">
+                      عنوان
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      ظرفیت
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      خرید
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      کمیسیون
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      مبلغ بلیط
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      تعداد
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <TicketsInSequenceModal />
+                </tbody>
+              </table>
+            </div>
+          )}
 
           <div className="flex gap-2 mt-8">
             <button

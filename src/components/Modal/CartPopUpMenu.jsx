@@ -23,7 +23,7 @@ const CartPopUpMenu = () => {
     <MainModal hideModalHandler={hideCartModalHandler}>
       <div
         className="fixed top-0 left-0 w-full h-full bg-blue-50/30"
-            // style="z-index: 1000; overflow-y: scroll;"
+        // style="z-index: 1000; overflow-y: scroll;"
         style={{
           zIndex: 1000,
           overflowY: "auto",
@@ -34,11 +34,11 @@ const CartPopUpMenu = () => {
         <div className="shadow-md max-w-[600px]  mx-auto rounded-md border p-4 mt-10 bg-white">
           <div className="flex items-center justify-between pb-3 font-bold">
             سبد خرید
-            <button
-              onClick={hideCartModalHandler}
-              
-            >
-              <ion-icon class="w-8 h-8 text-red-500" name="close-circle-outline"></ion-icon>
+            <button onClick={hideCartModalHandler}>
+              <ion-icon
+                class="w-8 h-8 text-red-500"
+                name="close-circle-outline"
+              ></ion-icon>
             </button>
             {/* className="text-white rounded-full flex justify-center items-center"
               style={{
@@ -46,7 +46,11 @@ const CartPopUpMenu = () => {
               }} */}
           </div>
           <hr />
-         <CartItems data={cartItems}/>
+          {cartItems?.length ? (
+            <CartItems data={cartItems} />
+          ) : (
+            <p className="text-rose-600 font-bold flex justify-center items-center m-2 p-2">سبد خالی است</p>
+          )}
           <hr />
 
           {/* <!-- button --> */}

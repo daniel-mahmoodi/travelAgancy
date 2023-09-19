@@ -28,7 +28,7 @@ export const sendRemovedTickets = (token, tickets) => {
         console.log("response", response);
         // dispatch(uiActions.toggleSequenceModal());
         // dispatch(cartActions.eraseTicketsFromUserOrder(tickets.id));
-        // dispatch(fetchCartData(token));
+        dispatch(fetchCartData(token));
       })
       .catch((error) => {
         console.log("error", error);
@@ -80,6 +80,8 @@ export const sendUserNewCartData = (token, specs) => {
     })
       .then((response) => {
         console.log("response", response);
+        dispatch(uiActions.toggleNewPaymentModal());
+
       })
       .catch((error) => {
         console.log("error", error.response.data, error.response.status);
@@ -119,6 +121,13 @@ export const sendTicketOrderData = (token, items) => {
         dispatch(uiActions.toggleSequenceModal());
         dispatch(cartActions.eraseAllTickets());
       })
-      .catch((error) => dispatch(uiActions.showWarning(error.response.data)));
+      .catch((error) => {
+        console.log("error", error.response.status);
+        if (error.response.data === 'سبد خرید شما منقضی شده است.') {
+          dispatch(cartActions.toggleUserHasCart());
+          // dispatch(uiActions.toggleNewPaymentModal());
+        }
+        dispatch(uiActions.showWarning(error.response.data));
+      });
   };
 };

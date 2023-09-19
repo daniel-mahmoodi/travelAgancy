@@ -24,9 +24,9 @@ const categorySlice = createSlice({
     toggleLoading(state, action) {
       state.loading = action.payload;
     },
-    ListOfSansesOfSelectedCardItem(state, action) {
-      state.ListOfSanses = action.payload;
-    },
+    // ListOfSansesOfSelectedCardItem(state, action) {
+    //   state.ListOfSanses = action.payload;
+    // },
   },
 });
 

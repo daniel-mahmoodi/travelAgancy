@@ -24,7 +24,7 @@ const Ticket = ({ data, eventTitle }) => {
     }
   }, [finalChanges]);
   const removeSequenceTicketsHandler =()=>{
-     dispatch(cartActions.eraseTicketsFromUserOrder(data.id));
+    //  dispatch(cartActions.eraseTicketsFromUserOrder(data.id));
      dispatch(sendRemovedTickets(token,data))
   }
   return (
