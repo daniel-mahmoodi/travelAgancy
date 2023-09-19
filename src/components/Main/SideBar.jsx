@@ -11,8 +11,8 @@ export const SideBar = () => {
   };
   const history = useHistory();
   const exitOfProfileHandler = () => {
-    // dispatch(authActions.logout());
-    // history.push("/");
+    dispatch(authActions.logout());
+    history.push("/login-form");
   };
   return (
     <div>
