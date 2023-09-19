@@ -2,9 +2,11 @@
 
 import axios from "axios";
 import { authActions } from "./auth-slice";
+import { uiActions } from "./Ui-slice";
 const apiUrl = process.env.REACT_APP_API_ENDPOINT;
 export const loginRequest = (userName, password) => {
   return async (dispatch) => {
+    dispatch(authActions.toggleAuthLoading(true))
     const bodyFormData = new FormData();
     bodyFormData.append("UserName", userName);
     bodyFormData.append("Password", password);
@@ -18,15 +20,27 @@ export const loginRequest = (userName, password) => {
       .then(function (response) {
         //handle success
         dispatch(authActions.login(response.data.token));
+        console.log("response", response);
+        dispatch(authActions.toggleAuthLoading(false))
+        dispatch(
+          uiActions.toggleSuccessModal({
+            show: true,
+            desc: `${userName} خوش آمدید!`,
+          })
+        );
+        // dispatch(uiActions.showWarning('asda'))
       })
 
       .catch(function (response) {
         console.log(response);
+        dispatch(authActions.toggleAuthLoading(true))
+        dispatch(uiActions.showWarning(response.response.data));
       });
   };
 };
 export const signUpRequest = (userData) => {
   return async (dispatch) => {
+    dispatch(authActions.toggleAuthLoading(true))
     const bodyFormData = new FormData();
     bodyFormData.append("Password", userData.password);
     bodyFormData.append("UserName", userData.userName);
@@ -46,7 +60,7 @@ export const signUpRequest = (userData) => {
       })
 
       .catch(function (response) {
-        console.log("error", response.response.data);
+        console.log("error", response.response);
       });
   };
 };

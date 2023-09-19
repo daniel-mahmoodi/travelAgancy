@@ -3,6 +3,7 @@ const initialAuthState = {
   token: "",
   phoneNumber: "",
   isLoggedIn: false,
+  authLoading: false,
 };
 
 const authSlice = createSlice({
@@ -24,6 +25,9 @@ const authSlice = createSlice({
     },
     addPhoneNumber(state, action) {
       state.phoneNumber = action.payload;
+    },
+    toggleAuthLoading(state, action) {
+      state.authLoading = action.payload;
     },
   },
 });

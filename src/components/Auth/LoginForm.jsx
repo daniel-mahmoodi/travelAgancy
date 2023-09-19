@@ -23,10 +23,11 @@
 //   </head>
 //   <body dir="rtl"> -->
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../store/auth-slice";
 import { loginRequest } from "../../store/auth-action";
 import { Link } from "react-router-dom";
+import MyLoading from "../Layout/MyLoading";
 const LoginForm = () => {
   const dispatch = useDispatch();
   const [userName, setUserName] = useState("");
@@ -34,6 +35,8 @@ const LoginForm = () => {
   const [userNameError, setUserNameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [showUserPass, setShowUserPass] = useState(false);
+  const showLoading = useSelector((state) => state.auth.authLoading);
+  console.log("showLoading", showLoading);
   const addUserNameInputHandler = (e) => {
     // console.log('addUserNameInputHandler',e.target.value);
     setUserName(e.target.value);
@@ -116,13 +119,13 @@ const LoginForm = () => {
                         autoComplete="off"
                         id="password"
                         name="password"
-                        type={showUserPass ? 'text' :'password'}
+                        type={showUserPass ? "text" : "password"}
                         className=" h-10 w-full border-b-2 border-gray-300 text-gray-700 text-[12px] focus:outline-none focus:borer-rose-600"
                         placeholder="Password"
                         onChange={addPasswordInputHandler}
                       />
                       <ion-icon
-                      onClick={()=>setShowUserPass((prev)=>!prev)}
+                        onClick={() => setShowUserPass((prev) => !prev)}
                         class="absolute text-gray-500 left-[5px] top-[10px]"
                         name="eye-outline"
                       ></ion-icon>
@@ -156,9 +159,9 @@ const LoginForm = () => {
                       </label>
                     </div>
 
-                    <div className="flex justify-center pt-5">
+                    <div className="flex justify-center items-center pt-5">
                       <button className="bg-green-500 text-[15px] text-white rounded-md px-20 border border-green-500 hover:bg-transparent hover:text-gray-500 duration-300 py-1">
-                        ورود
+                        {showLoading ? <MyLoading /> : "ورود"}
                       </button>
                     </div>
                   </div>
