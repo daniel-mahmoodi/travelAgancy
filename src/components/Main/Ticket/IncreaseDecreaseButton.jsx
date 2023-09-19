@@ -8,7 +8,7 @@ const IncreaseDecreaseButton = ({ data }) => {
   const items = useSelector((state) => state.cart.items);
   const { id, capacity, reservedTemporary } = data;
   const checkStockHook = useCheckStock(id, capacity, reservedTemporary);
-  console.log("IncreaseDecreaseButton  data", data, items,id, capacity, reservedTemporary,checkStockHook);
+  // console.log("IncreaseDecreaseButton  data", data, items,id, capacity, reservedTemporary,checkStockHook);
   // const LoggedIn = useSelector((state) => state.auth.isLoggedIn);
   //  const checkStockHook = useCheckStock(id);
   const currentItem = items?.find((item) => item.ticketId === id);

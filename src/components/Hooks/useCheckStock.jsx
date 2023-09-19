@@ -10,12 +10,12 @@ const useCheckStock = (id, capacity, reservedTemporary) => {
 
   useEffect(() => {
     if (checkStock) {
-      const stockOfTicket = capacity - reservedTemporary - checkStock.count;
+      const stockOfTicket = capacity - checkStock.count;
       if (stockOfTicket >= 0) {
         setStockRemined(stockOfTicket);
       }
     } else {
-      setStockRemined(capacity - reservedTemporary);
+      setStockRemined(capacity);
     }
   }, [capacity, checkStock, reservedTemporary]);
   return stockRemined;

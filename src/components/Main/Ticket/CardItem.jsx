@@ -15,7 +15,7 @@ const CardItem = ({ data }) => {
   const pushBuyBtn = () => {
     if (userHasCart) {
       dispatch(uiActions.toggleSequenceModal());
-      dispatch(fetchSequenceDataOFSelectedCardItemHandler(id));
+      dispatch(fetchSequenceDataOFSelectedCardItemHandler(id,token));
     } else {
       dispatch(uiActions.toggleNewPaymentModal());
     }
