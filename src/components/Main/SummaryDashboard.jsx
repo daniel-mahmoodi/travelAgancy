@@ -10,7 +10,9 @@ const SummaryDashboard = () => {
           <Link className="text-[12px] text-gray-500" to="/">
             تیلویند
           </Link>
-          <p className="text-gray-black text-xl">پیشخوان کاربری</p>
+          <p className="text-gray-black text-xl">
+            
+            پیشخوان کاربری</p>
         </div>
         <div className="ticket-box-send_link">
           <Link className="font-medium" to="/">
