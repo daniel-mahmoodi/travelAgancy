@@ -3,10 +3,17 @@ import useDateConverter from "../Hooks/useDataConverter";
 import { useDispatch, useSelector } from "react-redux";
 import { sendRemovedTickets } from "../../store/cart-actions";
 import { cartActions } from "../../store/cart-slice";
+import { ScaleLoader } from "react-spinners";
 
 const Ticket = ({ data, eventTitle }) => {
-     const dispatch = useDispatch()
-     const token =useSelector((state)=>state.auth.token)
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.token);
+  const showTiketDeleteLoading = useSelector(
+    (state) => state.cart.showTiketDeleteLoading
+  );
+  const deletingTicketId = useSelector((state) => state.cart.deletingTicketId);
+  console.log("deletingTicketId", deletingTicketId,data.id);
+
   const executeDateChange = data.executeDate.split(" ")[0].split("/");
   const dateChanges = [
     executeDateChange[2],
@@ -17,16 +24,16 @@ const Ticket = ({ data, eventTitle }) => {
   const [convertedDate, setConvertedDate] = useState("");
   const { Year, dayOfWeek, DayOfMonth, Month } =
     useDateConverter(convertedDate);
-  console.log('data in ticket',data);
+  console.log("data in ticket", data);
   useEffect(() => {
     if (finalChanges) {
       setConvertedDate(finalChanges);
     }
   }, [finalChanges]);
-  const removeSequenceTicketsHandler =()=>{
+  const removeSequenceTicketsHandler = () => {
     //  dispatch(cartActions.eraseTicketsFromUserOrder(data.id));
-     dispatch(sendRemovedTickets(token,data))
-  }
+    dispatch(sendRemovedTickets(token, data));
+  };
   return (
     <Fragment>
       <p className="font-bold text-center text-gray-500">
@@ -66,10 +73,14 @@ const Ticket = ({ data, eventTitle }) => {
             <td className="px-6 py-4">12،700،000</td>
             <td className="px-6 py-4">
               <button onClick={removeSequenceTicketsHandler}>
-                <ion-icon
-                  class="w-8 h-8 text-red-500"
-                  name="trash-outline"
-                ></ion-icon>
+                {deletingTicketId === data.id ? (
+                  <ScaleLoader color="#e56d6d" />
+                ) : (
+                  <ion-icon
+                    class="w-8 h-8 text-red-500"
+                    name="trash-outline"
+                  ></ion-icon>
+                )}
               </button>
             </td>
           </tr>

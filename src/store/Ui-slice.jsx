@@ -11,9 +11,11 @@ const uiSlice = createSlice({
     newPaymentModalPopUp: false,
     sideBarVisibile: false,
     warningDesc: "",
+    successDesc: "",
     warningIsVisible: false,
+    successIsVisible: false,
     scrollYBackGround: true,
-    // authUpdateModalPopUp: false,
+    loading: false,
     // commentToStoreModalPopUp: false,
     // hamburgerModalPopUp: false,
     // infoModalPopUp: false,
@@ -37,6 +39,9 @@ const uiSlice = createSlice({
     // showNotificationInTimer(state: any, action) {
     //   state.notificationIsShowing = action.payload
     // },
+    toggleLoading(state, action) {
+      state.loading = action.payload;
+    },
     toggleCartModal(state) {
       state.cartModalPopUp = !state.cartModalPopUp;
     },
@@ -54,15 +59,19 @@ const uiSlice = createSlice({
     toggleSideBarVisibility(state, action) {
       state.sideBarVisibile = action.payload;
     },
+    toggleSuccessModal(state, action) {
+      state.successIsVisible = action.payload.show;
+      state.successDesc = action.payload.desc;
+    },
     showWarning(state, action) {
       state.warningDesc = action.payload;
       state.warningIsVisible = true;
     },
     hideWarning(state) {
       state.warningIsVisible = false;
-      state.cartModalPopUp = false;
-      state.sequenceModalPopUp = false;
-      state.newPaymentModalPopUp = false;
+      // state.cartModalPopUp = false;
+      // state.sequenceModalPopUp = false;
+      // state.newPaymentModalPopUp = false;
     },
     // toggleUpdateUserModal(state) {
     //   state.authUpdateModalPopUp = !state.authUpdateModalPopUp;

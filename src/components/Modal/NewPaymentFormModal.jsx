@@ -5,6 +5,7 @@ import { uiActions } from "../../store/Ui-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { sendUserNewCartData } from "../../store/cart-actions";
+import MyLoading from "../Layout/MyLoading";
 
 const initialState = {
   fullName: "",
@@ -29,6 +30,9 @@ const reducer = (state, action) => {
 const NewPaymentFormModal = () => {
   const dispatch = useDispatch();
   const [state, localDispatch] = useReducer(reducer, initialState);
+  const showNewCartLoading = useSelector(
+    (state) => state.cart.showNewCartLoading
+  );
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     localDispatch({
@@ -253,7 +257,7 @@ const NewPaymentFormModal = () => {
               className="px-5 py-2 text-white duration-200 bg-green-400 border border-green-400 rounded-md hover:text-black hover:bg-transparent"
               onClick={UserInsertedDataHandler}
             >
-              ایجاد سبد خرید
+              {showNewCartLoading ? <MyLoading /> : "ایجاد سبد خرید"}
             </button>
           </div>
         </div>

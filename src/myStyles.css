@@ -1,0 +1,8 @@
+/* styles.css */
+.my-rotate-360 {
+  animation: mymove 0.5s infinite;
+}
+@keyframes mymove {
+     100% {rotate:  360deg;}
+   }
+   

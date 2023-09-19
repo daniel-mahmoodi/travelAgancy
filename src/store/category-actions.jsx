@@ -1,6 +1,5 @@
 import axios from "axios";
 import { categoryActions } from "./category-slice";
-import { authActions } from "./auth-slice";
 const apiUrl = process.env.REACT_APP_API_ENDPOINT;
 
 export const fetchListOfCategories = (token) => {
@@ -24,6 +23,7 @@ export const fetchListOfCategories = (token) => {
 };
 export const fetchListOfEvents = (id, token) => {
   return async (dispatch) => {
+    dispatch(categoryActions.reEventsFetchLoading(true));
     axios({
       method: "GET",
       url: `${apiUrl}/Event/GetEvents?CategoryId=${id}`,
@@ -35,8 +35,12 @@ export const fetchListOfEvents = (id, token) => {
     })
       .then((response) => {
         dispatch(categoryActions.ListOfEvents(response.data));
+        dispatch(categoryActions.reEventsFetchLoading(false));
         console.log("response", response);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        dispatch(categoryActions.reEventsFetchLoading(true));
+      });
   };
 };

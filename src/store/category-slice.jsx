@@ -6,6 +6,7 @@ const initialCategoryState = {
   ListOfSanses: [],
   eventID: 1,
   loading: false,
+  showEventsLoading: false,
 };
 
 const categorySlice = createSlice({
@@ -20,6 +21,9 @@ const categorySlice = createSlice({
     },
     ListOfEvents(state, action) {
       state.eventsItems = action.payload;
+    },
+    reEventsFetchLoading(state, action) {
+      state.showEventsLoading = action.payload;
     },
     toggleLoading(state, action) {
       state.loading = action.payload;
