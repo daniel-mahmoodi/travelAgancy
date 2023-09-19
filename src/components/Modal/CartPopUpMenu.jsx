@@ -11,8 +11,8 @@ import { cartActions } from "../../store/cart-slice";
 const CartPopUpMenu = () => {
   const token = useSelector((state) => state.auth.token);
   const cartItems = useSelector((state) => state.cart.cartItems);
-  const showLoading = useSelector((state) => state.cart.showCartLoading);
-  console.log("cartModal component", cartItems, showLoading);
+  const showCartLoading = useSelector((state) => state.cart.showCartLoading);
+  console.log("cartModal component", cartItems, showCartLoading);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCartData(token));
@@ -51,7 +51,7 @@ const CartPopUpMenu = () => {
               }} */}
           </div>
           <hr />
-          {showLoading ? (
+          {showCartLoading ? (
             <div className="flex flex-col justify-center items-center pt-1">
               <MyCartLoader />
               <MyCartLoader />
