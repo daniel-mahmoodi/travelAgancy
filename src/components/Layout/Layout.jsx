@@ -1,11 +1,9 @@
 import React, { Fragment } from "react";
-import Navbar from "../Navbar/Navbar";
 import { LinkeSide } from "../SummaryDashboard/LinkeSide";
 
 const Layout = (props) => {
   return (
     <Fragment>
-      {/* <Navbar /> */}
       <div className="flex">
         <div>{props.children}</div>
 
