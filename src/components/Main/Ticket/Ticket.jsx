@@ -31,7 +31,7 @@ const Ticket = ({ data }) => {
       <td className="px-6 py-4">{servicePrice}</td>
       <td className="px-6 py-4">{commission}</td>
       <td className="px-6 py-4">{servicePrice + commission}</td>
-      <td className="px-6 py-4">
+      <td className="px-6 py-4 flex justify-center">
         <IncreaseDecreaseButton data={data} />
       </td>
     </tr>

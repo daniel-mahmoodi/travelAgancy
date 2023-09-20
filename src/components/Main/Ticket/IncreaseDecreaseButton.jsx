@@ -29,14 +29,14 @@ const IncreaseDecreaseButton = ({ data }) => {
     <div className="flex gap-2">
       <button
         onClick={increaseItemHandler}
-        className="increase-button"
+        className="increase-button flex justify-center items-center"
         data-id="1"
       >
-        <ion-icon class="text-xl 'text-red-100" name="add-circle"></ion-icon>
+        <ion-icon class="text-xl" name="add-circle"></ion-icon>
       </button>
       {/* <span className="counter" className="text-sm" data-id="1"> */}
       <span
-        className="counter text-sm flex justify-center items-center"
+        className="font-black text-base flex justify-center items-center w-4"
         data-id="1"
       >
         {currentItem ? currentItem.count : 0}
@@ -51,10 +51,10 @@ const IncreaseDecreaseButton = ({ data }) => {
 
       <button
         onClick={deacreseItemHandler}
-        className="decrease-button"
+        className="decrease-button flex justify-center items-center"
         data-id="1"
       >
-        <ion-icon class="text-xl text-red-400" name="remove-circle"></ion-icon>
+        <ion-icon class="text-xl " name="remove-circle"></ion-icon>
       </button>
     </div>
   );

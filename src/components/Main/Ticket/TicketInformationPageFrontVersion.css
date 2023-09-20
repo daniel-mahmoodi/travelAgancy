@@ -88,7 +88,7 @@ button {
 .increase-button {
   border: none;
   box-shadow: none;
-  color: green;
+  color: rgb(14, 209, 14);
   font-size: 20px;
   background-color: transparent;
 }
@@ -96,7 +96,7 @@ button {
 .decrease-button {
   border: none;
   box-shadow: none;
-  color: red;
+  color: rgb(255, 0, 0);
   font-size: 20px;
   background-color: transparent;
 }
