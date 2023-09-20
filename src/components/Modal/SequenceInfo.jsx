@@ -139,7 +139,7 @@ const SequenceInfo = () => {
                     <th scope="col" className="px-6 py-3">
                       مبلغ بلیط
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-6 py-3 text-center">
                       تعداد
                     </th>
                   </tr>

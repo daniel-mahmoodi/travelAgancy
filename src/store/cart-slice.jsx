@@ -1,5 +1,4 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-const { log } = console;
 const defaultCartState = {
   items: [],
   cartItems: [],

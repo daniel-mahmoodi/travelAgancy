@@ -8,6 +8,7 @@ import MyLoading from "../Layout/MyLoading";
 import MyCardLoader from "../Layout/MyCardLoader";
 import MyCartLoader from "../Layout/MyCartLoader";
 import { cartActions } from "../../store/cart-slice";
+import Cart from "./Cart";
 const CartPopUpMenu = () => {
   const token = useSelector((state) => state.auth.token);
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -60,7 +61,7 @@ const CartPopUpMenu = () => {
           ) : (
             <>
               {cartItems?.length ? (
-                <CartItems data={cartItems} />
+                <Cart data={cartItems} />
               ) : (
                 <p className="text-rose-600 font-bold flex justify-center items-center m-2 p-2">
                   سبد خالی است
