@@ -11,13 +11,13 @@ const CardItem = ({ data }) => {
   const userHasCart = useSelector((state) => state.cart.userHasCart);
   const expiredCart = useSelector((state) => state.cart.expiredCart);
   const { id, title, isActive, imageUrl } = data;
-  console.log("data in card", imageUrl, id);
   useEffect(() => {
     // TODO: why fetch cart???
     dispatch(fetchCartData(token));
   }, [dispatch, token]);
   const pushBuyBtn = () => {
-    if (userHasCart && !expiredCart) {
+    // if (userHasCart && !expiredCart) {
+    if (userHasCart) {
       dispatch(uiActions.toggleSequenceModal());
       dispatch(fetchSequenceDataOFSelectedCardItemHandler(id, token));
       dispatch(cardActions.setSelectedCardId(id));
