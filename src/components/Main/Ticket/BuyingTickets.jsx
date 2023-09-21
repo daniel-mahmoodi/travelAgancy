@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import StoreBoxInfo from "./StoreBoxInfo";
 import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions";
 import Cards from "./Cards";
-import PaymentModal from "./PaymentModal";
 import Category from "../WorkGroup/Category";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCartData } from "../../../store/cart-actions";
@@ -20,7 +19,6 @@ const BuyingTickets = () => {
         <Cards />
         <FrequentlyAskedQuestions />
       </main>
-      {/* <PaymentModal /> */}
     </div>
   );
 };

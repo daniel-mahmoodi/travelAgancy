@@ -4,12 +4,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/Ui-slice";
 const PaymentModal = () => {
   const dispatch = useDispatch();
-  const [activeDiv, setActiveDiv] = useState(null);
+  const [activeDiv, setActiveDiv] = useState('2');
+  const nameOfSelectedBank =
+    activeDiv === "1"
+      ? "ملی"
+      : activeDiv === "2"
+      ? "ملت"
+      : activeDiv === "3"
+      ? "سامان"
+      : "";
   const paymentAmount = useSelector(
     (state) => state.wallet.walletWouldChargedAmount
   );
   const hideSelectBank = () => {
     dispatch(uiActions.toggleWalletPaymentModal(false));
+  };
+  const addBankhandler = () => {
+    console.log("addBankhandler");
   };
   return (
     <MainModal>
@@ -85,9 +96,9 @@ const PaymentModal = () => {
               </div>
               <button
                 className="p-2 text-white duration-200 bg-green-400 border border-green-400 rounded-md hover:bg-transparent hover:text-gray-600"
-                href="#"
+                onClick={addBankhandler}
               >
-                پرداخت از طریق درگاه بانک ملی
+                پرداخت از طریق درگاه بانک {nameOfSelectedBank}
               </button>
             </div>
           </div>
