@@ -63,13 +63,13 @@ export const fetchCartData = (token) => {
     })
       .then((response) => {
         // dispatch(cartActions.toggleUserHasCart(true));
-        console.log("response /Basket/GetBasket ", response);
         if (response.data) {
           dispatch(cartActions.toggleUserHasCart(true));
         }
         dispatch(cartActions.toggleCartLoading(false));
         dispatch(
-          cartActions.addFetchedUserCartItems(response.data.basketItems)
+          cartActions.addFetchedUserCartItems(response.data)
+          
         );
       })
       .catch((error) => {
@@ -81,7 +81,6 @@ export const fetchCartData = (token) => {
 
 export const sendUserNewCartData = (token, specs) => {
   const url = `${apiUrl}/Basket/CreateBasket`;
-  console.log("sendfavoriteCartData", token, specs, specs.fullName);
   return async (dispatch) => {
     dispatch(cartActions.toggleCreateCartLoading(true));
     const bodyFormData = new FormData();
@@ -103,7 +102,6 @@ export const sendUserNewCartData = (token, specs) => {
       },
     })
       .then((response) => {
-        console.log("response", response);
         dispatch(uiActions.toggleNewPaymentModal());
         dispatch(cartActions.toggleUserHasCart(true));
       })
@@ -121,7 +119,6 @@ export const sendUserNewCartData = (token, specs) => {
 };
 export const sendTicketOrderData = (token, items) => {
   const url = `${apiUrl}/Basket/AddTickets`;
-  console.log("sendfavoriteCartData", items);
   return async (dispatch) => {
     dispatch(cartActions.toggleSendTicketLoading(true));
     let sendCartItems = { items: [] };
@@ -146,7 +143,6 @@ export const sendTicketOrderData = (token, items) => {
       },
     })
       .then((response) => {
-        console.log("response", response);
         dispatch(uiActions.toggleSequenceModal());
         dispatch(cartActions.eraseAllTickets());
         dispatch(cartActions.toggleSendTicketLoading(false));

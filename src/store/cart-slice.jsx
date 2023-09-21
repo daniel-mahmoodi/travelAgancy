@@ -2,14 +2,14 @@ import { createSlice, current } from "@reduxjs/toolkit";
 const defaultCartState = {
   items: [],
   cartItems: [],
+  createdAt: "",
   changed: false,
   userHasCart: false,
   showCartLoading: false,
   showNewCartLoading: false,
   showSendingTicketsLoading: false,
   showTiketDeleteLoading: false,
-  deletingTicketId : 0,
-
+  deletingTicketId: 0,
 };
 
 const cartSlice = createSlice({
@@ -65,7 +65,8 @@ const cartSlice = createSlice({
       }
     },
     addFetchedUserCartItems(state, action) {
-      state.cartItems = action.payload;
+      state.cartItems = action.payload.basketItems;
+      state.createdAt = action.payload.createdAt;
     },
   },
 });
