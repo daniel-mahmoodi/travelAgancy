@@ -6,6 +6,7 @@ import NewPaymentFormModal from "./components/Modal/NewPaymentFormModal";
 import MainPage from "./components/Main/MainPage";
 import WarningModal from "./components/Modal/WarningModal";
 import SuccesfullyAddedModal from "./components/Modal/SuccesfullyAddedModal";
+import PaymentModal from "./components/Main/Ticket/PaymentModal";
 
 function App() {
   const showCartModal = useSelector((state) => state.ui.cartModalPopUp);
@@ -17,7 +18,10 @@ function App() {
 
   const showWarning = useSelector((state) => state.ui.warningIsVisible);
   const showsuccesModal = useSelector((state) => state.ui.successIsVisible);
-  console.log("has", userHasCart);
+  const walletPaymentModal = useSelector(
+    (state) => state.ui.walletPaymentModal
+  );
+  console.log("walletPaymentModal", walletPaymentModal);
   return (
     <div
       style={{
@@ -32,6 +36,7 @@ function App() {
       {showNewPaymentModal && !userHasCart && <NewPaymentFormModal />}
       {showWarning && <WarningModal />}
       {showsuccesModal && <SuccesfullyAddedModal />}
+      {walletPaymentModal && <PaymentModal />}
       <MainPage />
       {/* <CartPopUpMenu /> */}
       {/* </Layout> */}

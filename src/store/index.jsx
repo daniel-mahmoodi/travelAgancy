@@ -5,6 +5,7 @@ import thunk from "redux-thunk";
 
 import uiReducer from "./Ui-slice";
 import cartReducer from "./cart-slice";
+import walletReducer from "./Wallet-slice";
 import cardReducer from "./card-slice";
 import categoryReducer from "./category-slice";
 import authReducer from "./auth-slice";
@@ -21,6 +22,7 @@ const store = configureStore({
   reducer: {
     ui: uiReducer,
     cart: cartReducer,
+    wallet: walletReducer,
     category: categoryReducer,
     card: cardReducer,
     auth: persistedAuthReducer,

@@ -16,6 +16,7 @@ const uiSlice = createSlice({
     successIsVisible: false,
     scrollYBackGround: true,
     loading: false,
+    walletPaymentModal: false,
     // commentToStoreModalPopUp: false,
     // hamburgerModalPopUp: false,
     // infoModalPopUp: false,
@@ -58,6 +59,9 @@ const uiSlice = createSlice({
     },
     toggleSideBarVisibility(state, action) {
       state.sideBarVisibile = action.payload;
+    },
+    toggleWalletPaymentModal(state, action) {
+      state.walletPaymentModal = action.payload;
     },
     toggleSuccessModal(state, action) {
       state.successIsVisible = action.payload.show;

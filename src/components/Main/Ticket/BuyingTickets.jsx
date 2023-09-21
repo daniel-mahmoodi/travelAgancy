@@ -20,7 +20,7 @@ const BuyingTickets = () => {
         <Cards />
         <FrequentlyAskedQuestions />
       </main>
-      <PaymentModal />
+      {/* <PaymentModal /> */}
     </div>
   );
 };
