@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../store/cart-slice";
 
 function TicketExpiringTimer({ expirationTime }) {
+  const dispatch = useDispatch();
   const [remainingTime, setRemainingTime] = useState();
   const [haveRemainingTime, setHaveRemainingTime] = useState(true);
   useEffect(() => {
@@ -41,6 +44,9 @@ function TicketExpiringTimer({ expirationTime }) {
               seconds
             ).padStart(2, "0")}`
           : "سبد خالی";
+      if (totalSeconds <= 0) {
+        dispatch(cartActions.toggleExpiredCart(true));
+      }
       return remainedTime;
     }
     return addTimes(expirationTime, currentTime);

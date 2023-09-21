@@ -9,6 +9,7 @@ const CardItem = ({ data }) => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
   const userHasCart = useSelector((state) => state.cart.userHasCart);
+  const expiredCart = useSelector((state) => state.cart.expiredCart);
   const { id, title, isActive, imageUrl } = data;
   console.log("data in card", imageUrl, id);
   useEffect(() => {
@@ -16,7 +17,7 @@ const CardItem = ({ data }) => {
     dispatch(fetchCartData(token));
   }, [dispatch, token]);
   const pushBuyBtn = () => {
-    if (userHasCart) {
+    if (userHasCart && !expiredCart) {
       dispatch(uiActions.toggleSequenceModal());
       dispatch(fetchSequenceDataOFSelectedCardItemHandler(id, token));
       dispatch(cardActions.setSelectedCardId(id));

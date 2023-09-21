@@ -3,6 +3,7 @@ const defaultCartState = {
   items: [],
   cartItems: [],
   createdAt: "",
+  expiredCart:false,
   changed: false,
   userHasCart: false,
   showCartLoading: false,
@@ -67,6 +68,9 @@ const cartSlice = createSlice({
     addFetchedUserCartItems(state, action) {
       state.cartItems = action.payload.basketItems;
       state.createdAt = action.payload.createdAt;
+    },
+    toggleExpiredCart(state, action) {
+      state.expiredCart = action.payload
     },
   },
 });
