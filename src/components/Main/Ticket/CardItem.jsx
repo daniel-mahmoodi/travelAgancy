@@ -9,7 +9,8 @@ const CardItem = ({ data }) => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
   const userHasCart = useSelector((state) => state.cart.userHasCart);
-  const { id, title, isActive } = data;
+  const { id, title, isActive, imageUrl } = data;
+  console.log("data in card", imageUrl, id);
   useEffect(() => {
     // TODO: why fetch cart???
     dispatch(fetchCartData(token));
@@ -18,7 +19,7 @@ const CardItem = ({ data }) => {
     if (userHasCart) {
       dispatch(uiActions.toggleSequenceModal());
       dispatch(fetchSequenceDataOFSelectedCardItemHandler(id, token));
-      dispatch(cardActions.setSelectedCardId(id))
+      dispatch(cardActions.setSelectedCardId(id));
     } else {
       dispatch(uiActions.toggleNewPaymentModal());
     }
@@ -28,17 +29,17 @@ const CardItem = ({ data }) => {
       {/* <!-- card --> */}
       <div className="pb-3 overflow-hidden bg-gray-100 border border-gray-300 rounded-md shadow-md">
         <div className="group relative duration-200 hover:scale-[1.1]">
-          <a className="duration-200 group-hover:opacity-40" href="#">
+          <a className="duration-200 group-hover:opacity-40" href="">
             <img
               className="block w-full mx-auto"
-              src="../img/kid-green.jpg"
+              src={`${imageUrl ? imageUrl : "../img/kid-green.jpg"}`}
               alt=""
             />
           </a>
           <div className="absolute opacity-0 group-hover:opacity-100 duration-200 left-[50%] top-[50%] flex justify-center items-center transle-y-[-50%] translate-x-[-50%] w-full">
             <a
               className="bg-blue-400 hover:text-black duration-200 text-white text-[12px] p-2 rounded-md"
-              href="#"
+              href=""
             >
               اطلاعات بیشتر
             </a>
