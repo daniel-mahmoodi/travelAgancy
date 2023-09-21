@@ -3,9 +3,6 @@ import MainModal from "../MainModal";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/Ui-slice";
 import { fetchCartData } from "../../../store/cart-actions";
-import CartItems from "./CartItems";
-import MyLoading from "../../Layout/MyLoading";
-import MyCardLoader from "../../Layout/MyCardLoader";
 import MyCartLoader from "../../Layout/MyCartLoader";
 import { cartActions } from "../../../store/cart-slice";
 import Cart from "./Cart";
@@ -71,13 +68,17 @@ const CartPopUpMenu = () => {
           )}
           <hr />
           <div onClick={finalPurchaseBtn} className="flex justify-center">
-            <button className="mt-6 w-[70%] bg-green-400 p-2 rounded-md border border-green-400 hover:bg-transparent hover:text-black duration-200">
-              <ion-icon
-                class="relative top-[2px]"
-                name="bag-check-outline"
-              ></ion-icon>
-              نهایی کردن خرید
-            </button>
+            {cartItems?.length ? (
+              <button className="mt-6 w-[70%] bg-green-400 p-2 rounded-md border border-green-400 hover:bg-transparent hover:text-black duration-200">
+                <ion-icon
+                  class="relative top-[2px]"
+                  name="bag-check-outline"
+                ></ion-icon>
+                نهایی کردن خرید
+              </button>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
