@@ -8,6 +8,8 @@ const useDateConverter = (date) => {
     DayOfMonth: "",
     TimeOfDay: "",
     hour: "",
+    minute: "",
+    second: "",
     Month: "",
   });
   useEffect(() => {
@@ -32,6 +34,12 @@ const useDateConverter = (date) => {
       const hour = moment(iranDateTimeFormatted, "jMM/jDD/jYYYY HH:mm:ss")
         .locale("fa")
         .format("HH");
+      const minute = moment(iranDateTimeFormatted, "jMM/jDD/jYYYY HH:mm:ss")
+        .locale("fa")
+        .format("mm");
+      const second = moment(iranDateTimeFormatted, "jMM/jDD/jYYYY HH:mm:ss")
+        .locale("fa")
+        .format("ss");
       const DayOfMonth = moment(iranDateTimeFormatted, "jMM/jDD/jYYYY HH:mm:ss")
         .locale("fa")
         .format("D");
@@ -42,6 +50,8 @@ const useDateConverter = (date) => {
         DayOfMonth,
         TimeOfDay,
         hour,
+        minute,
+        second,
         Month,
       });
     }
