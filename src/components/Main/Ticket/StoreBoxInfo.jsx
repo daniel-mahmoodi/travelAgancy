@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/Ui-slice";
 import { fetchListOfEvents } from "../../../store/category-actions";
 import "../../../myStyles.css";
-import useDateConverter from "../../Hooks/useDataConverter";
+// import useDateConverter from "../../Hooks/useDataConverter";
 import TicketExpiringTimer from "./TicketExpiringTimer";
+import { sendRemovedTickets } from "../../../store/cart-actions";
 const StoreBoxInfo = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
   const cartData = useSelector((state) => state.cart.cartItems);
   const createdAt = useSelector((state) => state.cart.createdAt);
-  const [convertedDate, setConvertedDate] = useState("");
-  const { hour, minute, second } = useDateConverter(convertedDate);
-  useEffect(() => {
-    if (createdAt) {
-      setConvertedDate(createdAt);
-    }
-  }, [createdAt]);
+  // const [convertedDate, setConvertedDate] = useState("");
+  // const { hour, minute, second } = useDateConverter(convertedDate);
+  // useEffect(() => {
+  //   if (createdAt) {
+  //     setConvertedDate(createdAt);
+  //   }
+  // }, [createdAt]);
   // 2023-09-18T22:50:16.1703053
   // Given time string
   // const givenTimeStr = '02:20:16';
@@ -53,6 +54,15 @@ const StoreBoxInfo = () => {
   }
   const eventID = useSelector((state) => state.category.eventID);
   const isRotate = useSelector((state) => state.category.showEventsLoading);
+
+  const cancelCartHandler = () => {
+    for (let cart of cartData) {
+      for (let tickets of cart.tickets) {
+        dispatch(sendRemovedTickets(token, tickets));
+      }
+    }
+    console.log("cancelCartHandler", cartData);
+  };
   const showCart = () => {
     dispatch(uiActions.toggleCartModal());
   };
@@ -87,7 +97,10 @@ const StoreBoxInfo = () => {
             خرید نهایی
           </Link>
 
-          <button className="flex badge-store_green relative text-white bg-red-500 items-center gap-2 py-1 text-[12px] px-2 rounded-full">
+          <button
+            onClick={cancelCartHandler}
+            className="flex badge-store_green relative text-white bg-red-500 items-center gap-2 py-1 text-[12px] px-2 rounded-full"
+          >
             <ion-icon name="cart-outline"></ion-icon>
             کنسل سبد خرید
           </button>

@@ -67,10 +67,7 @@ export const fetchCartData = (token) => {
           dispatch(cartActions.toggleUserHasCart(true));
         }
         dispatch(cartActions.toggleCartLoading(false));
-        dispatch(
-          cartActions.addFetchedUserCartItems(response.data)
-          
-        );
+        dispatch(cartActions.addFetchedUserCartItems(response.data));
       })
       .catch((error) => {
         console.log("error", error);
@@ -131,7 +128,7 @@ export const sendTicketOrderData = (token, items) => {
         });
       });
     }
-    console.log("sendCartItems", sendCartItems, items);
+    // console.log("sendCartItems", sendCartItems, items);
     axios({
       method: "POST",
       url: url,
@@ -146,6 +143,7 @@ export const sendTicketOrderData = (token, items) => {
         dispatch(uiActions.toggleSequenceModal());
         dispatch(cartActions.eraseAllTickets());
         dispatch(cartActions.toggleSendTicketLoading(false));
+        dispatch(fetchCartData(token));
       })
       .catch((error) => {
         console.log("error", error);
