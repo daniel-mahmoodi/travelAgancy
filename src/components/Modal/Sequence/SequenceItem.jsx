@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sans from "./Sans";
-import useDateConverter from "../Hooks/useDataConverter";
-import MySansesLoader from "../Layout/MySansesLoader";
+import useDateConverter from "../../Hooks/useDataConverter";
+import MySansesLoader from "../../Layout/MySansesLoader";
 const SequenceItem = ({ data }) => {
   const { executeDateTime, sansList } = data;
   const [convertedDate, setConvertedDate] = useState("");

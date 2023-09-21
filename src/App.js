@@ -1,7 +1,7 @@
 import "./App.css";
-import CartPopUpMenu from "../src/components/Modal/CartPopUpMenu";
+import CartPopUpMenu from "../src/components/Modal/Carts/CartPopUpMenu";
 import { useSelector } from "react-redux";
-import SequenceInfo from "../src/components/Modal/SequenceInfo";
+import SequenceInfo from "../src/components/Modal/Sequence/SequenceInfo";
 import NewPaymentFormModal from "./components/Modal/NewPaymentFormModal";
 import MainPage from "./components/Main/MainPage";
 import WarningModal from "./components/Modal/WarningModal";

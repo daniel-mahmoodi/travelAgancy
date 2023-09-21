@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import MainModal from "./MainModal";
+import MainModal from "../MainModal";
 
-import { uiActions } from "../../store/Ui-slice";
+import { uiActions } from "../../../store/Ui-slice";
 import { useDispatch, useSelector } from "react-redux";
 import SequenceItems from "./SequenceItems";
-import TicketsInSequenceModal from "../Main/Ticket/TicketsInSequenceModal";
-import { sendTicketOrderData } from "../../store/cart-actions";
-import { cartActions } from "../../store/cart-slice";
-import { cardActions } from "../../store/card-slice";
-import { fetchSequenceDataOFSelectedCardItemHandler } from "../../store/card-actions";
-import "../../../src/myStyles.css";
-import MyLoading from "../Layout/MyLoading";
+import TicketsInSequenceModal from "../../Main/Ticket/TicketsInSequenceModal";
+import { sendTicketOrderData } from "../../../store/cart-actions";
+import { cartActions } from "../../../store/cart-slice";
+import { cardActions } from "../../../store/card-slice";
+import { fetchSequenceDataOFSelectedCardItemHandler } from "../../../store/card-actions";
+import "../../../../src/myStyles.css";
+import MyLoading from "../../Layout/MyLoading";
 
 const SequenceInfo = () => {
   const dispatch = useDispatch();

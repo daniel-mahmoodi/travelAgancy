@@ -1,9 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Ticket from "./Ticket";
-import useDateConverter from "../Hooks/useDataConverter";
+import useDateConverter from "../../Hooks/useDataConverter";
 
 const CartItem = ({ data, eventTitle }) => {
-
   const [convertedDate, setConvertedDate] = useState("");
   const { Year, dayOfWeek, DayOfMonth, Month } =
     useDateConverter(convertedDate);
@@ -49,7 +48,7 @@ const CartItem = ({ data, eventTitle }) => {
           </tr>
         </thead>
 
-        {data.map((ticket,index) => (
+        {data.map((ticket, index) => (
           <Ticket key={ticket.id} data={ticket} row={index} />
         ))}
       </table>

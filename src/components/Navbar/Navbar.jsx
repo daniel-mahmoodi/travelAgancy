@@ -2,7 +2,7 @@ import React from "react";
 import { ListOfItemsInNav } from "./ListOfItemsInNav";
 import { uiActions } from "../../store/Ui-slice";
 import { useDispatch } from "react-redux";
-import Search from "./Search";
+import Search from "./Search/Search";
 import MessageIcon from "./MessageIcon";
 import ProfileDropdown from "./ProfileDropdown";
 import MobileMenuBtn from "./MobileMenuBtn";

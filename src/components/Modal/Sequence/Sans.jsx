@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import useDateConverter from "../Hooks/useDataConverter";
+import useDateConverter from "../../Hooks/useDataConverter";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTicketsbySans } from "../../store/card-actions";
+import { fetchTicketsbySans } from "../../../store/card-actions";
 const Sans = ({ sansItem }) => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);

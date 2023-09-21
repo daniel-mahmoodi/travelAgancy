@@ -11,7 +11,7 @@ import {
   Switch,
 } from "react-router-dom/cjs/react-router-dom.min";
 import BuyingTickets from "./Ticket/BuyingTickets";
-import ProfileInformation from "../Auth/ProfileInformation";
+import ProfileInformation from "../Profile/ProfileInformation";
 import TicketInformaitonPageFrontVersion from "./Ticket/TicketInformaitonPageFrontVersion";
 import Wallet from "../Wallet/Wallet";
 import LoginForm from "../Auth/LoginForm";

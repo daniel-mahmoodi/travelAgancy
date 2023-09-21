@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import MainModal from "./MainModal";
+import MainModal from "../MainModal";
 import { useDispatch, useSelector } from "react-redux";
-import { uiActions } from "../../store/Ui-slice";
-import { fetchCartData } from "../../store/cart-actions";
+import { uiActions } from "../../../store/Ui-slice";
+import { fetchCartData } from "../../../store/cart-actions";
 import CartItems from "./CartItems";
-import MyLoading from "../Layout/MyLoading";
-import MyCardLoader from "../Layout/MyCardLoader";
-import MyCartLoader from "../Layout/MyCartLoader";
-import { cartActions } from "../../store/cart-slice";
+import MyLoading from "../../Layout/MyLoading";
+import MyCardLoader from "../../Layout/MyCardLoader";
+import MyCartLoader from "../../Layout/MyCartLoader";
+import { cartActions } from "../../../store/cart-slice";
 import Cart from "./Cart";
 const CartPopUpMenu = () => {
   const token = useSelector((state) => state.auth.token);
