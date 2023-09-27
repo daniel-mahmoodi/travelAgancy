@@ -57,9 +57,37 @@
   }
 }
 
+[x-cloak] {
+  display: none;
+}
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #333;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
+
 /*  customized styles   */
 
 @layer components {
+
+  .align-icon{
+    @apply flex items-center gap-2;
+  }
+  .input-icon{
+    @apply absolute top-[10px] text-gray-500 left-[5px];
+  }
   /* after before styles  */
 
   .triangle-dropdown {
@@ -185,5 +213,15 @@
   }
   .button-box_active {
     @apply text-[12px]  rounded-md  p-3 bg-[#3855bb] text-white;
+  }
+  .search-btn{
+    @apply bg-blue-500 text-white rounded-md py-2 px-4 border border-blue-500 align-icon hover:bg-transparent hover:text-blue-500 duration-200;
+  }
+
+  .input-form{
+    @apply peer text-sm block min-h-[auto] w-full rounded border border-gray-300 shadow-sm focus:border-blue-400 bg-transparent px-3 py-2 leading-[1.6] outline-none transition-all duration-200 ease-linear opacity-100 focus:placeholder:opacity-100;
+  }
+  .label-form{
+    @apply pointer-events-none absolute right-3  top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out;
   }
 }
